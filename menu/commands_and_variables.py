@@ -72,3 +72,59 @@ def get_and_create_command(command_name,addr_to):
         print("Something went wrong in the generation of your command")
 
     return commands
+
+def convert_deci_to_hex(deci, ln):
+    hex_val=hex(deci)
+    meaningful_val_of_hex=hex_val.split("x")[1]
+    return_hex=[]
+    if len(meaningful_val_of_hex)==1:
+
+        return_hex= ["0"+meaningful_val_of_hex]
+
+    elif len(meaningful_val_of_hex)==2:
+        return_hex= [meaningful_val_of_hex]
+
+    else:
+        if len(meaningful_val_of_hex)%2==0:
+            return_hex= [ meaningful_val_of_hex[i:i+2] for i in range(0, len(meaningful_val_of_hex), 2)]
+        else:
+            hex_string=["0"+meaningful_val_of_hex[0]]
+            meaningful_val_of_hex_even=meaningful_val_of_hex[1:]
+            return_hex.extend(hex_string)
+            return_hex.extend([ meaningful_val_of_hex_even[i:i+2] for i in range(0, len(meaningful_val_of_hex_even), 2)])
+
+    if ln>len(return_hex):
+        for i in range(ln-len(return_hex)):
+            return_hex.insert(0,"00")
+    elif ln<len(return_hex):
+        print("lenght of return hex is much greater")
+
+    return " ".join(return_hex)
+    # return return_hex.upper()
+
+def get_semi_complete_command(command_structure, addr_to):
+    commands=[]
+    cid1=command_structure.get("cid1")
+    cid2=command_structure.get("cid2")
+    data_length=command_structure.get("data_length")
+    multiple=command_structure.get("multiple")
+    data=command_structure.get("data")
+    structure=command_structure.get("structure")
+    addr_src="00"
+
+    datas=[
+            structure.get("data_0"),
+            structure.get("data_1"),
+            structure.get("data_2"),
+            structure.get("data_3"),
+            structure.get("data_4"),
+            structure.get("data_5"),
+            structure.get("data_6"),
+            structure.get("data_7"),
+
+            ]
+
+    command_str="AA 00 01 "+cid1+" "+cid2+" "+addr_to+" "+data_length
+
+    return command_str, datas
+

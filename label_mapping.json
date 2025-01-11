@@ -1,0 +1,11 @@
+{
+    "device information":{
+        "Name":"",
+        "Description":"",
+        "Device Type":"",
+        "Address":"",
+        "MAC":"",
+        "Group": ""
+
+    }
+}

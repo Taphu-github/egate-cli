@@ -121,7 +121,7 @@ def print_options(commands):
             print("This dic does'nt have command")
             print(command)
             continue
-        print(f"'{id}' for '{com}'")
+        print(f"Enter '{id}' for '{com}'")
 
     opt=input("Enter: ")
     command_name=""

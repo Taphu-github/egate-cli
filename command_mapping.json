@@ -150,7 +150,7 @@
         "command":"Set D1",
         "cid1":"02",
         "cid2":"04",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
             "data_0":"03",
@@ -169,7 +169,7 @@
         "command":"Set D2",
         "cid1":"02",
         "cid2":"04",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
             "data_0":"03",
@@ -188,7 +188,7 @@
         "command":"Set D3",
         "cid1":"02",
         "cid2":"04",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
             "data_0":"03",
@@ -207,7 +207,7 @@
         "command":"Set D4",
         "cid1":"02",
         "cid2":"04",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
             "data_0":"03",
@@ -226,7 +226,7 @@
         "command":"Set R",
         "cid1":"02",
         "cid2":"04",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
             "data_0":"04",
@@ -245,7 +245,7 @@
         "command":"Set G",
         "cid1":"02",
         "cid2":"04",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
             "data_0":"04",
@@ -264,7 +264,7 @@
         "command":"Set B",
         "cid1":"02",
         "cid2":"04",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
             "data_0":"04",
@@ -283,7 +283,7 @@
         "command":"Set Relay 1",
         "cid1":"02",
         "cid2":"04",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
             "data_0":"05",
@@ -302,7 +302,7 @@
         "command":"Set Battery",
         "cid1":"02",
         "cid2":"04",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
             "data_0":"06",
@@ -321,7 +321,7 @@
         "command":"Startup Set Start Position",
         "cid1":"02",
         "cid2":"07",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"01 01 00 00 00 00 00 00"
     },
     {
@@ -364,7 +364,7 @@
         "command":"Set Device and Pass Through Parameters",
         "cid1":"01",
         "cid2":"12",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
 
@@ -378,7 +378,7 @@
         "command":"Set Event List for Open For Entry and Close For Entry",
         "cid1":"01",
         "cid2":"12",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
 
@@ -392,7 +392,7 @@
         "command":"Set Event List for Open For Exit and Close For Exit",
         "cid1":"01",
         "cid2":"12",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
 
@@ -406,7 +406,7 @@
         "command":"Set Event List for Device Lost Power and External Alarm",
         "cid1":"01",
         "cid2":"12",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
 
@@ -420,7 +420,7 @@
         "command":"Set Event List for Fire Alarm and Intrusion Alarm",
         "cid1":"01",
         "cid2":"12",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
 
@@ -434,7 +434,7 @@
         "command":"Set Event List for Reverse Alarm and Tailing Alarm",
         "cid1":"01",
         "cid2":"12",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
 
@@ -448,7 +448,7 @@
         "command":"Set Event List for Stayed Alarm and Reserve",
         "cid1":"01",
         "cid2":"12",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
 
@@ -462,7 +462,7 @@
         "command":"Set Default State For Gate Mode and Switch Event",
         "cid1":"01",
         "cid2":"12",
-        "data_lenght":"08",
+        "data_length":"08",
         "data":"",
         "structure":{
 
@@ -476,7 +476,7 @@
         "command":"Restart the Device",
         "cid1":"01",
         "cid2":"0E",
-        "data_lenght":"01",
+        "data_length":"01",
         "data":"01 01 00 00 00 00 00 00",
         "structure":{
 
