@@ -1,0 +1,491 @@
+[
+    {
+        "id":1,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Refresh Get Passed Counter",
+        "cid1":"01",
+        "cid2":"02",
+        "data_length":"08",
+        "data":"FF 00 00 00 00 00 00 00"
+    },
+    {
+        "id":2,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Open For Entry",
+        "cid1":"02",
+        "cid2":"01",
+        "data_length":"08",
+        "data":"00 00 00 00 00 00 00 00"
+    },
+    {
+        "id":3,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Always Open For Entry",
+        "cid1":"02",
+        "cid2":"01",
+        "data_length":"08",
+        "data":"00 01 00 00 00 00 00 00"
+    },
+    {
+        "id":4,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Close For Entry",
+        "cid1":"02",
+        "cid2":"01",
+        "data_length":"08",
+        "data":"00 02 00 00 00 00 00 00"
+    },
+    {
+        "id":5,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Open For Exit",
+        "cid1":"02",
+        "cid2":"01",
+        "data_length":"08",
+        "data": "00 03 00 00 00 00 00 00"
+    },
+    {
+        "id":6,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Always Open For Exit",
+        "cid1":"02",
+        "cid2":"01",
+        "data_length":"08",
+        "data": "00 04 00 00 00 00 00 00"
+    },
+    {
+        "id":7,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Close For Exit",
+        "cid1":"02",
+        "cid2":"01",
+        "data_length":"08",
+        "data": "00 05 00 00 00 00 00 00"
+    },
+    {
+        "id":8,
+        "family":"status and control",
+        "type":"straight",
+        "command":"External Alarm",
+        "cid1":"02",
+        "cid2":"00",
+        "data_length":"08",
+        "data":"02 01 00 00 00 00 00 00"
+    },
+    {
+        "id":9,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Cancel External Alarm",
+        "cid1":"02",
+        "cid2":"00",
+        "data_length":"08",
+        "data":"02 00 00 00 00 00 00 00"
+    },
+    {
+        "id":10,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Clear Entry",
+        "cid1":"01",
+        "cid2":"02",
+        "data_length":"08",
+        "data":"01 00 00 00 00 FF FF FF"
+    },
+    {
+        "id":11,
+        "family":"status and control",
+        "type":"set",
+        "command":"Set Counter",
+        "cid1":"01",
+        "cid2":"02",
+        "data_length":"08",
+        "data":"",
+        "structure":{
+            "data_0":"01",
+            "data_1":"00"
+        }
+    },
+    {
+        "id":12,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Clear Counter",
+        "cid1":"01",
+        "cid2":"02",
+        "data_length":"08",
+        "data":"01 00 00 00 00 00 00 00"
+    },
+    {
+        "id":13,
+        "family":"input and output",
+        "type":"straight",
+        "command":"Get Voltage",
+        "cid1":"01",
+        "cid2":"02",
+        "data_length":"08",
+        "data":"00 00 00 00 00 00 00 00"
+    },
+    {
+        "id":14,
+        "family":"input and output",
+        "type":"straight",
+        "command":"Get Output Interface",
+        "cid1":"02",
+        "cid2":"04",
+        "data_length":"08",
+        "data":"FF 00 00 00 00 00 00 00"
+    },
+    {
+        "id":15,
+        "family":"input and output",
+        "type":"set",
+        "command":"Set D1",
+        "cid1":"02",
+        "cid2":"04",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+            "data_0":"03",
+            "data_1":"01",
+            "data_3":"00",
+            "data_4":"00",
+            "data_5":"00",
+            "data_6":"00",
+            "data_7":"00"
+        }
+    },
+    {
+        "id":16,
+        "family":"input and output",
+        "type":"set",
+        "command":"Set D2",
+        "cid1":"02",
+        "cid2":"04",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+            "data_0":"03",
+            "data_1":"02",
+            "data_3":"00",
+            "data_4":"00",
+            "data_5":"00",
+            "data_6":"00",
+            "data_7":"00"
+        }
+    },
+    {
+        "id":17,
+        "family":"input and output",
+        "type":"set",
+        "command":"Set D3",
+        "cid1":"02",
+        "cid2":"04",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+            "data_0":"03",
+            "data_1":"03",
+            "data_3":"00",
+            "data_4":"00",
+            "data_5":"00",
+            "data_6":"00",
+            "data_7":"00"
+        }
+    },
+    {
+        "id":18,
+        "family":"input and output",
+        "type":"set",
+        "command":"Set D4",
+        "cid1":"02",
+        "cid2":"04",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+            "data_0":"03",
+            "data_1":"04",
+            "data_3":"00",
+            "data_4":"00",
+            "data_5":"00",
+            "data_6":"00",
+            "data_7":"00"
+        }
+    },
+    {
+        "id":19,
+        "family":"input and output",
+        "type":"set",
+        "command":"Set R",
+        "cid1":"02",
+        "cid2":"04",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+            "data_0":"04",
+            "data_1":"01",
+            "data_3":"00",
+            "data_4":"00",
+            "data_5":"00",
+            "data_6":"00",
+            "data_7":"00"
+        }
+    },
+    {
+        "id":20,
+        "family":"input and output",
+        "type":"set",
+        "command":"Set G",
+        "cid1":"02",
+        "cid2":"04",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+            "data_0":"04",
+            "data_1":"02",
+            "data_3":"00",
+            "data_4":"00",
+            "data_5":"00",
+            "data_6":"00",
+            "data_7":"00"
+        }
+    },
+    {
+        "id":21,
+        "family":"input and output",
+        "type":"set",
+        "command":"Set B",
+        "cid1":"02",
+        "cid2":"04",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+            "data_0":"04",
+            "data_1":"03",
+            "data_3":"00",
+            "data_4":"00",
+            "data_5":"00",
+            "data_6":"00",
+            "data_7":"00"
+        }
+    },
+    {
+        "id":22,
+        "family":"input and output",
+        "type":"set",
+        "command":"Set Relay 1",
+        "cid1":"02",
+        "cid2":"04",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+            "data_0":"05",
+            "data_1":"01",
+            "data_3":"00",
+            "data_4":"00",
+            "data_5":"00",
+            "data_6":"00",
+            "data_7":"00"
+        }
+    },
+    {
+        "id":23,
+        "family":"input and output",
+        "type":"set",
+        "command":"Set Battery",
+        "cid1":"02",
+        "cid2":"04",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+            "data_0":"06",
+            "data_2":"00",
+            "data_3":"00",
+            "data_4":"00",
+            "data_5":"00",
+            "data_6":"00",
+            "data_7":"00"
+        }
+    },
+    {
+        "id":24,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Startup Set Start Position",
+        "cid1":"02",
+        "cid2":"07",
+        "data_lenght":"08",
+        "data":"01 01 00 00 00 00 00 00"
+    },
+    {
+        "id":25,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Set Start Position",
+        "cid1":"02",
+        "cid2":"07",
+        "data_length":"08",
+        "data":"00 00 00 00 00 00 00 00"
+    },
+    {
+        "id":26,
+        "family":"control parameters",
+        "type":"straight",
+        "command":"Load All Parameters",
+        "cid1":"02",
+        "cid2":"04",
+        "data_length":"08",
+        "data":"",
+        "structure":{
+
+        },
+        "multiple":[
+            "00 00 00 00 00 00 00 00","00 01 00 00 00 00 00 00","00 02 00 00 00 00 00 00","00 03 00 00 00 00 00 00","00 04 00 00 00 00 00 00",
+            "01 00 00 00 00 00 00 00","01 01 00 00 00 00 00 00","01 02 00 00 00 00 00 00","01 03 00 00 00 00 00 00","01 04 00 00 00 00 00 00",
+            "02 00 00 00 00 00 00 00","02 01 00 00 00 00 00 00","02 02 00 00 00 00 00 00","02 03 00 00 00 00 00 00","02 04 00 00 00 00 00 00",
+            "03 00 00 00 00 00 00 00","03 01 00 00 00 00 00 00","03 02 00 00 00 00 00 00","03 03 00 00 00 00 00 00","03 04 00 00 00 00 00 00",
+            "04 00 00 00 00 00 00 00","04 01 00 00 00 00 00 00","04 02 00 00 00 00 00 00","04 03 00 00 00 00 00 00","04 04 00 00 00 00 00 00",
+            "05 00 00 00 00 00 00 00","05 01 00 00 00 00 00 00","05 02 00 00 00 00 00 00","05 03 00 00 00 00 00 00","05 04 00 00 00 00 00 00",
+            "06 00 00 00 00 00 00 00","06 01 00 00 00 00 00 00","06 02 00 00 00 00 00 00","06 03 00 00 00 00 00 00","06 04 00 00 00 00 00 00",
+            "07 00 00 00 00 00 00 00","07 01 00 00 00 00 00 00","07 02 00 00 00 00 00 00","07 03 00 00 00 00 00 00","07 04 00 00 00 00 00 00"
+        ]
+    },
+    {
+        "id":27,
+        "family":"control parameters",
+        "type":"set",
+        "command":"Set Device and Pass Through Parameters",
+        "cid1":"01",
+        "cid2":"12",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+
+        },
+        "multiple":[]
+    },
+    {
+        "id":28,
+        "family":"control parameters",
+        "type":"set",
+        "command":"Set Event List for Open For Entry and Close For Entry",
+        "cid1":"01",
+        "cid2":"12",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+
+        },
+        "multiple":[]
+    },
+    {
+        "id":29,
+        "family":"control parameters",
+        "type":"set",
+        "command":"Set Event List for Open For Exit and Close For Exit",
+        "cid1":"01",
+        "cid2":"12",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+
+        },
+        "multiple":[]
+    },
+    {
+        "id":30,
+        "family":"control parameters",
+        "type":"set",
+        "command":"Set Event List for Device Lost Power and External Alarm",
+        "cid1":"01",
+        "cid2":"12",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+
+        },
+        "multiple":[]
+    },
+    {
+        "id":31,
+        "family":"control parameters",
+        "type":"set",
+        "command":"Set Event List for Fire Alarm and Intrusion Alarm",
+        "cid1":"01",
+        "cid2":"12",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+
+        },
+        "multiple":[]
+    },
+    {
+        "id":32,
+        "family":"control parameters",
+        "type":"set",
+        "command":"Set Event List for Reverse Alarm and Tailing Alarm",
+        "cid1":"01",
+        "cid2":"12",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+
+        },
+        "multiple":[]
+    },
+    {
+        "id":33,
+        "family":"control parameters",
+        "type":"set",
+        "command":"Set Event List for Stayed Alarm and Reserve",
+        "cid1":"01",
+        "cid2":"12",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+
+        },
+        "multiple":[]
+    },
+    {
+        "id":34,
+        "family":"control parameters",
+        "type":"set",
+        "command":"Set Default State For Gate Mode and Switch Event",
+        "cid1":"01",
+        "cid2":"12",
+        "data_lenght":"08",
+        "data":"",
+        "structure":{
+
+        },
+        "multiple":[]
+    },
+    {
+        "id":35,
+        "family":"device information",
+        "type":"straight",
+        "command":"Restart the Device",
+        "cid1":"01",
+        "cid2":"0E",
+        "data_lenght":"01",
+        "data":"01 01 00 00 00 00 00 00",
+        "structure":{
+
+        },
+        "multiple":[]
+    }
+
+
+
+
+
+]

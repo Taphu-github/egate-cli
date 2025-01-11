@@ -1,0 +1,43 @@
+[
+//Status & Control
+    "Refresh Get Passed Counter",
+    "Open For Entry","Always Open For Entry","Close For Entry",
+    "Open For Exit","Always Open For Exit","Close For Exit",
+    "External Alarm","Cancel External Alarm",
+    "Clear Entry","Clear Exit",
+    "Set Counter",//data[2-4]:entry count, data[5-7]:exit count
+    "Clear Counter",
+    "Startup Set Start Position",
+    "Set Start Position",
+
+
+
+//Input Interface
+    "Get Voltage",
+
+//Output Interface
+    "Get Output Interface",
+    "Set D1",//data[2]: FF-purple,00-green
+    "Set D2",//data[2]: FF-purple,00-green
+    "Set D3",//data[2]: FF-purple,00-green
+    "Set D4",//data[2]: FF-purple,00-green
+    "Set R",//data[2]: FF-purple,00-green
+    "Set G",//data[2]: FF-purple,00-green
+    "Set B",//data[2]: FF-purple,00-green
+    "Set Relay 1",//data[2]: FF-purple,00-green
+    "Set Battery",//data[1]: FF-purple,00-green
+
+//Set Device Parameters
+    "Load All Parameters",
+    "Set Device and Pass Through Parameters", //00
+    "Set Default State For Gate Mode and Switch Event",//01
+    "Set Event List for Open For Entry and Close For Entry", //02
+    "Set Event List for Open For Exit and Close For Exit",//03
+    "Set Event List for Device Lost Power and External Alarm",//04
+    "Set Event List for Fire Alarm and Intrusion Alarm",//05
+    "Set Event List for Reverse Alarm and Tailing Alarm",//06
+    "Set Event List for Stayed Alarm and Reserve",//07
+
+//Device Information
+    "Restart the Device" 
+]
