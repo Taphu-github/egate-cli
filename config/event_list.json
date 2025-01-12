@@ -1,0 +1,494 @@
+{
+    "open_for_entry": {
+        "description": "Triggered when the system is open for entry",
+        "entrance_indicator": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","D1","D2","D2+D1","D3","D3+D1","D3+D2","D3+D2+D1","D4",
+                "D4+D1","D4+D2","D4+D2+D1","D4+D3","D4+D3+D1","D4+D3+D2","D4+D3+D2+D1"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "rgb_led": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","Red","Green",
+                "Yellow(R+G)","Blue","Magenta(R+B)","Cyan(G+B)","White(R+G+B)"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "relay": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":["None","All Opened","Relay 1 Closed"],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "voice_module": {
+            "description": "Play Sound: number",
+            "options":[
+                "None","N9200","BY-F610V1.2","BY-F610V1.3"
+            ],
+            "choice": "",
+            "play_sound": ""
+        }
+    },
+    "close_for_entry": {
+        "description": "Triggered when the system is closed for entry",
+        "entrance_indicator": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","D1","D2","D2+D1","D3","D3+D1","D3+D2","D3+D2+D1","D4",
+                "D4+D1","D4+D2","D4+D2+D1","D4+D3","D4+D3+D1","D4+D3+D2","D4+D3+D2+D1"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "rgb_led": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","Red","Green",
+                "Yellow(R+G)","Blue","Magenta(R+B)","Cyan(G+B)","White(R+G+B)"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "relay": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":["None","All Opened","Relay 1 Closed"],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "voice_module": {
+            "description": "Play Sound: number",
+            "options":[
+                "None","N9200","BY-F610V1.2","BY-F610V1.3"
+            ],
+            "choice": "",
+            "play_sound": ""
+        }
+    },
+    "open_for_exit": {
+        "description": "Triggered when the system is open for exit",
+        "entrance_indicator": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","D1","D2","D2+D1","D3","D3+D1","D3+D2","D3+D2+D1","D4",
+                "D4+D1","D4+D2","D4+D2+D1","D4+D3","D4+D3+D1","D4+D3+D2","D4+D3+D2+D1"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "rgb_led": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","Red","Green",
+                "Yellow(R+G)","Blue","Magenta(R+B)","Cyan(G+B)","White(R+G+B)"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "relay": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":["None","All Opened","Relay 1 Closed"],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "voice_module": {
+            "description": "Play Sound: number",
+            "options":[
+                "None","N9200","BY-F610V1.2","BY-F610V1.3"
+            ],
+            "choice": "",
+            "play_sound": ""
+        }
+    },
+    "close_for_exit": {
+        "description": "Triggered when the system is closed for exit",
+        "entrance_indicator": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","D1","D2","D2+D1","D3","D3+D1","D3+D2","D3+D2+D1","D4",
+                "D4+D1","D4+D2","D4+D2+D1","D4+D3","D4+D3+D1","D4+D3+D2","D4+D3+D2+D1"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "rgb_led": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","Red","Green",
+                "Yellow(R+G)","Blue","Magenta(R+B)","Cyan(G+B)","White(R+G+B)"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "relay": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":["None","All Opened","Relay 1 Closed"],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "voice_module": {
+            "description": "Play Sound: number",
+            "options":[
+                "None","N9200","BY-F610V1.2","BY-F610V1.3"
+            ],
+            "choice": "",
+            "play_sound": ""
+        }
+    },
+    "device_lost_power": {
+        "description": "Triggered when the device loses power",
+        "entrance_indicator": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","D1","D2","D2+D1","D3","D3+D1","D3+D2","D3+D2+D1","D4",
+                "D4+D1","D4+D2","D4+D2+D1","D4+D3","D4+D3+D1","D4+D3+D2","D4+D3+D2+D1"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "rgb_led": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","Red","Green",
+                "Yellow(R+G)","Blue","Magenta(R+B)","Cyan(G+B)","White(R+G+B)"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "relay": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":["None","All Opened","Relay 1 Closed"],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "voice_module": {
+            "description": "Play Sound: number",
+            "options":[
+                "None","N9200","BY-F610V1.2","BY-F610V1.3"
+            ],
+            "choice": "",
+            "play_sound": ""
+        }
+    },
+    "external_alarm": {
+        "description": "Triggered during an external alarm",
+        "entrance_indicator": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","D1","D2","D2+D1","D3","D3+D1","D3+D2","D3+D2+D1","D4",
+                "D4+D1","D4+D2","D4+D2+D1","D4+D3","D4+D3+D1","D4+D3+D2","D4+D3+D2+D1"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "rgb_led": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","Red","Green",
+                "Yellow(R+G)","Blue","Magenta(R+B)","Cyan(G+B)","White(R+G+B)"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "relay": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":["None","All Opened","Relay 1 Closed"],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "voice_module": {
+            "description": "Play Sound: number",
+            "options":[
+                "None","N9200","BY-F610V1.2","BY-F610V1.3"
+            ],
+            "choice": "",
+            "play_sound": ""
+        }
+    },
+    "fire_alarm": {
+        "description": "Triggered during a fire alarm",
+        "entrance_indicator": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","D1","D2","D2+D1","D3","D3+D1","D3+D2","D3+D2+D1","D4",
+                "D4+D1","D4+D2","D4+D2+D1","D4+D3","D4+D3+D1","D4+D3+D2","D4+D3+D2+D1"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "rgb_led": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","Red","Green",
+                "Yellow(R+G)","Blue","Magenta(R+B)","Cyan(G+B)","White(R+G+B)"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "relay": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":["None","All Opened","Relay 1 Closed"],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "voice_module": {
+            "description": "Play Sound: number",
+            "options":[
+                "None","N9200","BY-F610V1.2","BY-F610V1.3"
+            ],
+            "choice": "",
+            "play_sound": ""
+        }
+    },
+    "intrusion_alarm": {
+        "description": "Triggered during an intrusion alarm",
+        "entrance_indicator": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","D1","D2","D2+D1","D3","D3+D1","D3+D2","D3+D2+D1","D4",
+                "D4+D1","D4+D2","D4+D2+D1","D4+D3","D4+D3+D1","D4+D3+D2","D4+D3+D2+D1"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "rgb_led": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","Red","Green",
+                "Yellow(R+G)","Blue","Magenta(R+B)","Cyan(G+B)","White(R+G+B)"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "relay": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":["None","All Opened","Relay 1 Closed"],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "voice_module": {
+            "description": "Play Sound: number",
+            "options":[
+                "None","N9200","BY-F610V1.2","BY-F610V1.3"
+            ],
+            "choice": "",
+            "play_sound": ""
+        }
+    },
+    "reverse_alarm": {
+        "description": "Triggered when the device loses power",
+        "entrance_indicator": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","D1","D2","D2+D1","D3","D3+D1","D3+D2","D3+D2+D1","D4",
+                "D4+D1","D4+D2","D4+D2+D1","D4+D3","D4+D3+D1","D4+D3+D2","D4+D3+D2+D1"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "rgb_led": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","Red","Green",
+                "Yellow(R+G)","Blue","Magenta(R+B)","Cyan(G+B)","White(R+G+B)"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "relay": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":["None","All Opened","Relay 1 Closed"],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "voice_module": {
+            "description": "Play Sound: number",
+            "options":[
+                "None","N9200","BY-F610V1.2","BY-F610V1.3"
+            ],
+            "choice": "",
+            "play_sound": ""
+        }
+    },
+    "tailing_alarm": {
+        "description": "Triggered during an external alarm",
+        "entrance_indicator": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","D1","D2","D2+D1","D3","D3+D1","D3+D2","D3+D2+D1","D4",
+                "D4+D1","D4+D2","D4+D2+D1","D4+D3","D4+D3+D1","D4+D3+D2","D4+D3+D2+D1"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "rgb_led": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","Red","Green",
+                "Yellow(R+G)","Blue","Magenta(R+B)","Cyan(G+B)","White(R+G+B)"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "relay": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":["None","All Opened","Relay 1 Closed"],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "voice_module": {
+            "description": "Play Sound: number",
+            "options":[
+                "None","N9200","BY-F610V1.2","BY-F610V1.3"
+            ],
+            "choice": "",
+            "play_sound": ""
+        }
+    },
+    "stayed_alarm": {
+        "description": "Triggered during a fire alarm",
+        "entrance_indicator": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","D1","D2","D2+D1","D3","D3+D1","D3+D2","D3+D2+D1","D4",
+                "D4+D1","D4+D2","D4+D2+D1","D4+D3","D4+D3+D1","D4+D3+D2","D4+D3+D2+D1"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "rgb_led": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","Red","Green",
+                "Yellow(R+G)","Blue","Magenta(R+B)","Cyan(G+B)","White(R+G+B)"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "relay": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":["None","All Opened","Relay 1 Closed"],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "voice_module": {
+            "description": "Play Sound: number",
+            "options":[
+                "None","N9200","BY-F610V1.2","BY-F610V1.3"
+            ],
+            "choice": "",
+            "play_sound": ""
+        }
+    },
+    "reverse": {
+        "description": "Triggered during an intrusion alarm",
+        "entrance_indicator": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","D1","D2","D2+D1","D3","D3+D1","D3+D2","D3+D2+D1","D4",
+                "D4+D1","D4+D2","D4+D2+D1","D4+D3","D4+D3+D1","D4+D3+D2","D4+D3+D2+D1"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "rgb_led": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":[
+                "None","Black(All Off)","Red","Green",
+                "Yellow(R+G)","Blue","Magenta(R+B)","Cyan(G+B)","White(R+G+B)"
+            ],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "relay": {
+            "description": "blink_on_delay: number, blink_off_delay: number, repetitions:number",
+            "options":["None","All Opened","Relay 1 Closed"],
+            "choice": "",
+            "blink_on_delay": "",
+            "blink_off_delay": "",
+            "repetitions": ""
+        },
+        "voice_module": {
+            "description": "Play Sound: number",
+            "options":[
+                "None","N9200","BY-F610V1.2","BY-F610V1.3"
+            ],
+            "choice": "",
+            "play_sound": ""
+        }
+    }
+}

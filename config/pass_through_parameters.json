@@ -1,0 +1,247 @@
+{
+    "automatic_report_state": {
+        "description": "Should be always On",
+        "options":[
+            "On","Off"
+        ],
+        "value": ""
+    },
+    "gate_mode": {
+        "description": "Description for gate_mode",
+        "options":[
+            "Normally Closed, Both Card","Normally Closed, Both Free","Normally Closed, Both Reject",
+            "Normally Closed, Entry Card & Exit Free","Normally Closed, Entry Card & Exit Reject","Normally Closed, Entry Free & Exit Card",
+            "Normally Closed, Entry Free & Exit Reject","Normally Closed, Entry Reject & Exit Free","Normally Closed, Entry Reject & Exit Card",
+            "Normally Open, Both Free","Normally Open, Both Card","Normally Open, Entry Free & Exit Card",
+            "Normally Open, Entry Card & Exit Reject"
+        ],
+        "value": ""
+    },
+    "authroized_with_memory": {
+        "description": "Description for authroized_with_memory",
+        "options":[
+            "Both Disabled","Entry Allowed",
+            "Exit Allowed","Both Allowed"
+        ],
+        "value": ""
+    },
+    "maximum_passage_time": {
+        "description": "two digits eg. 50 -> meaning 5.0 Seconds",
+        "value": ""
+    },
+    "authorized_open_door_delay": {
+        "description": "two digits eg. 50 -> meaning 5.0 Seconds",
+        "value": ""
+    },
+    "close_door_delay": {
+        "description": "two digits eg. 50 -> meaning 5.0 Seconds",
+        "value": ""
+    },
+    "authorized_in_lane": {
+        "description": "Description for authorized_in_lane",
+        "options":[
+            "On","Off"
+        ],
+        "value": ""
+    },
+    "passage_end_ir_check_at": {
+        "description": "Description for passage_end_ir_check_at",
+        "options":[
+            "Exit","Safety"
+        ],
+        "value": ""
+    },
+    "intrusion_alarm": {
+        "description": "Description for intrusion_alarm",
+        "options":[
+            "None","Alarm","Alarm and Close Door"
+        ],
+        "value": ""
+    },
+    "reverse_alarm": {
+        "description": "Description for reverse_alarm",
+        "options":[
+            "None","Alarm","Alarm and Close Door"
+        ],
+        "value": ""
+    },
+    "tailing_alarm": {
+        "description": "Description for tailing_alarm",
+        "options":[
+            "None","Alarm","Alarm and Close Door"
+        ],
+        "value": ""
+    },
+    "gate_mode_default_state": {
+        "description": "Description for gate_mode_default_state",
+        "normally_closed_both_card": {
+            "description": "",
+            "options":[
+                "On","Off"
+            ],
+            "d1": "",
+            "d2": "",
+            "d3": "",
+            "d4": "",
+            "r": "",
+            "g": "",
+            "b": ""
+        },
+        "normally_closed_both_free": {
+            "description": "Description for normally_closed_both_free",
+            "options":[
+                "On","Off"
+            ],
+            "d1": "",
+            "d2": "",
+            "d3": "",
+            "d4": "",
+            "r": "",
+            "g": "",
+            "b": ""
+        },
+        "normally_closed_both_reject": {
+            "description": "Description for normally_closed_both_reject",
+            "options":[
+                "On","Off"
+            ],
+            "d1": "",
+            "d2": "",
+            "d3": "",
+            "d4": "",
+            "r": "",
+            "g": "",
+            "b": ""
+        },
+        "normally_closed_entry_card_exit_free": {
+            "description": "Description for normally_closed_entry_card_exit_free",
+            "options":[
+                "On","Off"
+            ],
+            "d1": "",
+            "d2": "",
+            "d3": "",
+            "d4": "",
+            "r": "",
+            "g": "",
+            "b": ""
+        },
+        "normally_closed_entry_card_exit_reject": {
+            "description": "Description for normally_closed_entry_card_exit_reject",
+            "options":[
+                "On","Off"
+            ],
+            "d1": "",
+            "d2": "",
+            "d3": "",
+            "d4": "",
+            "r": "",
+            "g": "",
+            "b": ""
+        },
+        "normally_closed_entry_free_exit_card": {
+            "description": "Description for normally_closed_entry_free_exit_card",
+            "options":[
+                "On","Off"
+            ],
+            "d1": "",
+            "d2": "",
+            "d3": "",
+            "d4": "",
+            "r": "",
+            "g": "",
+            "b": ""
+        },
+        "normally_closed_entry_free_exit_reject": {
+            "description": "Description for normally_closed_entry_free_exit_reject",
+            "options":[
+                "On","Off"
+            ],
+            "d1": "",
+            "d2": "",
+            "d3": "",
+            "d4": "",
+            "r": "",
+            "g": "",
+            "b": ""
+        },
+        "normally_closed_entry_reject_exit_free": {
+            "description": "Description for normally_closed_entry_reject_exit_free",
+            "options":[
+                "On","Off"
+            ],
+            "d1": "",
+            "d2": "",
+            "d3": "",
+            "d4": "",
+            "r": "",
+            "g": "",
+            "b": ""
+        },
+        "normally_closed_entry_reject_exit_card": {
+            "description": "Description for normally_closed_entry_reject_exit_card",
+            "options":[
+                "On","Off"
+            ],
+            "d1": "",
+            "d2": "",
+            "d3": "",
+            "d4": "",
+            "r": "",
+            "g": "",
+            "b": ""
+        },
+        "normally_open_both_free": {
+            "description": "Description for normally_open_both_free",
+            "options":[
+                "On","Off"
+            ],
+            "d1": "",
+            "d2": "",
+            "d3": "",
+            "d4": "",
+            "r": "",
+            "g": "",
+            "b": ""
+        },
+        "normally_open_both_card": {
+            "description": "Description for normally_open_both_card",
+            "options":[
+                "On","Off"
+            ],
+            "d1": "",
+            "d2": "",
+            "d3": "",
+            "d4": "",
+            "r": "",
+            "g": "",
+            "b": ""
+        },
+        "normally_open_entry_free_exit_card": {
+            "description": "Description for normally_open_entry_free_exit_card",
+            "options":[
+                "On","Off"
+            ],
+            "d1": "",
+            "d2": "",
+            "d3": "",
+            "d4": "",
+            "r": "",
+            "g": "",
+            "b": ""
+        },
+        "normally_open_entry_card_exit_free": {
+            "description": "Description for normally_open_entry_card_exit_free",
+            "options":[
+                "On","Off"
+            ],
+            "d1": "",
+            "d2": "",
+            "d3": "",
+            "d4": "",
+            "r": "",
+            "g": "",
+            "b": ""
+        }
+    }
+}
