@@ -36,5 +36,5 @@ main_json={
     "switch_event":switch_event
 }
 
-print(device_parameters)
+print(pass_through_parameters)
 # set_device_information_config(device_information)
