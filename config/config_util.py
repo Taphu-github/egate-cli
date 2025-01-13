@@ -1,4 +1,5 @@
-
+import time
+import json
 def get_mac_address():
     return "F0 A1 B4 A5 96 87"
 
@@ -64,6 +65,46 @@ def hex_to_deci(string):
         return int(string, 16)
     except Exception:
         return 0
+
+def chunk_bytearray(byte_array, chunk_size=16):
+    """
+    Breaks a byte array into chunks of `chunk_size` bytes each.
+
+    :param byte_array: The byte array to be chunked.
+    :param chunk_size: The size of each chunk in bytes.
+    :return: List of byte array chunks.
+    """
+    chunks = [byte_array[i:i + chunk_size] for i in range(0, len(byte_array), chunk_size)]
+    # Convert each chunk to a hex string
+    hex_chunks = [''.join(f'{byte:02X}' for byte in chunk) for chunk in chunks]
+
+    return hex_chunks
+
+def get_device_id(ser):
+
+
+
+    checksum=generate_checksum("AA 00 01 01 01 00 00 00 00 00 00 00 00 00 00")
+    command_hex = "AA 00 01 01 01 00 00 00 00 00 00 00 00 00 00"+" "+checksum
+
+    command_bytes=bytes.fromhex(command_hex)
+    ser.write(command_bytes)
+
+    start_time = time.time()
+    response = bytearray()
+
+    while time.time() - start_time < 6:
+        if ser.in_waiting > 0:
+            response.extend(ser.read(ser.in_waiting))
+        time.sleep(0.2)
+
+    # if not res
+    response_chunks = chunk_bytearray(response)
+
+    if not response_chunks:
+        print("There has been a problem with the command")
+    # print(response_chunks)
+    return response_chunks[0][4:6]
 
 OPTIONS_MAPPING={
         "ir_sensor_type": {
