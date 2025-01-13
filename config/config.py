@@ -1,5 +1,7 @@
 import json
 from device_information_config import set_device_address, set_device_information_config
+from device_control import set_device_and_pass_through_parameters, set_default_state_for_gate_mode_and_switch_event, set_event_list_for_open_for_entry_and_close_for_entry, set_event_list_for_open_for_exit_and_close_for_exit, set_event_list_for_fire_alarm_and_intrusion_alarm, set_event_list_for_device_lost_power_and_external_alarm, set_event_list_for_reverse_alarm_and_tailing_alarm, set_event_list_for_stayed_alarm_and_reserve
+
 
 with open("device_information.json", "r") as file:
     device_information = json.load(file)
@@ -36,5 +38,14 @@ main_json={
     "switch_event":switch_event
 }
 
-print(pass_through_parameters)
+# print(pass_through_parameters)
 # set_device_information_config(device_information)
+
+set_device_and_pass_through_parameters(device_parameters=device_parameters, pass_through_parameters=pass_through_parameters, addr_to="02")
+set_default_state_for_gate_mode_and_switch_event(pass_through_parameters=pass_through_parameters,switch_event=switch_event, addr_to="02")
+set_event_list_for_open_for_entry_and_close_for_entry(event_list=event_list, addr_to="02")
+set_event_list_for_open_for_exit_and_close_for_exit(event_list=event_list, addr_to="02")
+set_event_list_for_device_lost_power_and_external_alarm(event_list=event_list, addr_to="02")
+set_event_list_for_fire_alarm_and_intrusion_alarm(event_list=event_list, addr_to="02")
+set_event_list_for_reverse_alarm_and_tailing_alarm(event_list=event_list, addr_to="02")
+set_event_list_for_stayed_alarm_and_reserve(event_list=event_list, addr_to="02")

@@ -2,7 +2,7 @@
     "automatic_switch_1": {
         "description": "Settings for the first automatic switch",
         "options":[
-            "Idle (Default State)","Open For Entry","Always Open For Entry",
+            "None","Idle (Default State)","Open For Entry","Always Open For Entry",
             "Open For Exit","Always Open For Exit","Close For Exit"
         ],
         "on_trigger": "",
@@ -11,7 +11,7 @@
     "automatic_switch_2": {
         "description": "Settings for the second automatic switch",
         "options":[
-            "Idle (Default State)","Open For Entry","Always Open For Entry",
+            "None","Idle (Default State)","Open For Entry","Always Open For Entry",
             "Open For Exit","Always Open For Exit","Close For Exit"
         ],
         "on_trigger": "",
@@ -20,8 +20,8 @@
     "fire_alarm": {
         "description": "Settings for the fire alarm system",
         "options":[
-            "Idle (Default State)","Open For Entry","Always Open For Entry",
-            "Open For Exit","Always Open For Exit","Close For Exit"
+            "None","Idle (Default State)","Open For Entry","Always Open For Entry",
+            "Close For Entry","Open For Exit","Always Open For Exit","Close For Exit"
         ],
         "on_trigger": "",
         "on_release": ""
@@ -29,7 +29,7 @@
     "manual_switch": {
         "description": "Settings for the manual switch",
        "options":[
-            "Idle (Default State)","Open For Entry","Always Open For Entry",
+            "None","Idle (Default State)","Open For Entry","Always Open For Entry",
             "Open For Exit","Always Open For Exit","Close For Exit"
         ],
         "on_trigger": "",
