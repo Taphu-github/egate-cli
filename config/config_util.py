@@ -80,12 +80,10 @@ def chunk_bytearray(byte_array, chunk_size=16):
 
     return hex_chunks
 
-def get_device_id(ser):
-
-
-
-    checksum=generate_checksum("AA 00 01 01 01 00 00 00 00 00 00 00 00 00 00")
-    command_hex = "AA 00 01 01 01 00 00 00 00 00 00 00 00 00 00"+" "+checksum
+def get_mac_address(ser):
+    command="00 01 01 01 00 00 00 00 00 00 00 00 00 00"
+    command_check_sum=generate_checksum(command)
+    command_hex="AA "+command+" "+command_check_sum
 
     command_bytes=bytes.fromhex(command_hex)
     ser.write(command_bytes)
@@ -93,10 +91,34 @@ def get_device_id(ser):
     start_time = time.time()
     response = bytearray()
 
-    while time.time() - start_time < 6:
+    while time.time() - start_time < 1:
         if ser.in_waiting > 0:
             response.extend(ser.read(ser.in_waiting))
-        time.sleep(0.2)
+        # time.sleep(0.2)
+
+    # if not res
+    response_chunks = chunk_bytearray(response)
+
+    if not response_chunks:
+        print("There has been a problem with the command")
+    # print(response_chunks)
+    return response_chunks[0][9:15]
+
+def get_device_id(ser):
+    command="00 01 01 01 00 00 00 00 00 00 00 00 00 00"
+    command_check_sum=generate_checksum(command)
+    command_hex="AA "+command+" "+command_check_sum
+
+    command_bytes=bytes.fromhex(command_hex)
+    ser.write(command_bytes)
+
+    start_time = time.time()
+    response = bytearray()
+
+    while time.time() - start_time < 1:
+        if ser.in_waiting > 0:
+            response.extend(ser.read(ser.in_waiting))
+        # time.sleep(0.2)
 
     # if not res
     response_chunks = chunk_bytearray(response)

@@ -42,3 +42,12 @@ test='AA00091111010800006464646464648C'
 
 
 parse(test)
+
+
+def parse_depending_on_type(data):
+    if data.get("TYPE")=="NUMBER":
+        pass
+    elif data.get("TYPE")=="SELECT":
+        pass
+    elif data.get("TYPE")=="CALCULATIVE":
+        pass

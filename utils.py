@@ -287,6 +287,7 @@ def decrypt_response(response):
                     D[7]=
 
                 When D[1]==00 and D[0]==02,
+                    D[2]==
                     D[3]==Open For Entry, Entrance Indicator [(None, F0), (Black(All Off), 00), (D1,01), (D2,02), (D1+D2,03), (D3,04), (D3+D1,05), (D3+D1+D2,06), (D4,07), (D4+D1,08), (D4+D1+D2,09), (D4+D1+D2+D3,10)]
                     D[4]==Open For Entry, Entrance Indicator, Blink On Delay
                     D[5]==Open For Entry, Entrance Indicator, Blink Off Delay
@@ -325,11 +326,11 @@ def decrypt_response(response):
                     D[7]= Close For Entry, Voice Module, Repetitions
 
                 When D[1]==00  and D[0]==03,
-                    D[2]= Open For Exit, Entrance Indicator [(None, F0), (Black(All Off), 00), (Red, 01), (Green, 02), (Yellow(R+G), 03), (Blue, 04), (Magenta(R+B), 05), (Cyan, 06), (White(R+G+B), 07)]
-                    D[3]= Open For Exit, Entrance Indicator, Blink On Delay
-                    D[4]= Open For Exit, Entrance Indicator, Blink Off Delay
-                    D[5]= Open For Exit, Entrance Indicator, Repetitions
-                    D[6]=
+                    D[2]=
+                    D[3]= Open For Exit, Entrance Indicator [(None, F0), (Black(All Off), 00), (Red, 01), (Green, 02), (Yellow(R+G), 03), (Blue, 04), (Magenta(R+B), 05), (Cyan, 06), (White(R+G+B), 07)]
+                    D[4]= Open For Exit, Entrance Indicator, Blink On Delay
+                    D[5]= Open For Exit, Entrance Indicator, Blink Off Delay
+                    D[6]= Open For Exit, Entrance Indicator, Repetitions
                     D[7]= Open For Exit, RGB LED [(None, F0), (Black(All Off), 00), (Red, 01), (Green, 02), (Yellow(R+G), 03), (Blue, 04), (Magenta(R+B), 05), (Cyan, 06), (White(R+G+B), 07)]
 
                 When D[1]==01  and D[0]==03,
