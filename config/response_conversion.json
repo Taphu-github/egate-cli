@@ -249,7 +249,7 @@
                             "DATA_2":
                             {
                                 "LABEL":"Entry Open Door Motor Speed for Motor 1",
-                                "TYPE":"Number",
+                                "TYPE":"NUMBER",
                                 "OPTIONS": [
 
                                 ]
@@ -258,31 +258,31 @@
                             "DATA_3":
                             {
                                 "LABEL":"Entry Open Door Motor Speed for Motor 2",
-                                "TYPE":"Number",
+                                "TYPE":"NUMBER",
                                 "OPTIONS":[]
                             },
                             "DATA_4":
                             {
                                 "LABEL":"Entry Close Door Motor Speed for Motor 1",
-                                "TYPE":"Number",
+                                "TYPE":"NUMBER",
                                 "OPTIONS":[]
                             },
                             "DATA_5":
                             {
                                 "LABEL":"Entry Close Door Motor Speed for Motor 2",
-                                "TYPE":"Number",
+                                "TYPE":"NUMBER",
                                 "OPTIONS":[]
                             },
                             "DATA_6":
                             {
                                 "LABEL":"Exit Open Door Motor Speed for Motor 1",
-                                "TYPE":"Number",
+                                "TYPE":"NUMBER",
                                 "OPTIONS":[]
                             },
                             "DATA_7":
                             {
                                 "LABEL":"Exit Open Door Motor Speed for Motor 2",
-                                "TYPE":"Number",
+                                "TYPE":"NUMBER",
                                 "OPTIONS":[]
                             }
 
@@ -295,21 +295,21 @@
                             "DATA_2":
                             {
                                 "LABEL":"Exit Close Door Motor Speed for Motor 1",
-                                "TYPE":"Number",
+                                "TYPE":"NUMBER",
                                 "OPTIONS":[]
                             },
 
                             "DATA_3":
                             {
                                 "LABEL":"Exit Close Door Motor Speed for Motor 2",
-                                "TYPE":"Number",
+                                "TYPE":"NUMBER",
                                 "OPTIONS":[]
                             },
 
                             "DATA_4":
                             {
                                 "LABEL":"Motor Overcurrent Protection",
-                                "TYPE":"Number",
+                                "TYPE":"NUMBER",
                                 "OPTIONS":[]
                             },
                             "DATA_5":
@@ -418,7 +418,7 @@
                             },
                             "DATA_3": {
                                 "LABEL": "IR Sensitivity",
-                                "TYPE": "Number",
+                                "TYPE": "NUMBER",
                                 "OPTIONS": {}
                             },
                             "DATA_4": {
@@ -431,12 +431,12 @@
                             },
                             "DATA_5": {
                                 "LABEL": "Base Speed Level for Motor 1",
-                                "TYPE": "Number",
+                                "TYPE": "NUMBER",
                                 "OPTIONS": {}
                             },
                             "DATA_6": {
                                 "LABEL": "Base Speed Level for Motor 2",
-                                "TYPE": "Number",
+                                "TYPE": "NUMBER",
                                 "OPTIONS": {}
                             },
                             "DATA_7": {
@@ -476,17 +476,17 @@
                             },
                             "DATA_3": {
                                 "LABEL": "Maximum Passage Time",
-                                "TYPE": "Number",
+                                "TYPE": "NUMBER",
                                 "OPTIONS": {}
                             },
                             "DATA_4": {
                                 "LABEL": "Authorized Open Door Delay",
-                                "TYPE": "Number",
+                                "TYPE": "NUMBER",
                                 "OPTIONS": {}
                             },
                             "DATA_5": {
                                 "LABEL": "Close Door Delay",
-                                "TYPE": "Number",
+                                "TYPE": "NUMBER",
                                 "OPTIONS": {}
                             },
                             "DATA_6": {
@@ -2342,15 +2342,15 @@
                             "LABEL": "Stayed Alarm, Entrance Indicator",
                             "TYPE":"SELECT",
                             "OPTIONS": [
-                                {"label": "None", "value": "F0"},
-                                {"label": "Black (All Off)", "value": "00"},
-                                {"label": "Red", "value": "01"},
-                                {"label": "Green", "value": "02"},
-                                {"label": "Yellow (R+G)", "value": "03"},
-                                {"label": "Blue", "value": "04"},
-                                {"label": "Magenta (R+B)", "value": "05"},
-                                {"label": "Cyan", "value": "06"},
-                                {"label": "White (R+G+B)", "value": "07"}
+                                {"label": "None", "VALUE": "F0"},
+                                {"label": "Black (All Off)", "VALUE": "00"},
+                                {"label": "Red", "VALUE": "01"},
+                                {"label": "Green", "VALUE": "02"},
+                                {"label": "Yellow (R+G)", "VALUE": "03"},
+                                {"label": "Blue", "VALUE": "04"},
+                                {"label": "Magenta (R+B)", "VALUE": "05"},
+                                {"label": "Cyan", "VALUE": "06"},
+                                {"label": "White (R+G+B)", "VALUE": "07"}
                             ]
                             },
                             "DATA_3": {
@@ -2372,15 +2372,15 @@
                                 "LABEL": "Stayed Alarm, RGB LED",
                                 "TYPE":"SELECT",
                                 "OPTIONS": [
-                                    {"label": "None", "value": "F0"},
-                                    {"label": "Black (All Off)", "value": "00"},
-                                    {"label": "Red", "value": "01"},
-                                    {"label": "Green", "value": "02"},
-                                    {"label": "Yellow (R+G)", "value": "03"},
-                                    {"label": "Blue", "value": "04"},
-                                    {"label": "Magenta (R+B)", "value": "05"},
-                                    {"label": "Cyan", "value": "06"},
-                                    {"label": "White (R+G+B)", "value": "07"}
+                                    {"label": "None", "VALUE": "F0"},
+                                    {"label": "Black (All Off)", "VALUE": "00"},
+                                    {"label": "Red", "VALUE": "01"},
+                                    {"label": "Green", "VALUE": "02"},
+                                    {"label": "Yellow (R+G)", "VALUE": "03"},
+                                    {"label": "Blue", "VALUE": "04"},
+                                    {"label": "Magenta (R+B)", "VALUE": "05"},
+                                    {"label": "Cyan", "VALUE": "06"},
+                                    {"label": "White (R+G+B)", "VALUE": "07"}
                                 ]
                             }
                         }
@@ -2409,9 +2409,9 @@
                                 "LABEL": "Stayed Alarm, Relay",
                                 "TYPE":"SELECT",
                                 "OPTIONS": [
-                                    {"label": "None", "value": "F0"},
-                                    {"label": "All Opened", "value": "00"},
-                                    {"label": "Relay 1 Closed", "value": "01"}
+                                    {"label": "None", "VALUE": "F0"},
+                                    {"label": "All Opened", "VALUE": "00"},
+                                    {"label": "Relay 1 Closed", "VALUE": "01"}
                                 ]
                             },
                             "DATA_6": {
@@ -2439,10 +2439,10 @@
                             "LABEL": "Stayed Alarm, Voice Module",
                             "TYPE":"SELECT",
                             "OPTIONS": [
-                                {"label": "N9200", "value": "01"},
-                                {"label": "None", "value": "F0"},
-                                {"label": "BY-F610 V1.2", "value": "02"},
-                                {"label": "BY-F610V1.3", "value": "03"}
+                                {"label": "N9200", "VALUE": "01"},
+                                {"label": "None", "VALUE": "F0"},
+                                {"label": "BY-F610 V1.2", "VALUE": "02"},
+                                {"label": "BY-F610V1.3", "VALUE": "03"}
                             ]
                         },
                         "DATA_4": {
@@ -2459,15 +2459,15 @@
                             "LABEL": "Reverse, Entrance Indicator",
                             "TYPE":"SELECT",
                             "OPTIONS": [
-                                {"label": "None", "value": "F0"},
-                                {"label": "Black (All Off)", "value": "00"},
-                                {"label": "Red", "value": "01"},
-                                {"label": "Green", "value": "02"},
-                                {"label": "Yellow (R+G)", "value": "03"},
-                                {"label": "Blue", "value": "04"},
-                                {"label": "Magenta (R+B)", "value": "05"},
-                                {"label": "Cyan", "value": "06"},
-                                {"label": "White (R+G+B)", "value": "07"}
+                                {"label": "None", "VALUE": "F0"},
+                                {"label": "Black (All Off)", "VALUE": "00"},
+                                {"label": "Red", "VALUE": "01"},
+                                {"label": "Green", "VALUE": "02"},
+                                {"label": "Yellow (R+G)", "VALUE": "03"},
+                                {"label": "Blue", "VALUE": "04"},
+                                {"label": "Magenta (R+B)", "VALUE": "05"},
+                                {"label": "Cyan", "VALUE": "06"},
+                                {"label": "White (R+G+B)", "VALUE": "07"}
                             ]
                         },
                         "DATA_7": {
@@ -2495,15 +2495,15 @@
                             "LABEL": "Reverse, RGB LED",
                             "TYPE":"SELECT",
                             "OPTIONS": [
-                                {"label": "None", "value": "F0"},
-                                {"label": "Black (All Off)", "value": "00"},
-                                {"label": "Red", "value": "01"},
-                                {"label": "Green", "value": "02"},
-                                {"label": "Yellow (R+G)", "value": "03"},
-                                {"label": "Blue", "value": "04"},
-                                {"label": "Magenta (R+B)", "value": "05"},
-                                {"label": "Cyan", "value": "06"},
-                                {"label": "White (R+G+B)", "value": "07"}
+                                {"label": "None", "VALUE": "F0"},
+                                {"label": "Black (All Off)", "VALUE": "00"},
+                                {"label": "Red", "VALUE": "01"},
+                                {"label": "Green", "VALUE": "02"},
+                                {"label": "Yellow (R+G)", "VALUE": "03"},
+                                {"label": "Blue", "VALUE": "04"},
+                                {"label": "Magenta (R+B)", "VALUE": "05"},
+                                {"label": "Cyan", "VALUE": "06"},
+                                {"label": "White (R+G+B)", "VALUE": "07"}
                             ]
                         },
                         "DATA_5": {
@@ -2532,9 +2532,9 @@
                             "LABEL": "Reverse, Relay",
                             "TYPE":"SELECT",
                             "OPTIONS": [
-                                {"label": "None", "value": "F0"},
-                                {"label": "All Opened", "value": "00"},
-                                {"label": "Relay 1 Closed", "value": "01"}
+                                {"label": "None", "VALUE": "F0"},
+                                {"label": "All Opened", "VALUE": "00"},
+                                {"label": "Relay 1 Closed", "VALUE": "01"}
                             ]
                         },
                         "DATA_3": {
@@ -2556,10 +2556,10 @@
                             "LABEL": "Reverse, Voice Module",
                             "TYPE":"SELECT",
                             "OPTIONS": [
-                                {"label": "N9200", "value": "01"},
-                                {"label": "None", "value": "F0"},
-                                {"label": "BY-F610 V1.2", "value": "02"},
-                                {"label": "BY-F610V1.3", "value": "03"}
+                                {"label": "N9200", "VALUE": "01"},
+                                {"label": "None", "VALUE": "F0"},
+                                {"label": "BY-F610 V1.2", "VALUE": "02"},
+                                {"label": "BY-F610V1.3", "VALUE": "03"}
                             ]
                         },
                         "DATA_7": {
@@ -2602,21 +2602,25 @@
                             },
                             "DATA_4":{
                                 "LABEL":"Power Supply Voltage",
+                                "FAMILY": "Power Supply Voltage",
                                 "TYPE":"NUMBER",
                                 "OPTIONS":[]
                             },
                             "DATA_5":{
                                 "LABEL":"Power Supply Voltage",
+                                "FAMILY": "Power Supply Voltage",
                                 "TYPE":"NUMBER",
                                 "OPTIONS":[]
                             },
                             "DATA_6":{
                                 "LABEL":"Battery Voltage",
+                                "FAMILY": "Battery Voltage",
                                 "TYPE":"NUMBER",
                                 "OPTIONS":[]
                             },
                             "DATA_7":{
                                 "LABEL":"Battery Voltage",
+                                "FAMILY": "Battery Voltage",
                                 "TYPE":"NUMBER",
                                 "OPTIONS":[]
                             }
@@ -2651,7 +2655,7 @@
                                 "OPTIONS":[]
                             },
                             "DATA_4":{
-                                "LABEL":"Intrance Indicator",
+                                "LABEL":"Entrance Indicator",
                                 "TYPE":"CALCULATIVE",
                                 "OPTIONS":[
                                     {
@@ -2708,13 +2712,6 @@
                                         "FAMILY": "",
                                         "LOWER_LIMIT":"",
                                         "UPPER_LIMIT":""
-                                    },
-                                    {
-                                        "LABEL": "None",
-                                        "VALUE": "00",
-                                        "FAMILY": "",
-                                        "LOWER_LIMIT":"",
-                                        "UPPER_LIMIT":""
                                     }
                                 ]
                             },
@@ -2744,14 +2741,14 @@
                                 "OPTIONS":[
                                     {
                                         "LABEL": "Checked",
-                                        "VALUE": "00",
+                                        "VALUE": "FF",
                                         "FAMILY": "",
                                         "LOWER_LIMIT":"",
                                         "UPPER_LIMIT":""
                                     },
                                     {
                                         "LABEL": "UnChecked",
-                                        "VALUE": "FF",
+                                        "VALUE": "00",
                                         "FAMILY": "",
                                         "LOWER_LIMIT":"",
                                         "UPPER_LIMIT":""
@@ -2924,37 +2921,37 @@
                                 ]
                             },
                             "DATA_2":{
-                                "LABEL":"Already Passed Number For Entry",
+                                "LABEL":"Already Passed NUMBER For Entry",
                                 "TYPE":"NUMBER",
                                 "OPTIONS":[
                                 ]
                             },
                             "DATA_3":{
-                                "LABEL":"Already Passed Number For Entry",
+                                "LABEL":"Already Passed NUMBER For Entry",
                                 "TYPE":"NUMBER",
                                 "OPTIONS":[
                                 ]
                             },
                             "DATA_4":{
-                                "LABEL":"Already Passed Number For Entry",
+                                "LABEL":"Already Passed NUMBER For Entry",
                                 "TYPE":"NUMBER",
                                 "OPTIONS":[
                                 ]
                             },
                             "DATA_5":{
-                                "LABEL":"Already Passed Number For Exit",
+                                "LABEL":"Already Passed NUMBER For Exit",
                                 "TYPE":"NUMBER",
                                 "OPTIONS":[
                                 ]
                             },
                             "DATA_6":{
-                                "LABEL":"Already Passed Number For Exit",
+                                "LABEL":"Already Passed NUMBER For Exit",
                                 "TYPE":"NUMBER",
                                 "OPTIONS":[
                                 ]
                             },
                             "DATA_7":{
-                                "LABEL":"Already Passed Number For Exit",
+                                "LABEL":"Already Passed NUMBER For Exit",
                                 "TYPE":"NUMBER",
                                 "OPTIONS":[
                                 ]

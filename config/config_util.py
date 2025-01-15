@@ -129,151 +129,150 @@ def get_device_id(ser):
     return response_chunks[0][4:6]
 
 OPTIONS_MAPPING={
-        "ir_sensor_type": {
-            "pnp (hi trig)": "00",
-            "npn (lo trig)": "01"
-        },
-        "ir_logic": {
-            "disabled": "00",
-            "local interface": "01",
-            "external for entry": "40",
-            "external for exit": "80",
-            "external for both": "c0"
-        },
-        "relay_for_passed_counter": {
-            "entry": "01",
-            "disabled": "00",
-            "exit": "02",
-            "both": "03"
-        },
-        "barriers_count": {
-            "single": "01",
-            "double": "00"
-        },
-        "normally_open_direction": {
-            "entry": "00",
-            "exit": "10"
-        },
-        "action_on_power_lost": {
-            "none": "00",
-            "closed": "01",
-            "always open for entry": "02",
-            "always open for exit": "03"
-        },
-        "gate_mode": {
-            "normally closed, both card": "01",
-            "normally closed, both free": "02",
-            "normally closed, both reject": "03",
-            "normally closed, entry card & exit free": "04",
-            "normally closed, entry card & exit reject": "05",
-            "normally closed, entry free & exit card": "06",
-            "normally closed, entry free & exit reject": "07",
-            "normally closed, entry reject & exit free": "08",
-            "normally closed, entry reject & exit card": "09",
-            "normally open, both free": "0A",
-            "normally open, both card": "0B",
-            "normally open, entry free & exit card": "0C",
-            "normally open, entry card & exit reject": "0D"
-        },
-        "authorized_with_memory": {
-            "both disabled": "00",
-            "entry allowed": "01",
-            "exit allowed": "02",
-            "both allowed": "03"
-        },
-        "authorized_in_lane": {
-            "on": "01",
-            "off": "00"
-        },
-        "automatic_report_state": {
-            "on": "01",
-            "off": "00"
-        },
-        "passage_end_ir_check_at": {
-            "exit": "00",
-            "safety": "01"
-        },
-        "intrusion_alarm": {
-            "none": "00",
-            "alarm": "01",
-            "alarm and close door": "02"
-        },
-        "reverse_alarm": {
-            "none": "00",
-            "alarm": "01",
-            "alarm and close door": "02"
-        },
-        "tailing_alarm": {
-            "none": "00",
-            "alarm": "01",
-            "alarm and close door": "02"
-        },
-        "power_on_self_check": {
-            "on": "01",
-            "off": "00"
-        },
-        "switch_options":{
-            "on_trigger":{
-                "None":"00"
-                ,"Idle (Default State)":"01"
-                ,"Open For Entry":"02"
-                ,"Always Open For Entry":"03"
-                ,"Close For Entry":"04"
-                ,"Open For Exit":"05"
-                ,"Always Open For Exit":"06"
-                ,"Close For Exit":"07"
-            },
-            "on_release":{
-                "None":"00"
-                ,"Idle (Default State)":"10"
-                ,"Open For Entry":"20"
-                ,"Always Open For Entry":"30"
-                ,"Close For Entry":"40"
-                ,"Open For Exit":"50"
-                ,"Always Open For Exit":"60"
-                ,"Close For Exit":"70"
-            },
-        },
-        "entrance_indicator":{
-            "None":"F0"
-            ,"Black(All Off)":"00"
-            ,"D1":"01"
-            ,"D2":"02"
-            ,"D2+D1": "03"
-            ,"D3":"04"
-            ,"D3+D1":"05"
-            ,"D3+D2":"06"
-            ,"D3+D2+D1":"07"
-            ,"D4":"08"
-            ,"D4+D1":"09"
-            ,"D4+D2":"0A"
-            ,"D4+D2+D1":"0B"
-            ,"D4+D3":"0C"
-            ,"D4+D3+D1":"0D"
-            ,"D4+D3+D2":"0E"
-            ,"D4+D3+D2+D1":"0F"
-        },
-        "rgb_led":{
-            "None":"F0"
-            ,"Black(All Off)":"00"
-            ,"Red":"01"
-            ,"Green":"02"
-            ,"Yellow(R+G)":"03"
-            ,"Blue":"04"
-            ,"Magenta(R+B)":"05"
-            ,"Cyan(G+B)":"06"
-            ,"White(R+G+B)":"07"
-        },
-        "relay":{
-            "None":"F0"
-            ,"All Opened":"00"
-            ,"Relay 1 Closed":"01"
-        },
-        "voice_module":{
-            "None":"F0"
-            ,"N9200":"01"
-            ,"BY-F610V1.2":"02"
-            ,"BY-F610V1.3":"03"
-        }
-
+  "ir_sensor_type": {
+    "pnp (hi trig)": "00",
+    "npn (lo trig)": "01"
+  },
+  "ir_logic": {
+    "disabled": "00",
+    "local interface": "01",
+    "external for entry": "40",
+    "external for exit": "80",
+    "external for both": "c0"
+  },
+  "relay_for_passed_counter": {
+    "entry": "01",
+    "disabled": "00",
+    "exit": "02",
+    "both": "03"
+  },
+  "barriers_count": {
+    "single": "01",
+    "double": "00"
+  },
+  "normally_open_direction": {
+    "entry": "00",
+    "exit": "10"
+  },
+  "action_on_power_lost": {
+    "none": "00",
+    "closed": "01",
+    "always open for entry": "02",
+    "always open for exit": "03"
+  },
+  "gate_mode": {
+    "normally closed, both card": "01",
+    "normally closed, both free": "02",
+    "normally closed, both reject": "03",
+    "normally closed, entry card & exit free": "04",
+    "normally closed, entry card & exit reject": "05",
+    "normally closed, entry free & exit card": "06",
+    "normally closed, entry free & exit reject": "07",
+    "normally closed, entry reject & exit free": "08",
+    "normally closed, entry reject & exit card": "09",
+    "normally open, both free": "0A",
+    "normally open, both card": "0B",
+    "normally open, entry free & exit card": "0C",
+    "normally open, entry card & exit reject": "0D"
+  },
+  "authorized_with_memory": {
+    "both disabled": "00",
+    "entry allowed": "01",
+    "exit allowed": "02",
+    "both allowed": "03"
+  },
+  "authorized_in_lane": {
+    "on": "01",
+    "off": "00"
+  },
+  "automatic_report_state": {
+    "on": "01",
+    "off": "00"
+  },
+  "passage_end_ir_check_at": {
+    "exit": "00",
+    "safety": "01"
+  },
+  "intrusion_alarm": {
+    "none": "00",
+    "alarm": "01",
+    "alarm and close door": "02"
+  },
+  "reverse_alarm": {
+    "none": "00",
+    "alarm": "01",
+    "alarm and close door": "02"
+  },
+  "tailing_alarm": {
+    "none": "00",
+    "alarm": "01",
+    "alarm and close door": "02"
+  },
+  "power_on_self_check": {
+    "on": "01",
+    "off": "00"
+  },
+  "switch_options": {
+    "on_trigger": {
+      "none": "00",
+      "idle (default state)": "01",
+      "open for entry": "02",
+      "always open for entry": "03",
+      "close for entry": "04",
+      "open for exit": "05",
+      "always open for exit": "06",
+      "close for exit": "07"
+    },
+    "on_release": {
+      "none": "00",
+      "idle (default state)": "10",
+      "open for entry": "20",
+      "always open for entry": "30",
+      "close for entry": "40",
+      "open for exit": "50",
+      "always open for exit": "60",
+      "close for exit": "70"
     }
+  },
+  "entrance_indicator": {
+    "none": "F0",
+    "black(all off)": "00",
+    "d1": "01",
+    "d2": "02",
+    "d2+d1": "03",
+    "d3": "04",
+    "d3+d1": "05",
+    "d3+d2": "06",
+    "d3+d2+d1": "07",
+    "d4": "08",
+    "d4+d1": "09",
+    "d4+d2": "0A",
+    "d4+d2+d1": "0B",
+    "d4+d3": "0C",
+    "d4+d3+d1": "0D",
+    "d4+d3+d2": "0E",
+    "d4+d3+d2+d1": "0F"
+  },
+  "rgb_led": {
+    "none": "F0",
+    "black(all off)": "00",
+    "red": "01",
+    "green": "02",
+    "yellow(r+g)": "03",
+    "blue": "04",
+    "magenta(r+b)": "05",
+    "cyan(g+b)": "06",
+    "white(r+g+b)": "07"
+  },
+  "relay": {
+    "none": "F0",
+    "all opened": "00",
+    "relay 1 closed": "01"
+  },
+  "voice_module": {
+    "none": "F0",
+    "n9200": "01",
+    "by-f610v1.2": "02",
+    "by-f610v1.3": "03"
+  }
+}
