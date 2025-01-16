@@ -1,9 +1,9 @@
-from config_util import convert_deci_to_hex, generate_checksum, to_int, hex_to_deci, OPTIONS_MAPPING
+from config_util import convert_deci_to_hex, generate_checksum, to_int, hex_to_deci, OPTIONS_MAPPING, validate_command
 
 def set_device_and_pass_through_parameters(device_parameters, pass_through_parameters, addr_to):
     addr_src="02"
     cid1cid2="01 12"
-    # "00 "+addr_src+" "+cid1cid2+" "+addr_to+
+
     #00 00
     entry_open_door_motor_speed_motor1=device_parameters.get("entry_open_door_motor_speed", {}).get("motor_1", "100")
     entry_open_door_motor_speed_motor2=device_parameters.get("entry_open_door_motor_speed", {}).get("motor_2", "100")
@@ -21,6 +21,7 @@ def set_device_and_pass_through_parameters(device_parameters, pass_through_param
     d0000="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 00 00 "+d0000_2+" "+d0000_3+" "+d0000_4+" "+d0000_5+" "+d0000_6+" "+d0000_7
     d0000_checksum=generate_checksum(d0000)
     d0000="AA "+d0000+" "+d0000_checksum
+    validate_command(d0000, "Device Parameter: [Entry Open Door, Entry Close Door, Exit Open Door], Motor Speed for 1 and 2")
 
     #00 01
     exit_close_door_motor_speed_motor1=device_parameters.get("exit_close_door_motor_speed", {}).get("motor_1", "100") or 100
@@ -39,6 +40,7 @@ def set_device_and_pass_through_parameters(device_parameters, pass_through_param
     d0001="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 00 01 "+d0001_2+" "+d0001_3+" "+d0001_4+" "+d0001_5+" "+d0001_6+" "+d0001_7
     d0001_checksum=generate_checksum(d0001)
     d0001="AA "+d0001+" "+d0001_checksum
+    validate_command(d0001, "Device Parameter: [Exit Close Door, Motor Overcurrent Protection, IR Sensor Type, IR logic, Relay Passed Counter]")
 
 
     #00 02
@@ -62,7 +64,7 @@ def set_device_and_pass_through_parameters(device_parameters, pass_through_param
     d0002="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 00 02 "+d0002_2+" "+d0002_3+" "+d0002_4+" "+d0002_5+" "+d0002_6+" "+d0002_7
     d0002_checksum=generate_checksum(d0002)
     d0002="AA "+d0002+" "+d0002_checksum
-
+    validate_command(d0002, "Device Parameter: [Barriers Count, IR Sensitivity, Normal Open Direction, Action on power lost, Base speed level], Device Pass Through Parameters: [Gate mode] ")
     #00 03
     authorized_with_memory=pass_through_parameters.get("authorized_with_memory",{}).get("value","Entry Allowed") or "Entry Allowed"
     maximum_passage_time=pass_through_parameters.get("maximum_passage_time",{}).get("value","50") or 50
@@ -80,6 +82,7 @@ def set_device_and_pass_through_parameters(device_parameters, pass_through_param
     d0003="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 00 03 "+d0003_2+" "+d0003_3+" "+d0003_4+" "+d0003_5+" "+d0003_6+" "+d0003_7
     d0003_checksum=generate_checksum(d0003)
     d0003="AA "+d0003+" "+d0003_checksum
+    validate_command(d0003, "Device Pass Through Parameters: [authorized with memory, maximum passage time, authorized open door delay, close door delay, passage end ir check] ")
 
     #00 04
     automatic_report_state=pass_through_parameters.get("automatic_report_state",{}).get("value","On") or "On"
@@ -98,6 +101,7 @@ def set_device_and_pass_through_parameters(device_parameters, pass_through_param
     d0004="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 00 04 "+d0004_2+" "+d0004_3+" "+d0004_4+" "+d0004_5+" "+d0004_6+" "+d0004_7
     d0004_checksum=generate_checksum(d0004)
     d0004="AA "+d0004+" "+d0004_checksum
+    validate_command(d0004, "Device Pass Through Parameters: [automatic report state, intrusion alarm, reverse alarm, tailing alarm, power on self check] ")
 
 
     # print([d0000, d0001, d0002, d0003, d0004])
@@ -132,6 +136,7 @@ def set_default_state_for_gate_mode_and_switch_event(pass_through_parameters, sw
     d0100="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 01 00 "+d0100_2+" "+d0100_3+" "+d0100_4+" "+d0100_5+" "+d0100_6+" "+d0100_7
     d0100_check_sum=generate_checksum(d0100)
     d0100="AA "+d0100+" "+d0100_check_sum
+    validate_command(d0100, "Device Pass Through Parameters: [Default state]:[normally closed both card, normally closed both free,normally closed both reject,normally closed entry card exit free,normally closed entry card exit reject,normally closed entr free exit card]")
 
 
     #0101
@@ -152,6 +157,7 @@ def set_default_state_for_gate_mode_and_switch_event(pass_through_parameters, sw
     d0101="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 01 01 "+d0101_2+" "+d0101_3+" "+d0101_4+" "+d0101_5+" "+d0101_6+" "+d0101_7
     d0101_check_sum=generate_checksum(d0101)
     d0101="AA "+d0101+" "+d0101_check_sum
+    validate_command(d0101, "Device Pass Through Parameters: [Default state]:normally_closed_entry_free_exit_reject,normally_closed_entry_reject_exit_free,normally_closed_entry_reject_exit_card,normally_open_both_free,normally_open_both_card,normally_open_entry_free_exit_card]")
 
     #0102
     normally_open_entry_card_exit_free=pass_through_parameters.get("gate_mode_default_state",{}).get("normally_open_entry_card_exit_free",{})
@@ -191,6 +197,7 @@ def set_default_state_for_gate_mode_and_switch_event(pass_through_parameters, sw
     d0102="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 01 02 "+d0102_2+" "+d0102_3+" "+d0102_4+" "+d0102_5+" "+d0102_6+" "+d0102_7
     d0102_check_sum=generate_checksum(d0102)
     d0102="AA "+d0102+" "+d0102_check_sum
+    validate_command(d0101, "Device Pass Through Parameters: [Default state]:normally_open_entry_card_exit_free], Switch's Event: [automatic switch 1, automatic switch 2, fire alarm, manual switch] ")
 
     d0103="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 01 03 00 00 00 00 00 00"
     d0103_check_sum=generate_checksum(d0103)
@@ -210,22 +217,22 @@ def set_default_state_for_gate_mode_and_switch_event(pass_through_parameters, sw
 
 
 def set_event_list_for_open_for_entry_and_close_for_entry(event_list, addr_to):
-    return generate_two_events_config(event_1=event_list.get("open_for_entry"), event_2=event_list.get("close_for_entry"), addr_to=addr_to, d00="02")
+    return generate_two_events_config(event_name1="open for entry", event_name2="close for entry",event_1=event_list.get("open_for_entry"), event_2=event_list.get("close_for_entry"), addr_to=addr_to, d00="02")
 
 def set_event_list_for_open_for_exit_and_close_for_exit(event_list, addr_to):
-    return generate_two_events_config(event_1=event_list.get("open_for_exit"), event_2=event_list.get("close_for_exit"), addr_to=addr_to, d00="03")
+    return generate_two_events_config(event_name1="open for exit", event_name2="close for exit",event_1=event_list.get("open_for_exit"), event_2=event_list.get("close_for_exit"), addr_to=addr_to, d00="03")
 
 def set_event_list_for_device_lost_power_and_external_alarm(event_list, addr_to):
-    return generate_two_events_config(event_1=event_list.get("device_lost_power"), event_2=event_list.get("external_alarm"), addr_to=addr_to, d00="04")
+    return generate_two_events_config(event_name1="device lost power", event_name2="external alarm",event_1=event_list.get("device_lost_power"), event_2=event_list.get("external_alarm"), addr_to=addr_to, d00="04")
 
 def set_event_list_for_fire_alarm_and_intrusion_alarm(event_list, addr_to):
-    return generate_two_events_config(event_1=event_list.get("fire_alarm"), event_2=event_list.get("intrusion_alarm"), addr_to=addr_to, d00="05")
+    return generate_two_events_config(event_name1="fire alarm", event_name2="intrusion alarm", event_1=event_list.get("fire_alarm"), event_2=event_list.get("intrusion_alarm"), addr_to=addr_to, d00="05")
 
 def set_event_list_for_reverse_alarm_and_tailing_alarm(event_list, addr_to):
-    return generate_two_events_config(event_1=event_list.get("reverse_alarm"), event_2=event_list.get("tailing_alarm"), addr_to=addr_to, d00="06")
+    return generate_two_events_config(event_name1="reverse alarm", event_name2="tailing alarm",event_1=event_list.get("reverse_alarm"), event_2=event_list.get("tailing_alarm"), addr_to=addr_to, d00="06")
 
 def set_event_list_for_stayed_alarm_and_reserve(event_list, addr_to):
-    return generate_two_events_config(event_1=event_list.get("stayed_alarm"), event_2=event_list.get("reverse"), addr_to=addr_to, d00="07")
+    return generate_two_events_config(event_name1="stayed alarm", event_name2="reverse",event_1=event_list.get("stayed_alarm"), event_2=event_list.get("reverse"), addr_to=addr_to, d00="07")
 
 def calculate_ir_and_color(ir_and_color_json):
     d1_val=ir_and_color_json.get("d1", "Off")
@@ -262,7 +269,7 @@ def calculate_ir_and_color(ir_and_color_json):
 
     return convert_deci_to_hex(total, 1)
 
-def generate_two_events_config(event_1, event_2, addr_to, d00):
+def generate_two_events_config(event_name1,event_name2,  event_1, event_2, addr_to, d00):
     addr_src="02"
     cid1cid2="01 12"
      #0
@@ -277,13 +284,14 @@ def generate_two_events_config(event_1, event_2, addr_to, d00):
     d0_3=OPTIONS_MAPPING.get("entrance_indicator",{}).get(entrance_indicator.lower(), "01") or "01"
     # print("Entrance Indicator Json: ", OPTIONS_MAPPING.get("entrance_indicator"))
     # print(f"Value Entrance Indicator (D3): '{d0_3}'")
-    d0_4=convert_deci_to_hex(entrance_indicator_blink_on, 1)
-    d0_5=convert_deci_to_hex(entrance_indicator_blink_off, 1)
-    d0_6=convert_deci_to_hex(entrance_indicator_repetitions, 1)
+    d0_4=convert_deci_to_hex(int(entrance_indicator_blink_on), 1)
+    d0_5=convert_deci_to_hex(int(entrance_indicator_blink_off), 1)
+    d0_6=convert_deci_to_hex(int(entrance_indicator_repetitions), 1)
     d0_7=OPTIONS_MAPPING.get("rgb_led",{}).get(rgb_led.lower(),"00" ) or "00"
     d0="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 "+d00+" 00 "+d0_2+" "+d0_3+" "+d0_4+" "+d0_5+" "+d0_6+" "+d0_7
     d0_check_sum=generate_checksum(d0)
     d0="AA "+d0+" "+d0_check_sum
+    validate_command(d0, f"Event List:[[{event_name1}]:entrance indicator [value, blink on and off delay, repetitions], RGB LED [value] ]")
 
 
     #1
@@ -294,15 +302,16 @@ def generate_two_events_config(event_1, event_2, addr_to, d00):
     relay_blink_on=event_1.get("relay",{}).get("blink_on_delay","0") or "0"
     relay_blink_off=event_1.get("relay",{}).get("blink_off_delay","0") or "0"
 
-    d1_2=convert_deci_to_hex(rgb_led_blink_on,1)
-    d1_3=convert_deci_to_hex(rgb_led_blink_off,1)
-    d1_4=convert_deci_to_hex(rgb_led_repetitions, 1)
+    d1_2=convert_deci_to_hex(int(rgb_led_blink_on),1)
+    d1_3=convert_deci_to_hex(int(rgb_led_blink_off),1)
+    d1_4=convert_deci_to_hex(int(rgb_led_repetitions), 1)
     d1_5=OPTIONS_MAPPING.get("relay",{}).get(relay.lower(), "F0")
-    d1_6=convert_deci_to_hex(relay_blink_on,1)
-    d1_7=convert_deci_to_hex(relay_blink_off, 1)
+    d1_6=convert_deci_to_hex(int(relay_blink_on),1)
+    d1_7=convert_deci_to_hex(int(relay_blink_off), 1)
     d1="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 "+d00+" 01 "+d1_2+" "+d1_3+" "+d1_4+" "+d1_5+" "+d1_6+" "+d1_7
     d1_check_sum=generate_checksum(d1)
     d1="AA "+d1+" "+d1_check_sum
+    validate_command(d1, f"Event List:[[{event_name1}]:RGB LED [blink on and off delay, repetitions], Relay [blink on and off delay] ]")
 
 
     #2
@@ -312,15 +321,16 @@ def generate_two_events_config(event_1, event_2, addr_to, d00):
     entrance_indicator1=event_2.get("entrance_indicator",{}).get("choice","D1") or "D1"
     entrance_indicator_blink_on1=event_2.get("entrance_indicator",{}).get("blink_on_delay","0") or 0
 
-    d2_2=convert_deci_to_hex(relay_repetitions,1)
+    d2_2=convert_deci_to_hex(int(relay_repetitions),1)
     d2_3=OPTIONS_MAPPING.get("voice_module",{}).get(voice_module.lower(), "F0") or "F0"
-    d2_4=convert_deci_to_hex(voice_module_play_sound,1)
+    d2_4=convert_deci_to_hex(int(voice_module_play_sound),1)
     d2_5="00"
     d2_6=OPTIONS_MAPPING.get("entrance_indicator",{}).get(entrance_indicator1.lower(), "F0") or "F0"
-    d2_7=convert_deci_to_hex(entrance_indicator_blink_on1,1)
+    d2_7=convert_deci_to_hex(int(entrance_indicator_blink_on1),1)
     d2="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 "+d00+" 02 "+d2_2+" "+d2_3+" "+d2_4+" "+d2_5+" "+d2_6+" "+d2_7
     d2_check_sum=generate_checksum(d2)
     d2="AA "+d2+" "+d2_check_sum
+    validate_command(d2, f"Event List:[[{event_name1}]:Relay [repetitions], Voice module [value, repetitions] ] , [[{event_name2}]: Entrance Indicator [value, blink on delay]]")
 
     #3
     entrance_indicator_blink_off1=event_2.get("entrance_indicator",{}).get("blink_off_delay","0") or 0
@@ -330,16 +340,17 @@ def generate_two_events_config(event_1, event_2, addr_to, d00):
     rgb_led_blink_off1=event_2.get("rgb_led",{}).get("blink_off_delay","0") or "0"
     rgb_led_repetitions1=event_2.get("rgb_led",{}).get("repetitions","0") or "0"
 
-    d3_2=convert_deci_to_hex(entrance_indicator_blink_off1,1)
-    d3_3=convert_deci_to_hex(entrance_indicator_repetitions1,1)
+    d3_2=convert_deci_to_hex(int(entrance_indicator_blink_off1),1)
+    d3_3=convert_deci_to_hex(int(entrance_indicator_repetitions1),1)
     d3_4=OPTIONS_MAPPING.get("rgb_led",{}).get(rgb_led1.lower(), "F0") or "F0"
-    d3_5=convert_deci_to_hex(rgb_led_blink_on1,1)
-    d3_6=convert_deci_to_hex(rgb_led_blink_off1,1)
-    d3_7=convert_deci_to_hex(rgb_led_repetitions1,1)
+    d3_5=convert_deci_to_hex(int(rgb_led_blink_on1),1)
+    d3_6=convert_deci_to_hex(int(rgb_led_blink_off1),1)
+    d3_7=convert_deci_to_hex(int(rgb_led_repetitions1),1)
 
     d3="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 "+d00+" 03 "+d3_2+" "+d3_3+" "+d3_4+" "+d3_5+" "+d3_6+" "+d3_7
     d3_check_sum=generate_checksum(d3)
     d3="AA "+d3+" "+d3_check_sum
+    validate_command(d3, f"Event List: [[{event_name2}]: Entrance Indicator [blink off delay, repetitions], RBG LED [value, blink on and off delay, repetitions]]")
 
     #4
     relay1=event_2.get("relay",{}).get("choice","None") or "None"
@@ -350,15 +361,16 @@ def generate_two_events_config(event_1, event_2, addr_to, d00):
     voice_module_play_sound1=event_2.get("voice_module",{}).get("play_sound","1") or "1"
 
     d4_2=OPTIONS_MAPPING.get("relay",{}).get(relay1, "F0") or "F0"
-    d4_3=convert_deci_to_hex(relay_blink_on1, 1)
-    d4_4=convert_deci_to_hex(relay_blink_off1, 1)
-    d4_5=convert_deci_to_hex(relay_repetitions1, 1)
+    d4_3=convert_deci_to_hex(int(relay_blink_on1), 1)
+    d4_4=convert_deci_to_hex(int(relay_blink_off1), 1)
+    d4_5=convert_deci_to_hex(int(relay_repetitions1), 1)
     d4_6=OPTIONS_MAPPING.get("voice_module",{}).get(voice_module1, "F0") or "F0"
-    d4_7=convert_deci_to_hex(voice_module_play_sound1, 1)
+    d4_7=convert_deci_to_hex(int(voice_module_play_sound1), 1)
 
     d4="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 "+d00+" 04 "+d4_2+" "+d4_3+" "+d4_4+" "+d4_5+" "+d4_6+" "+d4_7
     d4_check_sum=generate_checksum(d4)
     d4="AA "+d4+" "+d4_check_sum
+    validate_command(d3, f"Event List: [[{event_name2}]: Relay [value, blink on and off delay, repetitions], Voice Module [value, repetitions]]")
 
     # print(d0)
     # print(d1)

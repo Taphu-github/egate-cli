@@ -1,62 +1,80 @@
 import time
 import asyncio
 
-def generate_checksum(data):
-    hex_pairs = data.split(" ")
+def validate_command(command, command_name):
+    commad_arr=command.split(" ")
+    if len(commad_arr)!=16:
+        print(f"the {command_name} command is incomplete")
 
-    sums = 0
-    for hexi in hex_pairs[1:]:
-        sums += int(hexi, 16)
+    for com in commad_arr:
+        try:
+            int(com, 16)
+        except Exception as e:
+            print(f"the {command_name} has consists of non-hexadecimal value ")
 
-    hex_val = hex(sums)
-    meaningful_val_of_hex = hex_val.split("x")[1]
+def generate_checksum(data: str) -> str:
+    """
+    Generate a checksum for a given space-separated hexadecimal string.
 
-    if len(meaningful_val_of_hex) == 1:
-        return ("0" + meaningful_val_of_hex).upper()
+    Args:
+        data (str): A string of space-separated hexadecimal pairs (e.g., "12 AB 34").
 
-    elif len(meaningful_val_of_hex) == 2:
-        return meaningful_val_of_hex.upper()
+    Returns:
+        str: A two-character hexadecimal checksum in uppercase.
 
-    else:
-        return meaningful_val_of_hex[-2:].upper()
+    Raises:
+        ValueError: If the input contains invalid hexadecimal pairs.
+    """
+    try:
+        hex_pairs = data.split(" ")
+        # Convert each hex pair (skipping the first) to an integer and sum them
+        total_sum = sum(int(hexi, 16) for hexi in hex_pairs[1:])
+    except ValueError as e:
+        raise ValueError(f"Invalid hexadecimal input: {data}") from e
+
+    # Get the last two characters of the hex representation
+    return f"{total_sum & 0xFF:02X}"
 
 
-def convert_deci_to_hex(dec, ln):
-    deci = int(dec)
-    hex_val = hex(deci)
-    meaningful_val_of_hex = hex_val.split("x")[1]
-    return_hex = []
-    if len(meaningful_val_of_hex) == 1:
+def convert_deci_to_hex(dec: int, ln: int) -> str:
+    """
+    Convert a decimal number to a hexadecimal string with specified length.
 
-        return_hex = ["0" + meaningful_val_of_hex]
+    Args:
+        dec (int): Decimal number to convert.
+        ln (int): Desired number of two-character hex pairs in the output.
 
-    elif len(meaningful_val_of_hex) == 2:
-        return_hex = [meaningful_val_of_hex]
+    Returns:
+        str: Space-separated hexadecimal string padded to the desired length.
 
-    else:
-        if len(meaningful_val_of_hex) % 2 == 0:
-            return_hex = [
-                meaningful_val_of_hex[i : i + 2]
-                for i in range(0, len(meaningful_val_of_hex), 2)
-            ]
-        else:
-            hex_string = ["0" + meaningful_val_of_hex[0]]
-            meaningful_val_of_hex_even = meaningful_val_of_hex[1:]
-            return_hex.extend(hex_string)
-            return_hex.extend(
-                [
-                    meaningful_val_of_hex_even[i : i + 2]
-                    for i in range(0, len(meaningful_val_of_hex_even), 2)
-                ]
-            )
+    Raises:
+        ValueError: If `ln` is less than the required length for the hex representation.
+    """
+    try:
+        if dec<0:
+            print("NEGATIVE NUMBER IS NOT ALLOWED")
+            raise ValueError
 
-    if ln > len(return_hex):
-        for i in range(ln - len(return_hex)):
-            return_hex.insert(0, "00")
-    elif ln < len(return_hex):
-        print("lenght of return hex is much greater")
+        # Convert decimal to hexadecimal and remove the '0x' prefix
+        hex_val = f"{int(dec):X}"
 
-    return " ".join(return_hex)
+        # Ensure hex representation has an even number of characters
+        if len(hex_val) % 2 != 0:
+            hex_val = "0" + hex_val
+
+        # Split into pairs of two characters
+        hex_pairs = [hex_val[i:i + 2] for i in range(0, len(hex_val), 2)]
+
+        # Check and adjust length
+        if ln > len(hex_pairs):
+            # Prepend "00" to pad to the desired length
+            hex_pairs = ["00"] * (ln - len(hex_pairs)) + hex_pairs
+        elif ln < len(hex_pairs):
+            raise ValueError("Specified length is less than the required length for the hex value.")
+
+        return " ".join(hex_pairs)
+    except (ValueError, TypeError) as e:
+        raise ValueError(f"Invalid input: {dec}, {ln}") from e
 
 
 def to_int(string):
@@ -114,7 +132,7 @@ def get_mac_address(ser):
     if not response_chunks:
         print("There has been a problem with the command")
     # print(response_chunks)
-    "AA000211010008A102F0A1B4A59687C6"
+    # "AA 00 02 11 01 00 08 A1 02 F0 A1 B4 A5 96 87 C6"
     arranged_response = [response_chunks[0][i : i + 2] for i in range(0, 32, 2)]
     # print(arranged_response)
     mac_address = " ".join(arranged_response[9:15])
@@ -163,9 +181,8 @@ async def run_command(ser, command_arr):
         response = bytearray()
 
         while time.time() - start_time < 0.05:
-            if ser.in_waiting > 0.05:
+            if ser.in_waiting > 0:
                 response.extend(ser.read(ser.in_waiting))
-            # time.sleep(0.2)
 
         response_chunks = chunk_bytearray(response)
 
@@ -174,9 +191,7 @@ async def run_command(ser, command_arr):
             print("There has been a problem with the command")
             print("The command is ", com)
         else:
-            pass
             all_response.extend(response_chunks)
-    # print(all_response)
 
     return all_response
 

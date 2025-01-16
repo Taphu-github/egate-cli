@@ -1,7 +1,78 @@
 {
     "DEVICE INFORMATION": [
         {
-            "CID":["11 0A"],
+            "CID": [
+                "11 01"
+            ],
+            "DATAS": [
+                {
+                    "DATA_0": "",
+                    "DATA_1": "",
+                    "DATA": {
+                        "DATA_0": {
+                            "LABEL": "",
+                            "TYPE": "",
+                            "ID": 0,
+                            "FAMILY": "",
+                            "OPTIONS": []
+                        },
+                        "DATA_1": {
+                            "LABEL": "",
+                            "TYPE": "",
+                            "ID": 1,
+                            "FAMILY": "",
+                            "OPTIONS": []
+                        },
+                        "DATA_2": {
+                            "LABEL": "Mac-address",
+                            "TYPE": "HEX",
+                            "ID": 2,
+                            "FAMILY": "Mac-address",
+                            "OPTIONS": []
+                        },
+                        "DATA_3": {
+                            "LABEL": "Mac-address",
+                            "TYPE": "HEX",
+                            "ID": 3,
+                            "FAMILY": "Mac-address",
+                            "OPTIONS": []
+                        },
+                        "DATA_4": {
+                            "LABEL": "Mac-address",
+                            "TYPE": "HEX",
+                            "ID": 4,
+                            "FAMILY": "Mac-address",
+                            "OPTIONS": []
+                        },
+                        "DATA_5": {
+                            "LABEL": "Mac-address",
+                            "TYPE": "HEX",
+                            "ID": 5,
+                            "FAMILY": "Mac-address",
+                            "OPTIONS": []
+                        },
+                        "DATA_6": {
+                            "LABEL": "Mac-address",
+                            "TYPE": "HEX",
+                            "ID": 6,
+                            "FAMILY": "Mac-address",
+                            "OPTIONS": []
+                        },
+                        "DATA_7": {
+                            "LABEL": "Mac-address",
+                            "TYPE": "HEX",
+                            "ID": 7,
+                            "FAMILY": "Mac-address",
+                            "OPTIONS": []
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "CID": [
+                "11 09", "11 0A"
+            ],
             "DATAS": [
                 {
                     "DATA_0": "",
@@ -27,188 +98,6 @@
                                     "UPPER_LIMIT": ""
                                 }
                             ]
-                        },
-                        "DATA_1": {
-                            "LABEL": "",
-                            "TYPE": "",
-                            "ID": 1,
-                            "OPTIONS": [
-                                {
-                                    "LABEL": "",
-                                    "VALUE": "",
-                                    "FAMILY": "",
-                                    "LOWER_LIMIT": "",
-                                    "UPPER_LIMIT": ""
-                                }
-                            ]
-                        },
-                        "DATA_2": {
-                            "LABEL": "",
-                            "TYPE": "",
-                            "ID": 2,
-                            "OPTIONS": [
-                                {
-                                    "LABEL": "",
-                                    "VALUE": "",
-                                    "FAMILY": "",
-                                    "LOWER_LIMIT": "",
-                                    "UPPER_LIMIT": ""
-                                }
-                            ]
-                        },
-                        "DATA_3": {
-                            "LABEL": "",
-                            "TYPE": "",
-                            "ID": 3,
-                            "OPTIONS": [
-                                {
-                                    "LABEL": "",
-                                    "VALUE": "",
-                                    "FAMILY": "",
-                                    "LOWER_LIMIT": "",
-                                    "UPPER_LIMIT": ""
-                                }
-                            ]
-                        },
-                        "DATA_4": {
-                            "LABEL": "",
-                            "TYPE": "",
-                            "ID": 4,
-                            "OPTIONS": [
-                                {
-                                    "LABEL": "",
-                                    "VALUE": "",
-                                    "FAMILY": "",
-                                    "LOWER_LIMIT": "",
-                                    "UPPER_LIMIT": ""
-                                }
-                            ]
-                        },
-                        "DATA_5": {
-                            "LABEL": "",
-                            "TYPE": "",
-                            "ID": 5,
-                            "OPTIONS": [
-                                {
-                                    "LABEL": "",
-                                    "VALUE": "",
-                                    "FAMILY": "",
-                                    "LOWER_LIMIT": "",
-                                    "UPPER_LIMIT": ""
-                                }
-                            ]
-                        },
-                        "DATA_6": {
-                            "LABEL": "",
-                            "TYPE": "",
-                            "ID": 6,
-                            "OPTIONS": [
-                                {
-                                    "LABEL": "",
-                                    "VALUE": "",
-                                    "FAMILY": "",
-                                    "LOWER_LIMIT": "",
-                                    "UPPER_LIMIT": ""
-                                }
-                            ]
-                        },
-                        "DATA_7": {
-                            "LABEL": "",
-                            "TYPE": "",
-                            "ID": 7,
-                            "OPTIONS": [
-                                {
-                                    "LABEL": "",
-                                    "VALUE": "",
-                                    "FAMILY": "",
-                                    "LOWER_LIMIT": "",
-                                    "UPPER_LIMIT": ""
-                                }
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "CID":["11 01"],
-            "DATAS": [
-                {
-                    "DATA_0": "",
-                    "DATA_1": "",
-                    "DATA": {
-                        "DATA_0": {
-                            "LABEL": "",
-                            "TYPE": "",
-                            "ID": 0,
-                            "FAMILY": "",
-                            "OPTIONS": []
-                        },
-                        "DATA_1": {
-                            "LABEL": "",
-                            "TYPE": "",
-                            "ID": 1,
-                            "FAMILY": "",
-                            "OPTIONS": []
-                        },
-                        "DATA_2": {
-                            "LABEL": "Mac-address",
-                            "TYPE": "HEX",
-                            "ID": 2,
-                            "FAMILY": "Mac-address",
-                            "OPTIONS": []
-                        },
-                        "DATA_3": {
-                            "LABEL": "Mac-address",
-                            "TYPE": "HEX",
-                            "ID": 3,
-                            "FAMILY": "Mac-address",
-                            "OPTIONS": []
-                        },
-                        "DATA_4": {
-                            "LABEL": "Mac-address",
-                            "TYPE": "HEX",
-                            "ID": 4,
-                            "FAMILY": "Mac-address",
-                            "OPTIONS": []
-                        },
-                        "DATA_5": {
-                            "LABEL": "Mac-address",
-                            "TYPE": "HEX",
-                            "ID": 5,
-                            "FAMILY": "Mac-address",
-                            "OPTIONS": []
-                        },
-                        "DATA_6": {
-                            "LABEL": "Mac-address",
-                            "TYPE": "HEX",
-                            "ID": 6,
-                            "FAMILY": "Mac-address",
-                            "OPTIONS": []
-                        },
-                        "DATA_7": {
-                            "LABEL": "Mac-address",
-                            "TYPE": "HEX",
-                            "ID": 7,
-                            "FAMILY": "Mac-address",
-                            "OPTIONS": []
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "CID":["11 09"],
-            "DATAS": [
-                {
-                    "DATA_0": "",
-                    "DATA_1": "",
-                    "DATA": {
-                        "DATA_0": {
-                            "LABEL": "",
-                            "TYPE": "",
-                            "ID": 0,
-                            "OPTIONS": []
                         },
                         "DATA_1": {
                             "LABEL": "Group",
@@ -259,8 +148,9 @@
     ],
     "COMMUNICATION PARAMETERS": [
         {
-
-            "CID":["11 0D"],
+            "CID": [
+                "11 0D"
+            ],
             "DATAS": [
                 {
                     "DATA_0": "",
@@ -319,7 +209,9 @@
             ]
         },
         {
-            "CID":["11 0B"],
+            "CID": [
+                "11 0B"
+            ],
             "DATAS": [
                 {
                     "DATA_0": "00",
@@ -386,8 +278,24 @@
                             "ID": 3,
                             "OPTIONS": [
                                 {
+                                    "LABEL": "Even",
+                                    "VALUE": "01"
+                                },
+                                {
+                                    "LABEL": "Odd",
+                                    "VALUE": "02"
+                                },
+                                {
                                     "LABEL": "None",
                                     "VALUE": "03"
+                                },
+                                {
+                                    "LABEL": "Mark",
+                                    "VALUE": "04"
+                                },
+                                {
+                                    "LABEL": "Space",
+                                    "VALUE": "05"
                                 }
                             ]
                         },
@@ -614,7 +522,10 @@
     ],
     "CONTROL PARAMETERS": [
         {
-            "CID":["11 11", "11 12"],
+            "CID": [
+                "11 11",
+                "11 12"
+            ],
             "DATAS": [
                 {
                     "DATA_0": "00",
@@ -820,17 +731,14 @@
                                 {
                                     "LABEL": "Entry",
                                     "VALUE": "0"
-
                                 },
                                 {
                                     "LABEL": "Closed",
                                     "VALUE": "1"
-
                                 },
                                 {
                                     "LABEL": "Always Opened For Entry",
                                     "VALUE": "2"
-
                                 },
                                 {
                                     "LABEL": "Always Opened For Exit",
@@ -1741,9 +1649,8 @@
                                     "VALUE": "05"
                                 },
                                 {
-                                     "LABEL": "D3+D2",
+                                    "LABEL": "D3+D2",
                                     "VALUE": "06"
-
                                 },
                                 {
                                     "LABEL": "D3+D1+D2",
@@ -2004,9 +1911,8 @@
                                     "VALUE": "05"
                                 },
                                 {
-                                     "LABEL": "D3+D2",
+                                    "LABEL": "D3+D2",
                                     "VALUE": "06"
-
                                 },
                                 {
                                     "LABEL": "D3+D1+D2",
@@ -2285,9 +2191,8 @@
                                     "VALUE": "05"
                                 },
                                 {
-                                     "LABEL": "D3+D2",
+                                    "LABEL": "D3+D2",
                                     "VALUE": "06"
-
                                 },
                                 {
                                     "LABEL": "D3+D1+D2",
@@ -2345,7 +2250,6 @@
                             "ID": 6,
                             "OPTIONS": []
                         },
-
                         "DATA_7": {
                             "LABEL": "Open For Exit, RGB LED",
                             "TYPE": "SELECT",
@@ -2549,9 +2453,8 @@
                                     "VALUE": "05"
                                 },
                                 {
-                                     "LABEL": "D3+D2",
+                                    "LABEL": "D3+D2",
                                     "VALUE": "06"
-
                                 },
                                 {
                                     "LABEL": "D3+D1+D2",
@@ -2830,9 +2733,8 @@
                                     "VALUE": "05"
                                 },
                                 {
-                                     "LABEL": "D3+D2",
+                                    "LABEL": "D3+D2",
                                     "VALUE": "06"
-
                                 },
                                 {
                                     "LABEL": "D3+D1+D2",
@@ -3093,9 +2995,8 @@
                                     "VALUE": "05"
                                 },
                                 {
-                                     "LABEL": "D3+D2",
+                                    "LABEL": "D3+D2",
                                     "VALUE": "06"
-
                                 },
                                 {
                                     "LABEL": "D3+D1+D2",
@@ -3374,9 +3275,8 @@
                                     "VALUE": "05"
                                 },
                                 {
-                                     "LABEL": "D3+D2",
+                                    "LABEL": "D3+D2",
                                     "VALUE": "06"
-
                                 },
                                 {
                                     "LABEL": "D3+D1+D2",
@@ -3637,9 +3537,8 @@
                                     "VALUE": "05"
                                 },
                                 {
-                                     "LABEL": "D3+D2",
+                                    "LABEL": "D3+D2",
                                     "VALUE": "06"
-
                                 },
                                 {
                                     "LABEL": "D3+D1+D2",
@@ -3918,9 +3817,8 @@
                                     "VALUE": "05"
                                 },
                                 {
-                                     "LABEL": "D3+D2",
+                                    "LABEL": "D3+D2",
                                     "VALUE": "06"
-
                                 },
                                 {
                                     "LABEL": "D3+D1+D2",
@@ -4181,9 +4079,8 @@
                                     "VALUE": "05"
                                 },
                                 {
-                                     "LABEL": "D3+D2",
+                                    "LABEL": "D3+D2",
                                     "VALUE": "06"
-
                                 },
                                 {
                                     "LABEL": "D3+D1+D2",
@@ -4456,9 +4353,8 @@
                                     "VALUE": "05"
                                 },
                                 {
-                                     "LABEL": "D3+D2",
+                                    "LABEL": "D3+D2",
                                     "VALUE": "06"
-
                                 },
                                 {
                                     "LABEL": "D3+D1+D2",
@@ -4725,9 +4621,8 @@
                                     "VALUE": "05"
                                 },
                                 {
-                                     "LABEL": "D3+D2",
+                                    "LABEL": "D3+D2",
                                     "VALUE": "06"
-
                                 },
                                 {
                                     "LABEL": "D3+D1+D2",
@@ -4955,7 +4850,9 @@
     ],
     "INPUT AND OUTPUT": [
         {
-            "CID":["12 02"],
+            "CID": [
+                "12 02"
+            ],
             "DATAS": [
                 {
                     "DATA_0": "00",
@@ -5014,7 +4911,9 @@
             ]
         },
         {
-            "CID":["12 04"],
+            "CID": [
+                "12 04"
+            ],
             "DATAS": [
                 {
                     "DATA_0": "00",
@@ -5127,7 +5026,9 @@
     ],
     "STATUS AND CONTROL": [
         {
-            "CID":["12 00"],
+            "CID": [
+                "12 00"
+            ],
             "DATAS": [
                 {
                     "DATA_0": "",
