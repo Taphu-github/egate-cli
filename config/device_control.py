@@ -2,7 +2,7 @@ from config_util import convert_deci_to_hex, generate_checksum, to_int, hex_to_d
 
 def set_device_and_pass_through_parameters(device_parameters, pass_through_parameters, addr_to):
     addr_src="02"
-    cid1cid2="11 11"
+    cid1cid2="01 12"
     # "00 "+addr_src+" "+cid1cid2+" "+addr_to+
     #00 00
     entry_open_door_motor_speed_motor1=device_parameters.get("entry_open_door_motor_speed", {}).get("motor_1", "100")
@@ -101,16 +101,17 @@ def set_device_and_pass_through_parameters(device_parameters, pass_through_param
 
 
     # print([d0000, d0001, d0002, d0003, d0004])
-    print(d0000)
-    print(d0001)
-    print(d0002)
-    print(d0003)
-    print(d0004)
+    # print(d0000)
+    # print(d0001)
+    # print(d0002)
+    # print(d0003)
+    # print(d0004)
+    return [d0000, d0001, d0002, d0003, d0004]
 
 def set_default_state_for_gate_mode_and_switch_event(pass_through_parameters, switch_event, addr_to):
     # print(switch_event)
     addr_src="02"
-    cid1cid2="11 11"
+    cid1cid2="01 12"
 
 
     #0100
@@ -200,30 +201,31 @@ def set_default_state_for_gate_mode_and_switch_event(pass_through_parameters, sw
     d0104="AA "+d0104+" "+ d0104_check_sum
 
     # print([d0100, d0101, d0102, d0103, d0104])
-    print(d0100)
-    print(d0101)
-    print(d0102)
-    print(d0103)
-    print(d0104)
+    # print(d0100)
+    # print(d0101)
+    # print(d0102)
+    # print(d0103)
+    # print(d0104)
+    return [d0100, d0101, d0102, d0103, d0104]
 
 
 def set_event_list_for_open_for_entry_and_close_for_entry(event_list, addr_to):
-    generate_two_events_config(event_1=event_list.get("open_for_entry"), event_2=event_list.get("close_for_entry"), addr_to=addr_to, d00="02")
+    return generate_two_events_config(event_1=event_list.get("open_for_entry"), event_2=event_list.get("close_for_entry"), addr_to=addr_to, d00="02")
 
 def set_event_list_for_open_for_exit_and_close_for_exit(event_list, addr_to):
-    generate_two_events_config(event_1=event_list.get("open_for_exit"), event_2=event_list.get("close_for_exit"), addr_to=addr_to, d00="03")
+    return generate_two_events_config(event_1=event_list.get("open_for_exit"), event_2=event_list.get("close_for_exit"), addr_to=addr_to, d00="03")
 
 def set_event_list_for_device_lost_power_and_external_alarm(event_list, addr_to):
-    generate_two_events_config(event_1=event_list.get("device_lost_power"), event_2=event_list.get("external_alarm"), addr_to=addr_to, d00="04")
+    return generate_two_events_config(event_1=event_list.get("device_lost_power"), event_2=event_list.get("external_alarm"), addr_to=addr_to, d00="04")
 
 def set_event_list_for_fire_alarm_and_intrusion_alarm(event_list, addr_to):
-    generate_two_events_config(event_1=event_list.get("fire_alarm"), event_2=event_list.get("intrusion_alarm"), addr_to=addr_to, d00="05")
+    return generate_two_events_config(event_1=event_list.get("fire_alarm"), event_2=event_list.get("intrusion_alarm"), addr_to=addr_to, d00="05")
 
 def set_event_list_for_reverse_alarm_and_tailing_alarm(event_list, addr_to):
-    generate_two_events_config(event_1=event_list.get("reverse_alarm"), event_2=event_list.get("tailing_alarm"), addr_to=addr_to, d00="06")
+    return generate_two_events_config(event_1=event_list.get("reverse_alarm"), event_2=event_list.get("tailing_alarm"), addr_to=addr_to, d00="06")
 
 def set_event_list_for_stayed_alarm_and_reserve(event_list, addr_to):
-    generate_two_events_config(event_1=event_list.get("stayed_alarm"), event_2=event_list.get("reverse"), addr_to=addr_to, d00="07")
+    return generate_two_events_config(event_1=event_list.get("stayed_alarm"), event_2=event_list.get("reverse"), addr_to=addr_to, d00="07")
 
 def calculate_ir_and_color(ir_and_color_json):
     d1_val=ir_and_color_json.get("d1", "Off")
@@ -262,7 +264,7 @@ def calculate_ir_and_color(ir_and_color_json):
 
 def generate_two_events_config(event_1, event_2, addr_to, d00):
     addr_src="02"
-    cid1cid2="11 11"
+    cid1cid2="01 12"
      #0
     entrance_indicator=event_1.get("entrance_indicator",{}).get("choice","D1") or "D1"
     # print(f"Label Entrance Indicator (D3): '{entrance_indicator}'")
@@ -358,8 +360,9 @@ def generate_two_events_config(event_1, event_2, addr_to, d00):
     d4_check_sum=generate_checksum(d4)
     d4="AA "+d4+" "+d4_check_sum
 
-    print(d0)
-    print(d1)
-    print(d2)
-    print(d3)
-    print(d4)
+    # print(d0)
+    # print(d1)
+    # print(d2)
+    # print(d3)
+    # print(d4)
+    return ([d0, d1, d2, d3, d4])
