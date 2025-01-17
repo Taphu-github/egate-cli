@@ -1,0 +1,83 @@
+{
+    "base_speed_level": {
+        "description": "Base Speed Level",
+        "motor_1": "100",
+        "motor_2": "100"
+    },
+    "entry_open_door_motor_speed": {
+        "description": "Entry Open Door Motor Speed",
+        "motor_1": "100",
+        "motor_2": "100"
+    },
+    "entry_close_door_motor_speed": {
+        "description": "Entry Close Door Motor Speed",
+        "motor_1": "100",
+        "motor_2": "100"
+    },
+    "exit_open_door_motor_speed": {
+        "description": "Exit Open Door Motor Speed",
+        "motor_1": "100",
+        "motor_2": "100"
+    },
+    "exit_close_door_motor_speed": {
+        "description": "Exit Close Door Motor Speed",
+        "motor_1": "100",
+        "motor_2": "100"
+    },
+    "motor_overcurrent_protection": {
+        "description": "Two digit[eg: 20], meaning 2.0 A",
+        "value": "25"
+    },
+    "ir_sensitivity": {
+        "description": "0-100",
+        "value": "100"
+    },
+    "ir_sensor_type": {
+        "description": "",
+        "options":[
+            "PNP (Hi Trig)","NPN (Lo Trig)"
+        ],
+        "value": "PNP (Hi Trig)"
+    },
+    "ir_logic": {
+        "description": "Description for ir_logic",
+        "options":[
+            "Disabled","Local Interface","External For Entry",
+            "External For Exit","External For Both"
+        ],
+        "value": "External For Entry"
+    },
+    "relay_for_passed_counter": {
+        "description": "Description for relay_for_passed_counter",
+        "options":[
+            "Disabled","Entry","Exit","Both"
+        ],
+        "value": "Disabled"
+    },
+    "barriers_count": {
+        "description": "Description for barriers_count",
+        "options":[
+            "Single","Double"
+        ],
+        "value": "Double"
+    },
+    "normally_open_direction": {
+        "description": "Description for normally_open_direction",
+        "options":[
+            "Entry","Exit"
+        ],
+        "value": "Entry"
+    },
+    "action_on_power_lost": {
+        "description": "Description for action_on_power_lost",
+        "options":[
+            "None","Closed","Always Open For Entry","Always Open For Exit"
+        ],
+        "value": "Always Open For Entry"
+    },
+    "power_on_self_check": {
+        "description": "Description for power_on_self_check",
+        "options":["On", "Off"],
+        "value": "Off"
+    }
+}
