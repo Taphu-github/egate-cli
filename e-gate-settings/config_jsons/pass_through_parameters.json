@@ -27,7 +27,7 @@
     },
     "maximum_passage_time": {
         "description": "two digits eg. 50 -> meaning 5.0 Seconds",
-        "value": "50"
+        "value": "25"
     },
     "authorized_open_door_delay": {
         "description": "two digits eg. 50 -> meaning 5.0 Seconds",

@@ -35,21 +35,20 @@ def menu():
         print("**********************************************************************")
         print("Enter to select an option:\n'1' for Device Information\n'2' for Communication Parameters\n'3' for Control Parameters\n'4' for Input and Output\n'5' for Status and Control\n'0' to Quit\n")
         option_var=str(input("Value: "))
-        match option_var:
-            case '1':
-                device_information_menu(device_information_commands, addr_to)
-            case '2':
-                pass
-            case '3':
-                control_parameters_menu(control_parameters_commands, addr_to)
-            case '4':
-                input_and_output_menu(input_and_output_commands, addr_to)
-            case '5':
-                status_and_control_menu(status_and_control_commands, addr_to)
-            case '0':
-                exit_condition=False
-            case _:
-                pass
+        if option_var== '1':
+            device_information_menu(device_information_commands, addr_to)
+        elif option_var== '2':
+            pass
+        elif option_var== '3':
+            control_parameters_menu(control_parameters_commands, addr_to)
+        elif option_var== '4':
+            input_and_output_menu(input_and_output_commands, addr_to)
+        elif option_var== '5':
+            status_and_control_menu(status_and_control_commands, addr_to)
+        elif option_var== '0':
+            exit_condition=False
+        else :
+            pass
 
 
 

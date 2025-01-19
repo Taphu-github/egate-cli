@@ -37,6 +37,10 @@ def parse(cmd):
 
 
 
+test='AA 00 02 11 11 01 08 01 03 00 00 00 00 00 00 31'
+
+print("".join(test.split(" ")))
+print("hello")
 
 
 

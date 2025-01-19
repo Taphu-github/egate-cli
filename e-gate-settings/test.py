@@ -1,5 +1,13 @@
-import os
+import serial.tools.list_ports
 
-script_path = os.getcwd()
+def list_serial_ports():
+    ports = serial.tools.list_ports.comports()
+    serial_ports=[]
 
-print(script_path)
+    for port in ports:
+        serial_ports.append(port.device)
+    return serial_ports
+
+available_ports = list_serial_ports()
+
+print("Available ports: ", available_ports)

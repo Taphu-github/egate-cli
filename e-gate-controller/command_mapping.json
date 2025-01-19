@@ -15,7 +15,7 @@
         "type":"straight",
         "command":"Open For Entry",
         "cid1":"02",
-        "cid2":"01",
+        "cid2":"00",
         "data_length":"08",
         "data":"00 00 00 00 00 00 00 00"
     },
@@ -25,7 +25,7 @@
         "type":"straight",
         "command":"Always Open For Entry",
         "cid1":"02",
-        "cid2":"01",
+        "cid2":"00",
         "data_length":"08",
         "data":"00 01 00 00 00 00 00 00"
     },
@@ -35,7 +35,7 @@
         "type":"straight",
         "command":"Close For Entry",
         "cid1":"02",
-        "cid2":"01",
+        "cid2":"00",
         "data_length":"08",
         "data":"00 02 00 00 00 00 00 00"
     },
@@ -45,7 +45,7 @@
         "type":"straight",
         "command":"Open For Exit",
         "cid1":"02",
-        "cid2":"01",
+        "cid2":"00",
         "data_length":"08",
         "data": "00 03 00 00 00 00 00 00"
     },
@@ -55,7 +55,7 @@
         "type":"straight",
         "command":"Always Open For Exit",
         "cid1":"02",
-        "cid2":"01",
+        "cid2":"00",
         "data_length":"08",
         "data": "00 04 00 00 00 00 00 00"
     },
@@ -65,7 +65,7 @@
         "type":"straight",
         "command":"Close For Exit",
         "cid1":"02",
-        "cid2":"01",
+        "cid2":"00",
         "data_length":"08",
         "data": "00 05 00 00 00 00 00 00"
     },
@@ -487,6 +487,26 @@
 
         },
         "multiple":[]
+    },
+    {
+        "id":36,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Lock",
+        "cid1":"02",
+        "cid2":"05",
+        "data_length":"02",
+        "data":"00 01 00 00 00 00 00 00"
+    },
+    {
+        "id":37,
+        "family":"status and control",
+        "type":"straight",
+        "command":"Unlock",
+        "cid1":"02",
+        "cid2":"05",
+        "data_length":"02",
+        "data":"00 00 00 00 00 00 00 00"
     }
 
 
