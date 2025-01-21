@@ -6,7 +6,7 @@ from aioserial import AioSerial
 from commands_and_variables import COMMANDS, run_command, get_device_id
 from input_ouput_menu import input_output_menu_straight_command, input_output_menu_set_commands
 from status_control_menu import status_control_menu_straight_command, status_control_menu_set_commands
-
+import threading
 
 async def menu(ser):
     # addr_to="02"
@@ -149,16 +149,46 @@ def print_options(commands):
 
 
 
-try:
-    SERIAL_PORT = '/dev/ttyUSB0'
-    BAUD_RATE = 38400
-    TIMEOUT = 6
-    ser = AioSerial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
-    print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
+def main_thread():
+    try:
+        SERIAL_PORT = '/dev/ttyUSB0'
+        BAUD_RATE = 38400
+        TIMEOUT = 6
+        ser = AioSerial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
+        print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
 
-    asyncio.run(menu(ser))
-except serial.SerialException as e:
-    print(f"Error opening serial port: {e}")
-    exit()
+        asyncio.run(menu(ser))
+    except serial.SerialException as e:
+        print(f"Error opening serial port: {e}")
+        exit()
+
+def read_continuous():
+    try:
+        ser = serial.Serial('/dev/ttyUSB0', 38400, timeout=1)  # Open the serial port
+        print(f"Listening on '/dev/ttyUSB0' at 38400 baud...")
+
+        while True:
+            data = ser.readline().decode('utf-8').strip()  # Read line from serial
+            if data:
+                print(f"Received: {data}")  # Print the received message
+
+    except serial.SerialException as e:
+        print(f"Error: {e}")
+    finally:
+        ser.close()  # Close the serial port once done
 
 
+
+
+
+# Create two threads
+thread1 = threading.Thread(target=main_thread, args=("Thread-1",))
+thread2 = threading.Thread(target=read_continuous, args=("Thread-2",))
+
+# Start both threads
+thread1.start()
+thread2.start()
+
+# Wait for both threads to finish
+thread1.join()
+thread2.join()
