@@ -75,8 +75,8 @@ async def menu(ser):
                         counter.add(r[18:24])
 
             if len(counter)==2:
-                start=int(list(counter)[0], 16)
-                end=int(list(counter)[1], 16)
+                start=int(list(counter).sort()[0], 16)
+                end=int(list(counter).sort()[1], 16)
                 print(f"COUNTER INCREASED BY ONE FROM {start} to {end}")
                 print(counter)
 
