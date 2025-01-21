@@ -73,6 +73,14 @@ class ControlPanelApp:
             if i % 3 == 2:
                 row += 1
 
+        separator_2 = tk.Frame(upper_frame, height=2, relief="sunken")
+        separator_2.grid(row=7, column=0, columnspan=10, sticky="ew", pady=10)
+
+        tk.Button(upper_frame, text="Cycle Test", bg="#add8e6", command=self.cycle_test).grid(row=8, column=1, padx=5, pady=5)
+        tk.Button(upper_frame, text="Restart The Device", bg="#add8e6", command=self.restart_device).grid(row=8, column=2, padx=5, pady=5)
+
+        #AA 00 01 02 03 02 00 00 00 00 00 00 00 00 00 08
+
         # Lower Frame
         lower_frame = tk.Frame(status_control_tab, bg="#f0f8ff")
         lower_frame.pack(fill=tk.BOTH, expand=True, pady=10)
@@ -143,6 +151,25 @@ class ControlPanelApp:
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
         self.input_output_text_area.config(yscrollcommand=scrollbar.set)
+
+    def cycle_test(self):
+        command=get_and_create_command(command_name="Cycle Test", addr_to=self.addr_to)
+        self.text_area.insert(tk.END, "\nINPUT: "+command)
+        response=run_command(ser=self.serial_connection, command=command)
+        if response:
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
+        else:
+            self.text_area.insert(tk.END, "\nERROR: ")
+
+    def restart_device(self):
+        #Restart the Device
+        command=get_and_create_command(command_name="Restart the Device", addr_to=self.addr_to)
+        self.text_area.insert(tk.END, "\nINPUT: "+command)
+        response=run_command(ser=self.serial_connection, command=command)
+        if response:
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
+        else:
+            self.text_area.insert(tk.END, "\nERROR: ")
 
     # Add corresponding functions
     def refresh_counter_status(self):
@@ -319,8 +346,8 @@ class ControlPanelApp:
         self.text_area.insert(tk.END, "\nINPUT: "+command)
         response=run_command(ser=self.serial_connection, command=command)
         if response:
-            formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
-            self.text_area.insert(tk.END, "\nRESPONSE: "+formatted_response)
+            # formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
         else:
             self.text_area.insert(tk.END, "\nERROR: ")
 
@@ -329,68 +356,75 @@ class ControlPanelApp:
         self.text_area.insert(tk.END, "\nINPUT: "+command)
         response=run_command(ser=self.serial_connection, command=command)
         if response:
-            formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
-            self.text_area.insert(tk.END, "\nRESPONSE: "+formatted_response)
+            # formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
         else:
             self.text_area.insert(tk.END, "\nERROR: ")
 
     def open_for_entry(self):
+        self.refresh_counter_status()
         command=get_and_create_command(command_name="Open For Entry", addr_to=self.addr_to)
         self.text_area.insert(tk.END, "\nINPUT: "+command)
-        response=run_command(ser=self.serial_connection, command=command)
+        response=run_command(ser=self.serial_connection, command=command, timeout=6)
         if response:
-            formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
-            self.text_area.insert(tk.END, "\nRESPONSE: "+" ".join(formatted_response))
+            # formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
         else:
             self.text_area.insert(tk.END, "\nERROR: ")
+        self.refresh_counter_status()
 
     def always_open_for_entry(self):
+        self.refresh_counter_status()
         command=get_and_create_command(command_name="Always Open For Entry", addr_to=self.addr_to)
         self.text_area.insert(tk.END, "\nINPUT: "+command)
         response=run_command(ser=self.serial_connection, command=command)
         if response:
-            formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
-            self.text_area.insert(tk.END, "\nRESPONSE: "+" ".join(formatted_response))
+            # formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
         else:
             self.text_area.insert(tk.END, "\nERROR: ")
 
     def close_for_entry(self):
+        self.refresh_counter_status()
         command=get_and_create_command(command_name="Close For Entry", addr_to=self.addr_to)
         self.text_area.insert(tk.END, "\nINPUT: "+command)
         response=run_command(ser=self.serial_connection, command=command)
         if response:
-            formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
-            self.text_area.insert(tk.END, "\nRESPONSE: "+" ".join(formatted_response))
+            # formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
         else:
             self.text_area.insert(tk.END, "\nERROR: ")
 
     def open_for_exit(self):
+        self.refresh_counter_status()
         command=get_and_create_command(command_name="Open For Exit", addr_to=self.addr_to)
         self.text_area.insert(tk.END, "\nINPUT: "+command)
         response=run_command(ser=self.serial_connection, command=command)
         if response:
-            formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
-            self.text_area.insert(tk.END, "\nRESPONSE: "+" ".join(formatted_response))
+            # formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
         else:
             self.text_area.insert(tk.END, "\nERROR: ")
 
     def always_open_for_exit(self):
+        self.refresh_counter_status()
         command=get_and_create_command(command_name="Always Open For Exit", addr_to=self.addr_to)
         self.text_area.insert(tk.END, "\nINPUT: "+command)
         response=run_command(ser=self.serial_connection, command=command)
         if response:
-            formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
-            self.text_area.insert(tk.END, "\nRESPONSE: "+" ".join(formatted_response))
+            # formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
         else:
             self.text_area.insert(tk.END, "\nERROR: ")
 
     def close_for_exit(self):
+        self.refresh_counter_status()
         command=get_and_create_command(command_name="Close For Exit", addr_to=self.addr_to)
         self.text_area.insert(tk.END, "\nINPUT: "+command)
         response=run_command(ser=self.serial_connection, command=command)
         if response:
-            formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
-            self.text_area.insert(tk.END, "\nRESPONSE: "+" ".join(formatted_response))
+            # formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
         else:
             self.text_area.insert(tk.END, "\nERROR: ")
 
@@ -399,8 +433,8 @@ class ControlPanelApp:
         self.text_area.insert(tk.END, "\nINPUT: "+command)
         response=run_command(ser=self.serial_connection, command=command)
         if response:
-            formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
-            self.text_area.insert(tk.END, "\nRESPONSE: "+" ".join(formatted_response))
+            # formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
         else:
             self.text_area.insert(tk.END, "\nERROR: ")
 
@@ -409,8 +443,8 @@ class ControlPanelApp:
         self.text_area.insert(tk.END, "\nINPUT: "+command)
         response=run_command(ser=self.serial_connection, command=command)
         if response:
-            formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
-            self.text_area.insert(tk.END, "\nRESPONSE: "+" ".join(formatted_response))
+            # formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
         else:
             self.text_area.insert(tk.END, "\nERROR: ")
 
@@ -419,8 +453,8 @@ class ControlPanelApp:
         self.text_area.insert(tk.END, "\nINPUT: "+command)
         response=run_command(ser=self.serial_connection, command=command)
         if response:
-            formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
-            self.text_area.insert(tk.END, "\nRESPONSE: "+" ".join(formatted_response))
+            # formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
         else:
             self.text_area.insert(tk.END, "\nERROR: ")
 
@@ -429,8 +463,8 @@ class ControlPanelApp:
         self.text_area.insert(tk.END, "\nINPUT: "+command)
         response=run_command(ser=self.serial_connection, command=command)
         if response:
-            formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
-            self.text_area.insert(tk.END, "\nRESPONSE: "+" ".join(formatted_response))
+            # formatted_response=[response[0][i:i+2] for i in range(0,32,2)]
+            self.text_area.insert(tk.END, "\nRESPONSE: "+str(response))
         else:
             self.text_area.insert(tk.END, "\nERROR: ")
 

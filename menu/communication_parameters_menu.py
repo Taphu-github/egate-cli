@@ -7,6 +7,6 @@ def commmunication_parameters_menu_straight_command(command_name, addr_to):
         generated_commands=get_and_create_command(command_name=command_name, addr_to=addr_to)
     return generated_commands
 
-def commmunication_parameters_menu_set_commands():
+def commmunication_parameters_menu_set_commands(command_name, addr_to):
     command_names={15:"Set Counter"#data[2-4]:entry count, data[5-7]:exit count
     }

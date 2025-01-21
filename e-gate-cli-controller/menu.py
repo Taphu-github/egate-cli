@@ -1,16 +1,21 @@
 import json
 # from device_information_menu import
-from commands_and_variables import COMMANDS
+import asyncio
+import serial
+from aioserial import AioSerial
+from commands_and_variables import COMMANDS, run_command, get_device_id
 from input_ouput_menu import input_output_menu_straight_command, input_output_menu_set_commands
 from status_control_menu import status_control_menu_straight_command, status_control_menu_set_commands
 
 
-def menu():
-    addr_to="09"
+async def menu(ser):
+    # addr_to="02"
     status_and_control_commands=[]
     input_and_output_commands=[]
     control_parameters_commands=[]
     device_information_commands=[]
+
+    addr_to=get_device_id(ser=ser)
 
     for command in COMMANDS:
         if not command.get("family"):
@@ -34,13 +39,18 @@ def menu():
         print("Enter to select an option:\n'1' for Input and Output\n'2' for Status and Control\n'0' to Quit\n")
         option_var=str(input("Value: "))
         if option_var== '1':
-            input_and_output_menu(input_and_output_commands, addr_to)
+            command=input_and_output_menu(input_and_output_commands, addr_to)
+            await run_command(ser=ser, command_arr=command)
         elif option_var== '2':
-            status_and_control_menu(status_and_control_commands, addr_to)
+            command=status_and_control_menu(status_and_control_commands, addr_to)
+            await run_command(ser=ser, command_arr=command)
         elif option_var== '0':
             exit_condition=False
         else :
             pass
+
+
+
 
 
 def input_and_output_menu(commands, addr_to):
@@ -54,7 +64,8 @@ def input_and_output_menu(commands, addr_to):
         generated_commands=input_output_menu_set_commands(command_name=command_name, addr_to=addr_to)
     else:
         print("command_type is wrong, '{}'".format(command_type))
-    print(generated_commands)
+    gen=generated_commands[0].split(" ")
+    return ["".join(gen)]
 
 def status_and_control_menu(commands, addr_to):
     print("You are in the Status and Control Mode".upper())
@@ -67,7 +78,9 @@ def status_and_control_menu(commands, addr_to):
         generated_commands=status_control_menu_set_commands(command_name=command_name, addr_to=addr_to)
     else:
         print("command_type is wrong, '{}'".format(command_type))
-    print(generated_commands)
+    gen=generated_commands[0].split(" ")
+    return ["".join(gen)]
+
 
 def print_options(commands):
     mode_exit_condition=False
@@ -101,6 +114,17 @@ def print_options(commands):
 
 
 
+try:
+    SERIAL_PORT = "COM3"
+    #'/dev/ttyUSB0'
+    BAUD_RATE = 38400
+    TIMEOUT = 6
+    ser = AioSerial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
+    print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
+
+    asyncio.run(menu(ser))
+except serial.SerialException as e:
+    print(f"Error opening serial port: {e}")
+    exit()
 
 
-menu()

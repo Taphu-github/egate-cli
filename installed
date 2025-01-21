@@ -1,0 +1,17 @@
+User-interface
+    sudo apt install -y xfce4 xfce4-goodies
+
+
+Unmanaged Ethernet problem
+
+    sudo rm /etc/netplan/*.yaml
+    sudo nano /etc/netplan/01-network-manager-all.yaml
+    # Let NetworkManager manage all devices on this system
+    network:
+    version: 2
+    renderer: NetworkManager
+
+    sudo netplan generate
+    sudo netplan apply
+
+    sudo reboot now

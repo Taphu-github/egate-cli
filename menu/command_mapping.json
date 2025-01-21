@@ -15,7 +15,7 @@
         "type":"straight",
         "command":"Open For Entry",
         "cid1":"02",
-        "cid2":"00",
+        "cid2":"01",
         "data_length":"08",
         "data":"00 00 00 00 00 00 00 00"
     },
@@ -25,7 +25,7 @@
         "type":"straight",
         "command":"Always Open For Entry",
         "cid1":"02",
-        "cid2":"00",
+        "cid2":"01",
         "data_length":"08",
         "data":"00 01 00 00 00 00 00 00"
     },
@@ -35,7 +35,7 @@
         "type":"straight",
         "command":"Close For Entry",
         "cid1":"02",
-        "cid2":"00",
+        "cid2":"01",
         "data_length":"08",
         "data":"00 02 00 00 00 00 00 00"
     },
@@ -45,7 +45,7 @@
         "type":"straight",
         "command":"Open For Exit",
         "cid1":"02",
-        "cid2":"00",
+        "cid2":"01",
         "data_length":"08",
         "data": "00 03 00 00 00 00 00 00"
     },
@@ -55,7 +55,7 @@
         "type":"straight",
         "command":"Always Open For Exit",
         "cid1":"02",
-        "cid2":"00",
+        "cid2":"01",
         "data_length":"08",
         "data": "00 04 00 00 00 00 00 00"
     },
@@ -65,7 +65,7 @@
         "type":"straight",
         "command":"Close For Exit",
         "cid1":"02",
-        "cid2":"00",
+        "cid2":"01",
         "data_length":"08",
         "data": "00 05 00 00 00 00 00 00"
     },
@@ -336,146 +336,6 @@
     },
     {
         "id":26,
-        "family":"control parameters",
-        "type":"straight",
-        "command":"Load All Parameters",
-        "cid1":"02",
-        "cid2":"04",
-        "data_length":"08",
-        "data":"",
-        "structure":{
-
-        },
-        "multiple":[
-            "00 00 00 00 00 00 00 00","00 01 00 00 00 00 00 00","00 02 00 00 00 00 00 00","00 03 00 00 00 00 00 00","00 04 00 00 00 00 00 00",
-            "01 00 00 00 00 00 00 00","01 01 00 00 00 00 00 00","01 02 00 00 00 00 00 00","01 03 00 00 00 00 00 00","01 04 00 00 00 00 00 00",
-            "02 00 00 00 00 00 00 00","02 01 00 00 00 00 00 00","02 02 00 00 00 00 00 00","02 03 00 00 00 00 00 00","02 04 00 00 00 00 00 00",
-            "03 00 00 00 00 00 00 00","03 01 00 00 00 00 00 00","03 02 00 00 00 00 00 00","03 03 00 00 00 00 00 00","03 04 00 00 00 00 00 00",
-            "04 00 00 00 00 00 00 00","04 01 00 00 00 00 00 00","04 02 00 00 00 00 00 00","04 03 00 00 00 00 00 00","04 04 00 00 00 00 00 00",
-            "05 00 00 00 00 00 00 00","05 01 00 00 00 00 00 00","05 02 00 00 00 00 00 00","05 03 00 00 00 00 00 00","05 04 00 00 00 00 00 00",
-            "06 00 00 00 00 00 00 00","06 01 00 00 00 00 00 00","06 02 00 00 00 00 00 00","06 03 00 00 00 00 00 00","06 04 00 00 00 00 00 00",
-            "07 00 00 00 00 00 00 00","07 01 00 00 00 00 00 00","07 02 00 00 00 00 00 00","07 03 00 00 00 00 00 00","07 04 00 00 00 00 00 00"
-        ]
-    },
-    {
-        "id":27,
-        "family":"control parameters",
-        "type":"set",
-        "command":"Set Device and Pass Through Parameters",
-        "cid1":"01",
-        "cid2":"12",
-        "data_length":"08",
-        "data":"",
-        "structure":{
-
-        },
-        "multistructure":[
-            {
-
-            }
-        ],
-        "multiple":[]
-    },
-    {
-        "id":28,
-        "family":"control parameters",
-        "type":"set",
-        "command":"Set Event List for Open For Entry and Close For Entry",
-        "cid1":"01",
-        "cid2":"12",
-        "data_length":"08",
-        "data":"",
-        "structure":{
-
-        },
-        "multiple":[]
-    },
-    {
-        "id":29,
-        "family":"control parameters",
-        "type":"set",
-        "command":"Set Event List for Open For Exit and Close For Exit",
-        "cid1":"01",
-        "cid2":"12",
-        "data_length":"08",
-        "data":"",
-        "structure":{
-
-        },
-        "multiple":[]
-    },
-    {
-        "id":30,
-        "family":"control parameters",
-        "type":"set",
-        "command":"Set Event List for Device Lost Power and External Alarm",
-        "cid1":"01",
-        "cid2":"12",
-        "data_length":"08",
-        "data":"",
-        "structure":{
-
-        },
-        "multiple":[]
-    },
-    {
-        "id":31,
-        "family":"control parameters",
-        "type":"set",
-        "command":"Set Event List for Fire Alarm and Intrusion Alarm",
-        "cid1":"01",
-        "cid2":"12",
-        "data_length":"08",
-        "data":"",
-        "structure":{
-
-        },
-        "multiple":[]
-    },
-    {
-        "id":32,
-        "family":"control parameters",
-        "type":"set",
-        "command":"Set Event List for Reverse Alarm and Tailing Alarm",
-        "cid1":"01",
-        "cid2":"12",
-        "data_length":"08",
-        "data":"",
-        "structure":{
-
-        },
-        "multiple":[]
-    },
-    {
-        "id":33,
-        "family":"control parameters",
-        "type":"set",
-        "command":"Set Event List for Stayed Alarm and Reserve",
-        "cid1":"01",
-        "cid2":"12",
-        "data_length":"08",
-        "data":"",
-        "structure":{
-
-        },
-        "multiple":[]
-    },
-    {
-        "id":34,
-        "family":"control parameters",
-        "type":"set",
-        "command":"Set Default State For Gate Mode and Switch Event",
-        "cid1":"01",
-        "cid2":"12",
-        "data_length":"08",
-        "data":"",
-        "structure":{
-
-        },
-        "multiple":[]
-    },
-    {
-        "id":35,
         "family":"device information",
         "type":"straight",
         "command":"Restart the Device",
@@ -487,36 +347,6 @@
 
         },
         "multiple":[]
-    },
-    {
-        "id":36,
-        "family":"status and control",
-        "type":"straight",
-        "command":"Lock",
-        "cid1":"02",
-        "cid2":"05",
-        "data_length":"02",
-        "data":"00 01 00 00 00 00 00 00"
-    },
-    {
-        "id":37,
-        "family":"status and control",
-        "type":"straight",
-        "command":"Unlock",
-        "cid1":"02",
-        "cid2":"05",
-        "data_length":"02",
-        "data":"00 00 00 00 00 00 00 00"
-    },
-    {
-        "id":38,
-        "family":"status and control",
-        "type":"straight",
-        "command":"Cycle Test",
-        "cid1":"02",
-        "cid2":"03",
-        "data_length":"00",
-        "data":"00 00 00 00 00 00 00 00"
     }
 
 

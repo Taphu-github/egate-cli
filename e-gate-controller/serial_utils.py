@@ -42,7 +42,7 @@ def chunk_bytearray(byte_array, chunk_size=16):
 
     return hex_chunks
 
-def run_command(ser, command):
+def run_command(ser, command, timeout=0.2):
 
     command_bytes = bytes.fromhex(command)
     ser.write(command_bytes)
@@ -50,7 +50,7 @@ def run_command(ser, command):
     start_time = time.time()
     response = bytearray()
 
-    while time.time() - start_time < 0.2:
+    while time.time() - start_time < timeout:
         if ser.in_waiting > 0:
             response.extend(ser.read(ser.in_waiting))
 
@@ -63,6 +63,7 @@ def run_command(ser, command):
 
 def get_addr_to(ser):
     command = "00 01 01 01 00 00 00 00 00 00 00 00 00 00"
+
     command_check_sum = generate_checksum(command)
     command_hex = "AA " + command + " " + command_check_sum
 

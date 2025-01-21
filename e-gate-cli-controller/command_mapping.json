@@ -4,8 +4,8 @@
         "family":"status and control",
         "type":"straight",
         "command":"Refresh Get Passed Counter",
-        "cid1":"01",
-        "cid2":"02",
+        "cid1":"02",
+        "cid2":"00",
         "data_length":"08",
         "data":"FF 00 00 00 00 00 00 00"
     },
@@ -94,8 +94,8 @@
         "family":"status and control",
         "type":"straight",
         "command":"Clear Entry",
-        "cid1":"01",
-        "cid2":"02",
+        "cid1":"02",
+        "cid2":"00",
         "data_length":"08",
         "data":"01 00 00 00 00 FF FF FF"
     },
@@ -104,8 +104,8 @@
         "family":"status and control",
         "type":"set",
         "command":"Set Counter",
-        "cid1":"01",
-        "cid2":"02",
+        "cid1":"02",
+        "cid2":"00",
         "data_length":"08",
         "data":"",
         "structure":{
@@ -118,8 +118,8 @@
         "family":"status and control",
         "type":"straight",
         "command":"Clear Counter",
-        "cid1":"01",
-        "cid2":"02",
+        "cid1":"02",
+        "cid2":"00",
         "data_length":"08",
         "data":"01 00 00 00 00 00 00 00"
     },
@@ -128,7 +128,7 @@
         "family":"input and output",
         "type":"straight",
         "command":"Get Voltage",
-        "cid1":"01",
+        "cid1":"02",
         "cid2":"02",
         "data_length":"08",
         "data":"00 00 00 00 00 00 00 00"
@@ -487,36 +487,6 @@
 
         },
         "multiple":[]
-    },
-    {
-        "id":36,
-        "family":"status and control",
-        "type":"straight",
-        "command":"Lock",
-        "cid1":"02",
-        "cid2":"05",
-        "data_length":"02",
-        "data":"00 01 00 00 00 00 00 00"
-    },
-    {
-        "id":37,
-        "family":"status and control",
-        "type":"straight",
-        "command":"Unlock",
-        "cid1":"02",
-        "cid2":"05",
-        "data_length":"02",
-        "data":"00 00 00 00 00 00 00 00"
-    },
-    {
-        "id":38,
-        "family":"status and control",
-        "type":"straight",
-        "command":"Cycle Test",
-        "cid1":"02",
-        "cid2":"03",
-        "data_length":"00",
-        "data":"00 00 00 00 00 00 00 00"
     }
 
 
