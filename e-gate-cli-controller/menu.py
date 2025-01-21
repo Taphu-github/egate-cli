@@ -154,7 +154,7 @@ def main_thread():
         SERIAL_PORT = '/dev/ttyUSB0'
         BAUD_RATE = 38400
         TIMEOUT = 6
-        ser = AioSerial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
+        ser = serial.Serial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
         print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
 
         asyncio.run(menu(ser))
