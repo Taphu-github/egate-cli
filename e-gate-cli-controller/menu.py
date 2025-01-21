@@ -47,6 +47,7 @@ async def menu(ser):
             res=await run_command(ser=ser, command_arr=command)
         elif option_var== '0':
             exit_condition=False
+            exit(0)
         else :
             pass
 
@@ -63,9 +64,18 @@ async def menu(ser):
             print(f"Entry Counter: {entry_counter}")
             print(f"Exit Countyer: {exit_counter}")
         elif command_name=="Open For Entry" and res:
+            counter=set()
             for r in res:
-                if r[6:8]=="12":
-                    print(r)
+                if r[6:10]=="1200":
+                    if r[14:16]=="60":
+                        print("INTRUSION")
+                    if r[14:16]=="62":
+                        print("TAILING")
+                    if r[18:24] not in counter:
+                        counter.add(r[18:24])
+
+            if len(counter)==2: print("COUNTER INCREASED BY ONE")
+
             # print("OFE",res)
 
 
