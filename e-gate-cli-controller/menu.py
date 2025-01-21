@@ -122,7 +122,7 @@ def main_thread(ser, addr_to):
     asyncio.run(menu(ser, addr_to))
 
 
-def read_continuous(ser):
+def read_continuous(ser, addr_to):
     while True:
         # response = bytearray()
         # if ser.in_waiting > 0:
@@ -184,7 +184,7 @@ try:
     print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
     addr_to=get_device_id(ser=ser)
     thread1 = threading.Thread(target=main_thread, args=(ser,addr_to))
-    thread2 = threading.Thread(target=read_continuous, args=(ser))
+    thread2 = threading.Thread(target=read_continuous, args=(ser, addr_to))
 
     # Start both threads
     thread1.start()
