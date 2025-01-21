@@ -52,8 +52,10 @@ async def menu(ser):
 
         if command_name=="Get Voltage" and res:
             formatted_response=[res[0][i:i+2] for i in range(0,32,2)]
-            print(f"Power Supply Voltage: {int("".join(formatted_response[11:13]), 16)}")
-            print(f"Battery Voltage: {int("".join(formatted_response[13:15]), 16)}")
+            psv=int("".join(formatted_response[11:13]), 16)
+            bv=int("".join(formatted_response[13:15]), 16)
+            print(f"Power Supply Voltage: {psv}")
+            print(f"Battery Voltage: {bv}")
         elif command_name=="Refresh Get Passed Counter" and res:
             pass
         elif command_name=="Open For Entry" and res:
