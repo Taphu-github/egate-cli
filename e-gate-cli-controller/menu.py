@@ -8,14 +8,14 @@ from input_ouput_menu import input_output_menu_straight_command, input_output_me
 from status_control_menu import status_control_menu_straight_command, status_control_menu_set_commands
 import threading
 
-async def menu(ser):
+async def menu(ser, addr_to):
     # addr_to="02"
     status_and_control_commands=[]
     input_and_output_commands=[]
     control_parameters_commands=[]
     device_information_commands=[]
 
-    addr_to=get_device_id(ser=ser)
+
 
     for command in COMMANDS:
         if not command.get("family"):
@@ -40,48 +40,17 @@ async def menu(ser):
         option_var=str(input("Value: "))
         if option_var== '1':
             command, command_name=input_and_output_menu(input_and_output_commands, addr_to)
-            res=await run_command(ser=ser, command_arr=command)
+            await run_command(ser=ser, command_arr=command)
 
         elif option_var== '2':
             command, command_name=status_and_control_menu(status_and_control_commands, addr_to)
-            res=await run_command(ser=ser, command_arr=command)
+            await run_command(ser=ser, command_arr=command)
         elif option_var== '0':
             exit_condition=False
             exit(0)
         else :
             pass
 
-        if command_name=="Get Voltage" and res:
-            formatted_response=[res[0][i:i+2] for i in range(0,32,2)]
-            psv=int("".join(formatted_response[11:13]), 16)
-            bv=int("".join(formatted_response[13:15]), 16)
-            print(f"Power Supply Voltage: {psv}")
-            print(f"Battery Voltage: {bv}")
-        elif command_name=="Refresh Get Passed Counter" and res:
-            formatted_response=[res[0][i:i+2] for i in range(0,32,2)]
-            entry_counter=int("".join(formatted_response[9:12]), 16)
-            exit_counter=int("".join(formatted_response[12:15]), 16)
-            print(f"Entry Counter: {entry_counter}")
-            print(f"Exit Countyer: {exit_counter}")
-        elif command_name=="Open For Entry" and res:
-            counter=set()
-            for r in res:
-                if r[6:10]=="1200":
-                    if r[14:16]=="60":
-                        print("INTRUSION")
-                    if r[14:16]=="62":
-                        print("TAILING")
-                    if r[18:24] not in counter:
-                        counter.add(r[18:24])
-
-            if len(counter)==2:
-                counter_list=list(counter)
-                start=int(counter_list[0], 16)
-                end=int(counter_list[1], 16)
-                print(f"COUNTER INCREASED BY ONE FROM {start} to {end}")
-                print(counter)
-
-            # print("OFE",res)
 
 
 
@@ -149,55 +118,77 @@ def print_options(commands):
 
 
 
-def main_thread():
-    try:
-        SERIAL_PORT = '/dev/ttyUSB0'
-        BAUD_RATE = 38400
-        TIMEOUT = 1
-        ser = serial.Serial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
-        print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
+def main_thread(ser):
+    asyncio.run(menu(ser))
 
-        asyncio.run(menu(ser))
-    except serial.SerialException as e:
-        print(f"Error opening serial port: {e}")
-        exit()
 
-def read_continuous():
-    try:
-        ser = serial.Serial('/dev/ttyUSB0', 38400, timeout=1)  # Open the serial port
-        print(f"Listening on '/dev/ttyUSB0' at 38400 baud...")
+def read_continuous(ser):
+    while True:
+        response = bytearray()
+        if ser.in_waiting > 0:
+            response.extend(ser.read(ser.in_waiting))
+        if response:
+            response_chunks = chunk_bytearray(response)
+            print(response_chunks)
 
-        # while True:
-        #     response = bytearray()
-        #     if ser.in_waiting > 0:
-        #         response.extend(ser.read(ser.in_waiting))
-        #     if response:
-        #         response_chunks = chunk_bytearray(response)
-        #         print(response_chunks)
-        while True:
-            data = ser.readline().decode('utf-8').strip()  # Read line from serial
-            if data:
-                response_chunks = chunk_bytearray(data)
-                print(response_chunks)
+        # if command_name=="Get Voltage" and res:
+        #     formatted_response=[res[0][i:i+2] for i in range(0,32,2)]
+        #     psv=int("".join(formatted_response[11:13]), 16)
+        #     bv=int("".join(formatted_response[13:15]), 16)
+        #     print(f"Power Supply Voltage: {psv}")
+        #     print(f"Battery Voltage: {bv}")
+        # elif command_name=="Refresh Get Passed Counter" and res:
+        #     formatted_response=[res[0][i:i+2] for i in range(0,32,2)]
+        #     entry_counter=int("".join(formatted_response[9:12]), 16)
+        #     exit_counter=int("".join(formatted_response[12:15]), 16)
+        #     print(f"Entry Counter: {entry_counter}")
+        #     print(f"Exit Countyer: {exit_counter}")
+        # elif command_name=="Open For Entry" and res:
+        #     counter=set()
+        #     for r in res:
+        #         if r[6:10]=="1200":
+        #             if r[14:16]=="60":
+        #                 print("INTRUSION")
+        #             if r[14:16]=="62":
+        #                 print("TAILING")
+        #             if r[18:24] not in counter:
+        #                 counter.add(r[18:24])
 
-    except serial.SerialException as e:
-        print(f"Error: {e}")
-    finally:
-        ser.close()  # Close the serial port once done
+        #     if len(counter)==2:
+        #         counter_list=list(counter)
+        #         start=int(counter_list[0], 16)
+        #         end=int(counter_list[1], 16)
+        #         print(f"COUNTER INCREASED BY ONE FROM {start} to {end}")
+        #         print(counter)
+
+            # print("OFE",res)
+
+
+
 
 
 
 
 
 # Create two threads
-thread2 = threading.Thread(target=read_continuous, args=())
-thread1 = threading.Thread(target=main_thread, args=())
+try:
+    SERIAL_PORT = '/dev/ttyUSB0'
+    BAUD_RATE = 38400
+    TIMEOUT = 6
 
+    ser = AioSerial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
+    print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
+    addr_to=get_device_id(ser=ser)
+    thread1 = threading.Thread(target=main_thread, args=(ser,addr_to))
+    thread2 = threading.Thread(target=read_continuous, args=(ser))
 
-# Start both threads
-thread2.start()
-thread1.start()
+    # Start both threads
+    thread1.start()
+    thread2.start()
 
-# Wait for both threads to finish
-thread2.join()
-thread1.join()
+    # Wait for both threads to finish
+    thread1.join()
+    thread2.join()
+except Exception as e:
+    pass
+

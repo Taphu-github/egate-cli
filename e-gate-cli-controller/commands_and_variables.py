@@ -229,21 +229,21 @@ async def run_command(ser, command_arr):
         command_bytes = bytes.fromhex(com)
         ser.write(command_bytes)
 
-        start_time = time.time()
-        response = bytearray()
+    #     start_time = time.time()
+    #     response = bytearray()
 
-        while time.time() - start_time < 6:
-            if ser.in_waiting > 0:
-                response.extend(ser.read(ser.in_waiting))
+    #     while time.time() - start_time < 6:
+    #         if ser.in_waiting > 0:
+    #             response.extend(ser.read(ser.in_waiting))
 
-        response_chunks = chunk_bytearray(response)
+    #     response_chunks = chunk_bytearray(response)
 
-        if not response_chunks:
+    #     if not response_chunks:
 
-            print("There has been a problem with the command")
-            print("The command is ", com)
-        else:
-            all_response.extend(response_chunks)
+    #         print("There has been a problem with the command")
+    #         print("The command is ", com)
+    #     else:
+    #         all_response.extend(response_chunks)
 
-    print(f"Response: {str(all_response)}")
-    return all_response
+    # print(f"Response: {str(all_response)}")
+    # return all_response
