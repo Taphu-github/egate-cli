@@ -77,6 +77,7 @@ def input_and_output_menu(commands, addr_to):
         generated_commands=input_output_menu_set_commands(command_name=command_name, addr_to=addr_to)
     else:
         print("command_type is wrong, '{}'".format(command_type))
+    print(generated_commands)
     gen=generated_commands[0].split(" ")
     return ["".join(gen)]
 
