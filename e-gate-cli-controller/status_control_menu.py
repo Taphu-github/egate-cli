@@ -5,7 +5,7 @@ def status_control_menu_straight_command(command_name, addr_to):
         print("Command not found")
     else:
         generated_commands=get_and_create_command(command_name=command_name, addr_to=addr_to)
-    return generated_commands
+    return generated_commands, command_name
 
 def status_control_menu_set_commands(command_name, addr_to):
 
@@ -30,6 +30,7 @@ def status_control_menu_set_commands(command_name, addr_to):
         without_checksum_command=command_str+" "+" ".join(datas).upper()
         checksum=generate_checksum(without_checksum_command)
         print(without_checksum_command+" "+checksum)
+        return (without_checksum_command+" "+checksum), command_name
 
 
 

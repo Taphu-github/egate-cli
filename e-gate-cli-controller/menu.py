@@ -39,14 +39,24 @@ async def menu(ser):
         print("Enter to select an option:\n'1' for Input and Output\n'2' for Status and Control\n'0' to Quit\n")
         option_var=str(input("Value: "))
         if option_var== '1':
-            command=input_and_output_menu(input_and_output_commands, addr_to)
-            await run_command(ser=ser, command_arr=command)
+            command, command_name=input_and_output_menu(input_and_output_commands, addr_to)
+            res=await run_command(ser=ser, command_arr=command)
+
         elif option_var== '2':
-            command=status_and_control_menu(status_and_control_commands, addr_to)
-            await run_command(ser=ser, command_arr=command)
+            command, command_name=status_and_control_menu(status_and_control_commands, addr_to)
+            res=await run_command(ser=ser, command_arr=command)
         elif option_var== '0':
             exit_condition=False
         else :
+            pass
+
+        if command_name=="Get Voltage" and res:
+            formatted_response=[res[0][i:i+2] for i in range(0,32,2)]
+            print(f"Power Supply Voltage: {int("".join(formatted_response[11:13]), 16)}")
+            print(f"Battery Voltage: {int("".join(formatted_response[13:15]), 16)}")
+        elif command_name=="Refresh Get Passed Counter" and res:
+            pass
+        elif command_name=="Open For Entry" and res:
             pass
 
 

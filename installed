@@ -1,3 +1,4 @@
+
 User-interface
     sudo apt install -y xfce4 xfce4-goodies
 
@@ -15,3 +16,11 @@ Unmanaged Ethernet problem
     sudo netplan apply
 
     sudo reboot now
+
+
+nmcli con show
+sudo nmcli con mod "<connection_name>" ipv4.addresses "192.168.1.100/24"
+sudo nmcli con mod "<connection_name>" ipv4.gateway "192.168.1.1"
+sudo nmcli con mod "<connection_name>" ipv4.dns "8.8.8.8,8.8.4.4"
+sudo nmcli con mod "<connection_name>" ipv4.method manual
+sudo nmcli con up "<connection_name>"
