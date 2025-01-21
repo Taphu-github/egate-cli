@@ -130,10 +130,11 @@ def read_continuous(ser, addr_to):
             response.extend(ser.read(ser.in_waiting))
         if response:
             response_chunks = chunk_bytearray(response)
-            print(response_chunks)
+            # print(response_chunks)
             for chun in response_chunks:
                 if len(chun)==32:
-                    parse(chun)
+                    print(chun)
+                    # parse(chun)
         # if ser.in_waiting > 0:
         #     data = ser.readline().decode('utf-8').strip()
         #     print(f"Received: {data}")
