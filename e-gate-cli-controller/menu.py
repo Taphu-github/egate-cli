@@ -167,13 +167,13 @@ def read_continuous():
         ser = serial.Serial('/dev/ttyUSB0', 38400, timeout=1)  # Open the serial port
         print(f"Listening on '/dev/ttyUSB0' at 38400 baud...")
 
-        while True:
-            response = bytearray()
-            if ser.in_waiting > 0:
-                response.extend(ser.read(ser.in_waiting))
-            if response:
-                response_chunks = chunk_bytearray(response)
-                print(response_chunks)
+        # while True:
+        #     response = bytearray()
+        #     if ser.in_waiting > 0:
+        #         response.extend(ser.read(ser.in_waiting))
+        #     if response:
+        #         response_chunks = chunk_bytearray(response)
+        #         print(response_chunks)
 
     except serial.SerialException as e:
         print(f"Error: {e}")
