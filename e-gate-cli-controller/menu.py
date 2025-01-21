@@ -182,8 +182,8 @@ def read_continuous():
 
 
 # Create two threads
-thread1 = threading.Thread(target=main_thread, args=("Thread-1",))
-thread2 = threading.Thread(target=read_continuous, args=("Thread-2",))
+thread1 = threading.Thread(target=main_thread, args=())
+thread2 = threading.Thread(target=read_continuous, args=())
 
 # Start both threads
 thread1.start()
