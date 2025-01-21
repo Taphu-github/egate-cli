@@ -168,7 +168,7 @@ def read_continuous():
         print(f"Listening on '/dev/ttyUSB0' at 38400 baud...")
 
         while True:
-            data = ser.readline().decode('utf-8').strip()  # Read line from serial
+            data = ser.read().decode('utf-8').strip()  # Read line from serial
             if data:
                 print(f"Received: {data}")  # Print the received message
 
