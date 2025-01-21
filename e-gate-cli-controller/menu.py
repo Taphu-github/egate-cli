@@ -63,7 +63,10 @@ async def menu(ser):
             print(f"Entry Counter: {entry_counter}")
             print(f"Exit Countyer: {exit_counter}")
         elif command_name=="Open For Entry" and res:
-            print("OFE",res)
+            for r in res:
+                if r[6:8]=="12":
+                    print(r)
+            # print("OFE",res)
 
 
 
