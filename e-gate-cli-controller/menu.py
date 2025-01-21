@@ -190,13 +190,14 @@ def read_continuous():
 
 
 # Create two threads
-thread1 = threading.Thread(target=main_thread, args=())
 thread2 = threading.Thread(target=read_continuous, args=())
+thread1 = threading.Thread(target=main_thread, args=())
+
 
 # Start both threads
-thread1.start()
 thread2.start()
+thread1.start()
 
 # Wait for both threads to finish
-thread1.join()
 thread2.join()
+thread1.join()
