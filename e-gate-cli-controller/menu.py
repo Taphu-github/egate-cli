@@ -47,7 +47,7 @@ async def menu(ser, addr_to):
             command, command_name=status_and_control_menu(status_and_control_commands, addr_to)
             await run_command(ser=ser, command_arr=command)
         elif option_var== '0':
-            exit_condition=False
+            # exit_condition=False
             exit(0)
         else :
             pass
@@ -133,8 +133,8 @@ def read_continuous(ser, addr_to):
             # print(response_chunks)
             for chun in response_chunks:
                 if len(chun)==32:
-                    print(chun)
-                    # parse(chun)
+                    # print(chun)
+                    parse(chun)
         # if ser.in_waiting > 0:
         #     data = ser.readline().decode('utf-8').strip()
         #     print(f"Received: {data}")
