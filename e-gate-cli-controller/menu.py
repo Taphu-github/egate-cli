@@ -3,7 +3,7 @@ import json
 import asyncio
 import serial
 from aioserial import AioSerial
-from commands_and_variables import COMMANDS, run_command, get_device_id
+from commands_and_variables import COMMANDS, run_command, get_device_id, chunk_bytearray
 from input_ouput_menu import input_output_menu_straight_command, input_output_menu_set_commands
 from status_control_menu import status_control_menu_straight_command, status_control_menu_set_commands
 import threading
@@ -168,9 +168,12 @@ def read_continuous():
         print(f"Listening on '/dev/ttyUSB0' at 38400 baud...")
 
         while True:
-            data = ser.read().decode('utf-8').strip()  # Read line from serial
-            if data:
-                print(f"Received: {data}")  # Print the received message
+            response = bytearray()
+            if ser.in_waiting > 0:
+                response.extend(ser.read(ser.in_waiting))
+            if response:
+                response_chunks = chunk_bytearray(response)
+                print(response_chunks)
 
     except serial.SerialException as e:
         print(f"Error: {e}")
