@@ -153,7 +153,7 @@ def main_thread():
     try:
         SERIAL_PORT = '/dev/ttyUSB0'
         BAUD_RATE = 38400
-        TIMEOUT = 6
+        TIMEOUT = 1
         ser = serial.Serial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
         print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
 
