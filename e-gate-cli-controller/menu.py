@@ -7,6 +7,7 @@ from commands_and_variables import COMMANDS, run_command, get_device_id, chunk_b
 from input_ouput_menu import input_output_menu_straight_command, input_output_menu_set_commands
 from status_control_menu import status_control_menu_straight_command, status_control_menu_set_commands
 import threading
+from parse_response import parse
 
 async def menu(ser, addr_to):
     # addr_to="02"
@@ -101,7 +102,7 @@ def print_options(commands):
             continue
         print(f"Enter '{id}' for '{com}'")
 
-    opt=input("Enter: ")
+    opt=input("")
     command_name=""
     command_type=""
     for command in commands:
@@ -130,6 +131,9 @@ def read_continuous(ser, addr_to):
         if response:
             response_chunks = chunk_bytearray(response)
             print(response_chunks)
+            for chun in response_chunks:
+                if len(chun)==16:
+                    parse(chun)
         # if ser.in_waiting > 0:
         #     data = ser.readline().decode('utf-8').strip()
         #     print(f"Received: {data}")
