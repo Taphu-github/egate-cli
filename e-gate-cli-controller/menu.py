@@ -183,8 +183,8 @@ try:
     ser = AioSerial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
     print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
     addr_to=get_device_id(ser=ser)
-    thread1 = threading.Thread(target=main_thread, args=(ser,addr_to))
-    thread2 = threading.Thread(target=read_continuous, args=(ser, addr_to))
+    thread1 = threading.Thread(target=main_thread, args=(ser,addr_to,), daemon=True)
+    thread2 = threading.Thread(target=read_continuous, args=(ser, addr_to,), daemon=True)
 
     # Start both threads
     thread1.start()
