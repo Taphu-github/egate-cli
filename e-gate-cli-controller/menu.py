@@ -174,6 +174,11 @@ def read_continuous():
         #     if response:
         #         response_chunks = chunk_bytearray(response)
         #         print(response_chunks)
+        while True:
+            data = ser.readline().decode('utf-8').strip()  # Read line from serial
+            if data:
+                response_chunks = chunk_bytearray(data)
+                print(response_chunks)
 
     except serial.SerialException as e:
         print(f"Error: {e}")
