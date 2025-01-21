@@ -124,15 +124,15 @@ def main_thread(ser, addr_to):
 
 def read_continuous(ser, addr_to):
     while True:
-        # response = bytearray()
-        # if ser.in_waiting > 0:
-        #     response.extend(ser.read(ser.in_waiting))
-        # if response:
-        #     response_chunks = chunk_bytearray(response)
-        #     print(response_chunks)
+        response = bytearray()
         if ser.in_waiting > 0:
-            data = ser.readline().decode('utf-8').strip()
-            print(f"Received: {data}")
+            response.extend(ser.read(ser.in_waiting))
+            if response:
+                response_chunks = chunk_bytearray(response)
+                print(response_chunks)
+        # if ser.in_waiting > 0:
+        #     data = ser.readline().decode('utf-8').strip()
+        #     print(f"Received: {data}")
 
 
         # if command_name=="Get Voltage" and res:
