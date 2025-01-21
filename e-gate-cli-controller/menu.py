@@ -51,11 +51,12 @@ async def menu(ser):
             pass
 
         if command_name=="Get Voltage" and res:
-            formatted_response=[res[0][i:i+2] for i in range(0,32,2)]
-            psv=int("".join(formatted_response[11:13]), 16)
-            bv=int("".join(formatted_response[13:15]), 16)
-            print(f"Power Supply Voltage: {psv}")
-            print(f"Battery Voltage: {bv}")
+            print(res)
+            # formatted_response=[res[0][i:i+2] for i in range(0,32,2)]
+            # psv=int("".join(formatted_response[11:13]), 16)
+            # bv=int("".join(formatted_response[13:15]), 16)
+            # print(f"Power Supply Voltage: {psv}")
+            # print(f"Battery Voltage: {bv}")
         elif command_name=="Refresh Get Passed Counter" and res:
             pass
         elif command_name=="Open For Entry" and res:
@@ -127,8 +128,7 @@ def print_options(commands):
 
 
 try:
-    SERIAL_PORT = "COM3"
-    #'/dev/ttyUSB0'
+    SERIAL_PORT = '/dev/ttyUSB0'
     BAUD_RATE = 38400
     TIMEOUT = 6
     ser = AioSerial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
