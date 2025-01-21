@@ -57,9 +57,13 @@ async def menu(ser):
             print(f"Power Supply Voltage: {psv}")
             print(f"Battery Voltage: {bv}")
         elif command_name=="Refresh Get Passed Counter" and res:
-            pass
+            formatted_response=[res[0][i:i+2] for i in range(0,32,2)]
+            entry_counter=int("".join(formatted_response[9:12]), 16)
+            exit_counter=int("".join(formatted_response[12:15]), 16)
+            print(f"Entry Counter: {entry_counter}")
+            print(f"Exit Countyer: {exit_counter}")
         elif command_name=="Open For Entry" and res:
-            pass
+            print("OFE",res)
 
 
 
