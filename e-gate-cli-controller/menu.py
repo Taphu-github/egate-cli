@@ -74,7 +74,11 @@ async def menu(ser):
                     if r[18:24] not in counter:
                         counter.add(r[18:24])
 
-            if len(counter)==2: print("COUNTER INCREASED BY ONE")
+            if len(counter)==2:
+                start=int(counter[0], 16)
+                end=int(counter[1], 16)
+                print(f"COUNTER INCREASED BY ONE FROM {start} to {end}")
+                print(counter)
 
             # print("OFE",res)
 
