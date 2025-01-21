@@ -79,7 +79,7 @@ def input_and_output_menu(commands, addr_to):
         print("command_type is wrong, '{}'".format(command_type))
     print(generated_commands)
     gen=generated_commands[0].split(" ")
-    return ["".join(gen)]
+    return ["".join(gen)], command_name
 
 def status_and_control_menu(commands, addr_to):
     print("You are in the Status and Control Mode".upper())
@@ -93,7 +93,7 @@ def status_and_control_menu(commands, addr_to):
     else:
         print("command_type is wrong, '{}'".format(command_type))
     gen=generated_commands[0].split(" ")
-    return ["".join(gen)]
+    return ["".join(gen)], command_name
 
 
 def print_options(commands):
