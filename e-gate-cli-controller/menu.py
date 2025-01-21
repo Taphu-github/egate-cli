@@ -118,8 +118,8 @@ def print_options(commands):
 
 
 
-def main_thread(ser):
-    asyncio.run(menu(ser))
+def main_thread(ser, addr_to):
+    asyncio.run(menu(ser, addr_to))
 
 
 def read_continuous(ser):
