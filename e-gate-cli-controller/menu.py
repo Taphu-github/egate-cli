@@ -8,6 +8,8 @@ from input_ouput_menu import input_output_menu_straight_command, input_output_me
 from status_control_menu import status_control_menu_straight_command, status_control_menu_set_commands
 import threading
 from parse_response import parse
+import queue
+import time
 
 async def menu(ser, addr_to):
     # addr_to="02"
@@ -128,8 +130,12 @@ def read_continuous(ser, addr_to):
     response_arr=[]
     while True:
         response = bytearray()
+        start_time = time.perf_counter()
         if ser.in_waiting > 0:
             response.extend(ser.read(ser.in_waiting))
+        end_time = time.perf_counter()
+        execution_time = end_time - start_time
+        print(f"Execution time: {execution_time:.6f} seconds")
         if response:
 
             if len(response)==16:
@@ -171,6 +177,10 @@ try:
 
     ser = AioSerial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
     print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
+
+    shared_message=queue.Queue()
+
+
     addr_to=get_device_id(ser=ser)
     thread1 = threading.Thread(target=main_thread, args=(ser,addr_to,), daemon=True)
     thread2 = threading.Thread(target=read_continuous, args=(ser, addr_to,), daemon=True)
