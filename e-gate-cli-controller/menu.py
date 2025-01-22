@@ -124,9 +124,10 @@ def main_thread(ser, addr_to):
 
 
 def read_continuous(ser, addr_to):
+    chunks=[]
     while True:
         response = bytearray()
-        chunks=[]
+
         if ser.in_waiting > 0:
             response.extend(ser.read(ser.in_waiting))
         if response:
