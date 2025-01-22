@@ -135,7 +135,7 @@ def read_continuous(ser, addr_to):
 
 
             temp_response_chunks=response_chunks
-            for i in range(response_chunks):
+            for i in range(len(response_chunks)):
                 if len(response_chunks[i])==32:
                     response_arr.append(response_chunks[i])
                     temp_response_chunks.pop(i)
