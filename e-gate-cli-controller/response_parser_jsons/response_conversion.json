@@ -5186,37 +5186,37 @@
                         },
                         "DATA_2": {
                             "LABEL": "Already Passed NUMBER For Entry",
-                            "TYPE": "NUMBER",
+                            "TYPE": "FAMILY",
                             "ID": 2,
                             "OPTIONS": []
                         },
                         "DATA_3": {
                             "LABEL": "Already Passed NUMBER For Entry",
-                            "TYPE": "NUMBER",
+                            "TYPE": "FAMILY",
                             "ID": 3,
                             "OPTIONS": []
                         },
                         "DATA_4": {
                             "LABEL": "Already Passed NUMBER For Entry",
-                            "TYPE": "NUMBER",
+                            "TYPE": "FAMILY",
                             "ID": 4,
                             "OPTIONS": []
                         },
                         "DATA_5": {
                             "LABEL": "Already Passed NUMBER For Exit",
-                            "TYPE": "NUMBER",
+                            "TYPE": "FAMILY",
                             "ID": 5,
                             "OPTIONS": []
                         },
                         "DATA_6": {
                             "LABEL": "Already Passed NUMBER For Exit",
-                            "TYPE": "NUMBER",
+                            "TYPE": "FAMILY",
                             "ID": 6,
                             "OPTIONS": []
                         },
                         "DATA_7": {
                             "LABEL": "Already Passed NUMBER For Exit",
-                            "TYPE": "NUMBER",
+                            "TYPE": "FAMILY",
                             "ID": 7,
                             "OPTIONS": []
                         }
