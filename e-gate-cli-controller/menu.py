@@ -136,21 +136,19 @@ def read_continuous(ser, addr_to):
                 chunks.append(f"{response[i]:02X}")
 
             count=0
-            index=0
+            each_line=""
             response_has=[]
             for j in range(len(chunks)):
-
-                if count==19:
+                if count==17:
                     count=0
-                    index+=1
+                    response_has.append(each_line)
+                    each_line=""
 
                 if chunks[j]=="aa":
                     count+=1
 
-                if count==1:
-                    response_has[index]=chunks[j]
-                else:
-                    response_has[index]+=chunks[j]
+                if count<=16:
+                    each_line+=chunks[j]
 
             print(response_has)
 
