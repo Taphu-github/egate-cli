@@ -135,14 +135,15 @@ def read_continuous(ser, addr_to):
             if len(response)==16:
                 response_chunks = chunk_bytearray(response)
                 print(response_chunks)
-                parse(response_chunks)
+                for res in response_chunks: parse(res)
+                # parse(response_chunks[0])
             else:
                 temp_buffer.extend(response)
 
             if len(temp_buffer)==16:
                 response_chunks = chunk_bytearray(temp_buffer)
                 print(response_chunks)
-                parse(response_chunks)
+                for res in response_chunks: parse(res)
                 temp_buffer.clear()
             # response_chunks = chunk_bytearray(response)
 
