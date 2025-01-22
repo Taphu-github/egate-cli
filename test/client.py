@@ -3,7 +3,7 @@ import websockets
 import json
 
 async def client():
-    uri = "ws://localhost:8000"
+    uri = "ws://localhost:8004"
     async with websockets.connect(uri) as websocket:
         # Send a command to the server
         data={
