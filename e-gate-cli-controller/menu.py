@@ -133,10 +133,11 @@ def read_continuous(ser, addr_to):
         start_time = time.perf_counter()
         if ser.in_waiting > 0:
             response.extend(ser.read(ser.in_waiting))
-        end_time = time.perf_counter()
-        execution_time = end_time - start_time
-        print(f"Execution time: {execution_time:.6f} seconds")
+
         if response:
+            end_time = time.perf_counter()
+            execution_time = end_time - start_time
+            print(f"Execution time: {execution_time:.6f} seconds")
 
             if len(response)==16:
                 response_chunks = chunk_bytearray(response)
