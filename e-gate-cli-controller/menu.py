@@ -134,7 +134,7 @@ def read_continuous(ser, addr_to):
 
             for i in range(len(response)):
                 chunks.append(f"{response[i]:02X}")
-
+            print(chunks)
             count=0
             each_line=""
             response_has=[]
