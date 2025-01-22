@@ -126,31 +126,17 @@ def main_thread(ser, addr_to):
 def read_continuous(ser, addr_to):
     while True:
         response = bytearray()
+        chunks=[]
         if ser.in_waiting > 0:
             response.extend(ser.read(ser.in_waiting))
         if response:
             # response_chunks = chunk_bytearray(response)
-            chunks=[]
+
 
             for i in range(len(response)):
                 chunks.append(f"{response[i]:02X}")
             print(chunks)
-            count=0
-            each_line=""
-            response_has=[]
-            for j in range(len(chunks)):
-                if count==17:
-                    count=0
-                    response_has.append(each_line)
-                    each_line=""
 
-                if chunks[j]=="aa":
-                    count+=1
-
-                if count<=16:
-                    each_line+=chunks[j]
-
-            print(response_has)
 
 
 
