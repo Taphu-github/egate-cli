@@ -124,7 +124,9 @@ def main_thread(ser, addr_to):
 
 
 def read_continuous(ser, addr_to):
+
     while True:
+        response_arr=[]
         response = bytearray()
         if ser.in_waiting > 0:
             response.extend(ser.read(ser.in_waiting))
@@ -132,11 +134,20 @@ def read_continuous(ser, addr_to):
             response_chunks = chunk_bytearray(response)
 
 
-            # print(response_chunks)
-            for chun in response_chunks:
-                if len(chun)==32:
-                    print(chun)
-                    parse(chun)
+            temp_response_chunks=response_chunks
+            for i in range(response_chunks):
+                if len(response_chunks[i])==32:
+                    response_arr.append(response_chunks[i])
+                    temp_response_chunks.pop(i)
+            temp=""
+            for i in range(len(temp_response_chunks)):
+                if len(temp_response_chunks[i])+len(temp_response_chunks[i+1])==16:
+                    temp=temp_response_chunks[i]+temp_response_chunks[i+1]
+            response_arr.append(temp)
+
+            print(response_arr)
+
+
 
 # Create two threads
 try:
