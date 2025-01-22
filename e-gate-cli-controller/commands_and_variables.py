@@ -150,6 +150,7 @@ def chunk_bytearray(byte_array, chunk_size=16):
     :param chunk_size: The size of each chunk in bytes.
     :return: List of byte array chunks.
     """
+    print(byte_array)
     chunks = [
         byte_array[i : i + chunk_size] for i in range(0, len(byte_array), chunk_size)
     ]
