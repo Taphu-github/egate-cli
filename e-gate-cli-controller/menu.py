@@ -133,9 +133,35 @@ def read_continuous(ser, addr_to):
             # print(response_chunks)
             for chun in response_chunks:
                 if len(chun)==32:
-                    # print(chun)
+                    print(chun)
                     parse(chun)
-        # if ser.in_waiting > 0:
+
+# Create two threads
+try:
+    SERIAL_PORT = '/dev/ttyUSB0'
+    BAUD_RATE = 38400
+    TIMEOUT = 6
+
+    ser = AioSerial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
+    print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
+    addr_to=get_device_id(ser=ser)
+    thread1 = threading.Thread(target=main_thread, args=(ser,addr_to,), daemon=True)
+    thread2 = threading.Thread(target=read_continuous, args=(ser, addr_to,), daemon=True)
+
+    # Start both threads
+    thread1.start()
+    thread2.start()
+
+    # Wait for both threads to finish
+    thread1.join()
+    thread2.join()
+except Exception as e:
+    pass
+
+
+
+
+# if ser.in_waiting > 0:
         #     data = ser.readline().decode('utf-8').strip()
         #     print(f"Received: {data}")
 
@@ -171,33 +197,3 @@ def read_continuous(ser, addr_to):
         #         print(counter)
 
             # print("OFE",res)
-
-
-
-
-
-
-
-
-# Create two threads
-try:
-    SERIAL_PORT = '/dev/ttyUSB0'
-    BAUD_RATE = 38400
-    TIMEOUT = 6
-
-    ser = AioSerial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
-    print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
-    addr_to=get_device_id(ser=ser)
-    thread1 = threading.Thread(target=main_thread, args=(ser,addr_to,), daemon=True)
-    thread2 = threading.Thread(target=read_continuous, args=(ser, addr_to,), daemon=True)
-
-    # Start both threads
-    thread1.start()
-    thread2.start()
-
-    # Wait for both threads to finish
-    thread1.join()
-    thread2.join()
-except Exception as e:
-    pass
-
