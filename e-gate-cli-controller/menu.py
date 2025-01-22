@@ -124,28 +124,37 @@ def main_thread(ser, addr_to):
 
 
 def read_continuous(ser, addr_to):
-
+    temp_buffer=bytearray()
     while True:
         response_arr=[]
         response = bytearray()
         if ser.in_waiting > 0:
             response.extend(ser.read(ser.in_waiting))
         if response:
-            response_chunks = chunk_bytearray(response)
+
+            if len(response)==16:
+                print(response)
+            else:
+                temp_buffer.extend(response)
+
+            if len(temp_buffer)==16:
+                print(temp_buffer)
+                temp_buffer.clear()
+            # response_chunks = chunk_bytearray(response)
 
 
-            temp_response_chunks=response_chunks
-            for i in range(len(response_chunks)):
-                if len(response_chunks[i])==32:
-                    response_arr.append(response_chunks[i])
-                    temp_response_chunks.pop(i)
-            temp=""
-            for i in range(len(temp_response_chunks)):
-                if len(temp_response_chunks[i])+len(temp_response_chunks[i+1])==16:
-                    temp=temp_response_chunks[i]+temp_response_chunks[i+1]
-            response_arr.append(temp)
+            # temp_response_chunks=response_chunks
+            # for i in range(len(response_chunks)):
+            #     if len(response_chunks[i])==32:
+            #         response_arr.append(response_chunks[i])
+            #         temp_response_chunks.pop(i)
+            # temp=""
+            # for i in range(len(temp_response_chunks)):
+            #     if len(temp_response_chunks[i])+len(temp_response_chunks[i+1])==16:
+            #         temp=temp_response_chunks[i]+temp_response_chunks[i+1]
+            # response_arr.append(temp)
 
-            print(response_arr)
+            # print(response_arr)
 
 
 
