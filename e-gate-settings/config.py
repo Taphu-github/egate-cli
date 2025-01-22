@@ -17,7 +17,8 @@ from device_control import (
     set_event_list_for_stayed_alarm_and_reserve,
 )
 
-SERIAL_PORT = "COM3"
+SERIAL_PORT = '/dev/ttyUSB0'
+#"COM3"
 BAUD_RATE = 38400
 TIMEOUT = 0.5
 base_dir=os.getcwd()
