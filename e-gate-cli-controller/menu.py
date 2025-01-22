@@ -125,20 +125,22 @@ def main_thread(ser, addr_to):
 
 def read_continuous(ser, addr_to):
     temp_buffer=bytearray()
+    response_arr=[]
     while True:
-        response_arr=[]
         response = bytearray()
         if ser.in_waiting > 0:
             response.extend(ser.read(ser.in_waiting))
         if response:
 
             if len(response)==16:
-                print(response)
+                response_chunks = chunk_bytearray(response)
+                print(response_chunks)
             else:
                 temp_buffer.extend(response)
 
             if len(temp_buffer)==16:
-                print(temp_buffer)
+                response_chunks = chunk_bytearray(temp_buffer)
+                print(response_chunks)
                 temp_buffer.clear()
             # response_chunks = chunk_bytearray(response)
 
