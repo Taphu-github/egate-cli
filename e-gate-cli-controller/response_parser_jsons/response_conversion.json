@@ -5215,7 +5215,7 @@
                         "DATA_6": {
                             "LABEL": "Already Passed NUMBER For Exit",
                             "TYPE": "NUMBER",
-                            "FAMILY":"Already Passed Number for EXit",
+                            "FAMILY":"Already Passed Number for Exit",
                             "ID": 6,
                             "OPTIONS": []
                         },
