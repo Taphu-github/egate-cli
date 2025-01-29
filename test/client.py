@@ -12,7 +12,7 @@ async def client():
                 "nationality":"Bhutanese",
                 "date_of_birth":"27/05/2001"
             }
-        command = {"status": "Allowed", "data": data}
+        command = {"status": "Not Allowed", "data": data}
         await websocket.send(json.dumps(command))
         print(f"Sent: {command}")
 

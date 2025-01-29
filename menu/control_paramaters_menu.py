@@ -136,3 +136,105 @@ def set_device_and_pass_through_parameters(addr_to):
     # print(d0003)
     # print(d0004)
     return [d0000, d0001, d0002, d0003, d0004]
+
+def set_default_state_for_gate_mode_and_switch_event(pass_through_parameters, switch_event, addr_to):
+    # print(switch_event)
+    addr_src="02"
+    cid1cid2="01 12"
+
+    #0100
+    normally_closed_both_card=input("")
+    normally_closed_both_free=pass_through_parameters.get("gate_mode_default_state",{}).get("normally_closed_both_free",{})
+    normally_closed_both_reject=pass_through_parameters.get("gate_mode_default_state",{}).get("normally_closed_both_reject",{})
+    normally_closed_entry_card_exit_free=pass_through_parameters.get("gate_mode_default_state",{}).get("normally_closed_entry_card_exit_free",{})
+    normally_closed_entry_card_exit_reject=pass_through_parameters.get("gate_mode_default_state",{}).get("normally_closed_entry_card_exit_reject",{})
+    normally_closed_entry_free_exit_card=pass_through_parameters.get("gate_mode_default_state",{}).get("normally_closed_entry_free_exit_card",{})
+
+    d0100_2=calculate_ir_and_color(normally_closed_both_card)
+    d0100_3=calculate_ir_and_color(normally_closed_both_free)
+    d0100_4=calculate_ir_and_color(normally_closed_both_reject)
+    d0100_5=calculate_ir_and_color(normally_closed_entry_card_exit_free)
+    d0100_6=calculate_ir_and_color(normally_closed_entry_card_exit_reject)
+    d0100_7=calculate_ir_and_color(normally_closed_entry_free_exit_card)
+
+    d0100="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 01 00 "+d0100_2+" "+d0100_3+" "+d0100_4+" "+d0100_5+" "+d0100_6+" "+d0100_7
+    d0100_check_sum=generate_checksum(d0100)
+    d0100="AA "+d0100+" "+d0100_check_sum
+    validate_command(d0100, "Device Pass Through Parameters: [Default state]:[normally closed both card, normally closed both free,normally closed both reject,normally closed entry card exit free,normally closed entry card exit reject,normally closed entr free exit card]")
+
+
+    #0101
+    normally_closed_entry_free_exit_reject=pass_through_parameters.get("gate_mode_default_state",{}).get("normally_closed_entry_free_exit_reject",{})
+    normally_closed_entry_reject_exit_free=pass_through_parameters.get("gate_mode_default_state",{}).get("normally_closed_entry_reject_exit_free",{})
+    normally_closed_entry_reject_exit_card=pass_through_parameters.get("gate_mode_default_state",{}).get("normally_closed_entry_reject_exit_card",{})
+    normally_open_both_free=pass_through_parameters.get("gate_mode_default_state",{}).get("normally_open_both_free",{})
+    normally_open_both_card=pass_through_parameters.get("gate_mode_default_state",{}).get("normally_open_both_card",{})
+    normally_open_entry_free_exit_card=pass_through_parameters.get("gate_mode_default_state",{}).get("normally_open_entry_free_exit_card",{})
+
+    d0101_2=calculate_ir_and_color(normally_closed_entry_free_exit_reject)
+    d0101_3=calculate_ir_and_color(normally_closed_entry_reject_exit_free)
+    d0101_4=calculate_ir_and_color(normally_closed_entry_reject_exit_card)
+    d0101_5=calculate_ir_and_color(normally_open_both_free)
+    d0101_6=calculate_ir_and_color(normally_open_both_card)
+    d0101_7=calculate_ir_and_color(normally_open_entry_free_exit_card)
+
+    d0101="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 01 01 "+d0101_2+" "+d0101_3+" "+d0101_4+" "+d0101_5+" "+d0101_6+" "+d0101_7
+    d0101_check_sum=generate_checksum(d0101)
+    d0101="AA "+d0101+" "+d0101_check_sum
+    validate_command(d0101, "Device Pass Through Parameters: [Default state]:normally_closed_entry_free_exit_reject,normally_closed_entry_reject_exit_free,normally_closed_entry_reject_exit_card,normally_open_both_free,normally_open_both_card,normally_open_entry_free_exit_card]")
+
+    #0102
+    normally_open_entry_card_exit_free=pass_through_parameters.get("gate_mode_default_state",{}).get("normally_open_entry_card_exit_free",{})
+    automatic_switch1_trigger=switch_event.get("automatic_switch_1",{}).get("on_trigger", "Open For Entry")
+    automatic_switch1_release=switch_event.get("automatic_switch_1",{}).get("on_release", "None")
+    automatic_switch2_trigger=switch_event.get("automatic_switch_2",{}).get("on_trigger","Open For Exit" )
+    automatic_switch2_release=switch_event.get("automatic_switch_2",{}).get("on_release", "None")
+    fire_alarm_trigger=switch_event.get("fire_alarm",{}).get("on_trigger", "Always Open For Exit")
+    fire_alarm_release=switch_event.get("fire_alarm",{}).get("on_release", "Idle (Default State)")
+    manual_switch_trigger=switch_event.get("manual_switch",{}).get("on_trigger","Always Open For Entry" )
+    manual_switch_release=switch_event.get("manual_switch",{}).get("on_release","Idle (Default State)" )
+
+    d0102_2=calculate_ir_and_color(normally_open_entry_card_exit_free)
+
+    automatic_switch1_trig=OPTIONS_MAPPING.get("switch_options", {}).get("on_trigger", {}).get(automatic_switch1_trigger.lower(), "02")
+    automatic_switch1_rel=OPTIONS_MAPPING.get("switch_options", {}).get("on_release", {}).get(automatic_switch1_release.lower(), "00")
+    automatic_switch1_int=int(automatic_switch1_trig, 16)+int(automatic_switch1_rel, 16)
+    d0102_3=convert_deci_to_hex(automatic_switch1_int, 1)
+
+    automatic_switch2_trig=OPTIONS_MAPPING.get("switch_options", {}).get("on_trigger", {}).get(automatic_switch2_trigger.lower(), "02")
+    automatic_switch2_rel=OPTIONS_MAPPING.get("switch_options", {}).get("on_release", {}).get(automatic_switch2_release.lower(), "00")
+    automatic_switch2_int=int(automatic_switch2_trig, 16)+int(automatic_switch2_rel, 16)
+    d0102_4=convert_deci_to_hex(automatic_switch2_int, 1)
+
+    fire_alarm_trig=OPTIONS_MAPPING.get("switch_options", {}).get("on_trigger", {}).get(fire_alarm_trigger.lower(), "03")
+    fire_alarm_rel=OPTIONS_MAPPING.get("switch_options", {}).get("on_release", {}).get(fire_alarm_release.lower(), "10")
+    fire_alarm_int=int(fire_alarm_trig, 16)+int(fire_alarm_rel, 16)
+    d0102_5=convert_deci_to_hex(fire_alarm_int, 1)
+
+    manual_switch_trig=OPTIONS_MAPPING.get("switch_options", {}).get("on_trigger", {}).get(manual_switch_trigger.lower(), "03")
+    manual_switch_rel=OPTIONS_MAPPING.get("switch_options", {}).get("on_release", {}).get(manual_switch_release.lower(), "10")
+    manual_switch_int=int(manual_switch_trig, 16)+int(manual_switch_rel, 16)
+    d0102_6=convert_deci_to_hex(manual_switch_int, 1)
+
+    d0102_7="00"
+
+    d0102="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 01 02 "+d0102_2+" "+d0102_3+" "+d0102_4+" "+d0102_5+" "+d0102_6+" "+d0102_7
+    d0102_check_sum=generate_checksum(d0102)
+    d0102="AA "+d0102+" "+d0102_check_sum
+    validate_command(d0101, "Device Pass Through Parameters: [Default state]:normally_open_entry_card_exit_free], Switch's Event: [automatic switch 1, automatic switch 2, fire alarm, manual switch] ")
+
+    d0103="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 01 03 00 00 00 00 00 00"
+    d0103_check_sum=generate_checksum(d0103)
+    d0103="AA "+d0103+" "+ d0103_check_sum
+
+    d0104="00 "+addr_src+" "+cid1cid2+" "+addr_to+" 08 01 04 00 00 00 00 00 00"
+    d0104_check_sum=generate_checksum(d0104)
+    d0104="AA "+d0104+" "+ d0104_check_sum
+
+    # print([d0100, d0101, d0102, d0103, d0104])
+    # print(d0100)
+    # print(d0101)
+    # print(d0102)
+    # print(d0103)
+    # print(d0104)
+    return [d0100, d0101, d0102, d0103, d0104]

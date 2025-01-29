@@ -94,8 +94,16 @@ async def handle_client(websocket, path):
                         message = "Passed the gate successfully"
                     else:
                         message = "Abnormality"
+                elif status=="Not Allowed":
+                    make_alarm=["AA000102000208020100000000000010"]
+                    await write_command(ser=ser, command_arr=make_alarm)
+                    time.sleep(5)
+                    stop_alarm=["AA00010200020802000000000000000F"]
+                    await write_command(ser=ser, command_arr=stop_alarm)
+                    message="alarm sounded"
 
                 response = {"status": "success", "result": message}
+
             except Exception as e:
                 response = {"status": "error", "message": str(e)}
 

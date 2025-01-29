@@ -1,5 +1,8 @@
 import json
 import time
+import queue
+
+shared_message=queue.Queue()
 
 with open("command_mapping.json", "r") as file:
     COMMANDS = json.load(file)
@@ -222,7 +225,7 @@ def get_device_id(ser):
     return arranged_response[2]
 
 
-async def run_command(ser, command_arr):
+def run_command(ser, command_arr):
     all_response = []
     print(f"Command: {command_arr}")
 

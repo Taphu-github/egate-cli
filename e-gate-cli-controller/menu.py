@@ -3,13 +3,15 @@ import json
 import asyncio
 import serial
 from aioserial import AioSerial
-from commands_and_variables import COMMANDS, run_command, get_device_id, chunk_bytearray
+from commands_and_variables import COMMANDS, run_command, get_device_id, chunk_bytearray, shared_message
 from input_ouput_menu import input_output_menu_straight_command, input_output_menu_set_commands
 from status_control_menu import status_control_menu_straight_command, status_control_menu_set_commands
 import threading
 from parse_response import parse
 import queue
 import time
+from tcp_server import start_tcp_server  # Import the TCP server
+
 
 async def menu(ser, addr_to):
     # addr_to="02"
@@ -43,11 +45,11 @@ async def menu(ser, addr_to):
         option_var=str(input("Value: "))
         if option_var== '1':
             command, command_name=input_and_output_menu(input_and_output_commands, addr_to)
-            await run_command(ser=ser, command_arr=command)
+            run_command(ser=ser, command_arr=command)
 
         elif option_var== '2':
             command, command_name=status_and_control_menu(status_and_control_commands, addr_to)
-            await run_command(ser=ser, command_arr=command)
+            run_command(ser=ser, command_arr=command)
         elif option_var== '0':
             # exit_condition=False
             exit(0)
@@ -139,6 +141,7 @@ def read_continuous(ser, addr_to):
             execution_time = end_time - start_time
             print(f"Execution time: {execution_time:.6f} seconds")
 
+            shared_message.put(response)
             if len(response)==16:
                 response_chunks = chunk_bytearray(response)
                 print(response_chunks)
@@ -172,6 +175,7 @@ def read_continuous(ser, addr_to):
 
 # Create two threads
 try:
+    shutdown_event=asyncio.Event()
     SERIAL_PORT = '/dev/ttyUSB0'
     BAUD_RATE = 38400
     TIMEOUT = 6
@@ -179,21 +183,22 @@ try:
     ser = AioSerial(port=SERIAL_PORT, baudrate=BAUD_RATE, timeout=TIMEOUT)
     print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
 
-    shared_message=queue.Queue()
-
-
     addr_to=get_device_id(ser=ser)
     thread1 = threading.Thread(target=main_thread, args=(ser,addr_to,), daemon=True)
     thread2 = threading.Thread(target=read_continuous, args=(ser, addr_to,), daemon=True)
+    tcp_thread = threading.Thread(target=start_tcp_server, args=(shutdown_event, ), daemon=True)
 
     # Start both threads
     thread1.start()
     thread2.start()
+    tcp_thread.start()
 
     # Wait for both threads to finish
     thread1.join()
     thread2.join()
+
 except Exception as e:
+    shutdown_event.set
     pass
 
 
