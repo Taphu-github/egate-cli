@@ -2,7 +2,7 @@ import threading
 import asyncio
 import signal
 import sys
-from gui import GateControllerApp, start_websocket_loop, shutdown_event
+from gui import GateControllerApp, shutdown_event
 
 from tcp_server import start_tcp_server  # Import the TCP server
 
