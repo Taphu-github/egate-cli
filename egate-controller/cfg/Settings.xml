@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CustomerID，"Customs"表示海关，"ShangHaiLvYe"表示上海旅业，"General"表示通用 -->
+<IDSCofig CustomerID="General">
+	<RealTime>
+		<!-- General>0</General -->
+		<DeviceStatus>0</DeviceStatus>
+		<DeviceName></DeviceName>
+		<OrigImage>
+			<Index Min="0" Max="0"></Index>
+		</OrigImage>
+	</RealTime>
+	<Common>
+		<RFID Wanted="Y">		 
+			<SIDReadChip>True</SIDReadChip>
+		</RFID>
+		<OCR Wanted="Y">		
+			<VIZ Wanted="Y"/>
+			<RecogSID>True</RecogSID>
+		</OCR>
+		<LightIO>
+			<buzzer RingAfterRead="False" DurationOnOK="200" DurationOnError="1000"/>
+			<LightupAfterRead>True</LightupAfterRead>
+		</LightIO>
+		<Images Path="C:\images\" OrigImagePath="C:\images\" File="IDCard" Cover="Y" SaveOrig="N" OrigMaxCount="200" UploadOnError="Y">
+			<White Base64="Y" Compress="N"/>
+			<IR Base64="Y" Compress="N"/>
+			<UV Base64="Y" Compress="N"/>
+			<OcrHead Base64="Y" Compress="N"/>
+			<ChipHead Base64="Y" Compress="N"/>
+			<SidHead  Base64="Y" Compress="N"/>
+			<SidFront Base64="Y" Compress="N"/>
+			<SidBack  Base64="Y" Compress="N"/>
+		</Images>
+		<CardInfo ConfigFile="..\..\lib\CARDINFO.xml">
+		</CardInfo>
+		<AppendType Wanted="N"/>
+		<NoLocalImage Wanted="N"/>
+		<AutoRecog Wanted="Y"/>
+	</Common>
+	<Advanced>
+		<CallBack Enabled="N">
+		</CallBack>
+		<Detect Enabled="N">
+		</Detect>
+		<UVSlow Enabled="N">
+		</UVSlow>
+		<UVFibre Enabled="N">
+		</UVFibre>
+		<CopyDetect Enabled="N">
+		</CopyDetect>
+		<ResultType Value="3">
+		</ResultType>
+	</Advanced>
+</IDSCofig>

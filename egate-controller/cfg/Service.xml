@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Service Name="WebSocketRecogX64" Desc="护照阅读器后台服务"  DescOfControl="证件识别控制程序">
+	<Interface Port="90">
+		<Protocol>http</Protocol>
+		<DataType>JSON</DataType>
+	</Interface>
+	<Doc>
+		<!-- 相对于可执行程序的路径 -->
+		<Path>..\DllDevelop\HelpDoc\</Path>
+	</Doc>
+	<Log Path="log" File="WebSocketRecog">
+		<WriteLog>True</WriteLog>
+		<KeepNormalLog>False</KeepNormalLog>
+		<MaxSize>11</MaxSize>
+		<MaxCount>2</MaxCount>
+	</Log>
+	<Env>
+		<LibPath>..\..\lib</LibPath>
+		<CfgPath>cfg</CfgPath>
+	</Env>
+</Service>
