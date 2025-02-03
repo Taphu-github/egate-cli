@@ -19,7 +19,7 @@ from device_control import (
 
 SERIAL_PORT = '/dev/ttyUSB0'
 #"COM3"
-BAUD_RATE = 9600
+BAUD_RATE = 38400
 TIMEOUT = 0.5
 base_dir=os.getcwd()
 

@@ -3,7 +3,7 @@ import time
 
 
 SERIAL_PORT = '/dev/ttyUSB0'
-BAUD_RATE = 9600
+BAUD_RATE = 38400
 TIMEOUT = 6
 
 # SERIAL_PORT = '/dev/cu.usbserial-BG004IEK'
