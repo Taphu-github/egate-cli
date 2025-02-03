@@ -1,5 +1,5 @@
-import tkinter as tk
-from tkinter import scrolledtext, ttk
+# import tkinter as tk
+# from tkinter import scrolledtext, ttk
 from gate_controller import COMMANDS, send_command_and_listen
 import threading
 import asyncio
