@@ -32,10 +32,7 @@ def main():
     tcp_thread = threading.Thread(target=start_tcp_server, args=(shutdown_event, ), daemon=True)
     tcp_thread.start()
 
-    while True:
-        pass
-
-    # app.menu()
+    app.menu()
 
     if 'ser' in globals():
         ser.close()
