@@ -61,13 +61,15 @@ async def main():
 
         addr_to=get_device_id(ser=ser)
 
+
+
+        command_arr = []
+
         command_arr.extend(
             set_device_information_config(
                 json_list=device_information, addr_to=addr_to, mac_address=mac_address
             )
         )
-
-        command_arr = []
         command_arr.extend(
             set_device_and_pass_through_parameters(
                 device_parameters=device_parameters,
