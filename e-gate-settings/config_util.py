@@ -158,14 +158,14 @@ def get_device_id(ser):
 
     # if not res
     response_chunks = chunk_bytearray(response)
-    "AA 00 02 11 01 00 08 A102F0A1B4A59687C6"
+    # "AA 00 02 11 01 00 08 A102F0A1B4A59687C6"
     arranged_response = [
         response_chunks[0][i : i + 2]
         for i in range(0, (len(response_chunks[0])), 2)
     ]
     # print(arranged_response)
     if not response_chunks:
-        print("There has been a problem with the command")
+        print("There has been a problem with the command for getting address")
     print(arranged_response[2])
     return arranged_response[2]
 
