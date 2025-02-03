@@ -2,8 +2,7 @@ import serial
 import time
 
 
-SERIAL_PORT = "COM3"
-#'/dev/ttyUSB0'
+SERIAL_PORT = '/dev/ttyUSB0'
 BAUD_RATE = 38400
 TIMEOUT = 6
 
