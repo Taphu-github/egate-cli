@@ -2,7 +2,7 @@ import threading
 import asyncio
 import signal
 import sys
-from gui import GateControllerApp, shutdown_event
+from gui import GateControllerApp
 
 from tcp_server import start_tcp_server  # Import the TCP server
 
@@ -10,6 +10,7 @@ from tcp_server import start_tcp_server  # Import the TCP server
 
 def main():
     app = GateControllerApp()
+    shutdown_event=asyncio.Event()
 
     def signal_handler(sig, frame):
         print('Shutting down...')
