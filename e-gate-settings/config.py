@@ -48,6 +48,9 @@ async def main():
         addr_to = get_device_id(ser=ser)
         mac_address = get_mac_address(ser=ser)
 
+        print("Device Address: ", addr_to)
+        print("Mac Address: ", mac_address)
+
         command_arr = []
 
         command_arr.extend(
