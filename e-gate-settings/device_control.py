@@ -1,7 +1,7 @@
 from config_util import convert_deci_to_hex, generate_checksum, to_int, hex_to_deci, OPTIONS_MAPPING, validate_command
 
 def set_device_and_pass_through_parameters(device_parameters, pass_through_parameters, addr_to):
-    addr_src="02"
+    addr_src="01"
     cid1cid2="01 12"
 
     #00 00
@@ -114,7 +114,7 @@ def set_device_and_pass_through_parameters(device_parameters, pass_through_param
 
 def set_default_state_for_gate_mode_and_switch_event(pass_through_parameters, switch_event, addr_to):
     # print(switch_event)
-    addr_src="02"
+    addr_src="01"
     cid1cid2="01 12"
 
 
@@ -270,7 +270,7 @@ def calculate_ir_and_color(ir_and_color_json):
     return convert_deci_to_hex(total, 1)
 
 def generate_two_events_config(event_name1,event_name2,  event_1, event_2, addr_to, d00):
-    addr_src="02"
+    addr_src="01"
     cid1cid2="01 12"
      #0
     entrance_indicator=event_1.get("entrance_indicator",{}).get("choice","D1") or "D1"
