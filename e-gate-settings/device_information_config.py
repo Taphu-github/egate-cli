@@ -18,13 +18,13 @@ def set_device_group_zone_power_on_delay(group, zone, power_on_delay, addr_to):
     return command
 
 def set_device_information_config(json_list, addr_to, mac_address):
-    new_device_address=json_list.get("device_address") or "03"
+    new_device_address=json_list.get("device_address") or "02"
     group=json_list.get("device_group") or "01"
     zone=json_list.get("zone") or "01"
     power_on_delay=json_list.get("power_on_delay") or "00"
     com1=set_device_address(new_device_addr=new_device_address, addr_to=addr_to, mac_address=mac_address)
 
     com2=set_device_group_zone_power_on_delay(group=group, zone=zone, power_on_delay=power_on_delay, addr_to=addr_to)
-    return [com1, com2]
+    return [com2]
 
 

@@ -4,7 +4,7 @@ from aioserial import AioSerial
 from parse_response import parse
 import os
 
-from device_information_config import set_device_information_config
+from device_information_config import set_device_information_config, set_device_address
 from config_util import get_mac_address, get_device_id, run_command
 from device_control import (
     set_device_and_pass_through_parameters,
@@ -45,19 +45,29 @@ async def main():
         print(f"Connected to {SERIAL_PORT} at {BAUD_RATE} baud.")
 
 
-        addr_to = get_device_id(ser=ser)
+        cur_addr = get_device_id(ser=ser)
         mac_address = get_mac_address(ser=ser)
 
-        print("Device Address: ", addr_to)
+        print("Device Address: ", cur_addr)
         print("Mac Address: ", mac_address)
 
-        command_arr = []
+
+        new_device_addr=device_information.get("device_address") or "02"
+
+
+        set_dev_add=[set_device_address(new_device_addr=new_device_addr, addr_to=cur_addr, mac_address=mac_address)]
+
+        await run_command(ser =ser, command_arr=set_dev_add)
+
+        addr_to=get_device_id(ser=ser)
 
         command_arr.extend(
             set_device_information_config(
                 json_list=device_information, addr_to=addr_to, mac_address=mac_address
             )
         )
+
+        command_arr = []
         command_arr.extend(
             set_device_and_pass_through_parameters(
                 device_parameters=device_parameters,
