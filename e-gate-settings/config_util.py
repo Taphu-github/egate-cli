@@ -180,7 +180,7 @@ async def run_command(ser, command_arr):
         start_time = time.time()
         response = bytearray()
 
-        while time.time() - start_time < 0.05:
+        while time.time() - start_time < 0.1:
             if ser.in_waiting > 0:
                 response.extend(ser.read(ser.in_waiting))
 
