@@ -3,6 +3,7 @@ import asyncio
 import signal
 import sys
 from gui import GateControllerApp
+from gate_controller import read_continuous
 
 from tcp_server import start_tcp_server  # Import the TCP server
 
@@ -28,18 +29,36 @@ def main():
     # websocket_server_thread = threading.Thread(target=start_websocket_server_loop, daemon=True)
     # websocket_server_thread.start()
 
-    # Start the TCP server in a separate thread
-    tcp_thread = threading.Thread(target=start_tcp_server, args=(shutdown_event, ), daemon=True)
-    tcp_thread.start()
+    # # Start the TCP server in a separate thread
+    # tcp_thread = threading.Thread(target=start_tcp_server, args=(shutdown_event, ), daemon=True)
+    # tcp_thread.start()
 
-    while True:
-        pass
+    # gate_response_thread = threading.Thread(target=read_continuous, daemon=True)
+    # gate_response_thread.start()
 
-    # app.menu()
+    # Create a coroutine that handles shutdown logic
+    async def run():
+        # Start TCP server and gate response thread
+        tcp_thread = threading.Thread(target=start_tcp_server, args=(shutdown_event,), daemon=True)
+        tcp_thread.start()
 
-    if 'ser' in globals():
-        ser.close()
-        print("Serial connection closed.")
+        gate_response_thread = threading.Thread(target=read_continuous, daemon=True)
+        gate_response_thread.start()
+
+        # Run the event loop
+        await shutdown_event.wait()  # Wait for shutdown signal (Ctrl+C or Ctrl+Z)
+
+    # Run the application and event loop
+    asyncio.run(run())
+
+    # while True:
+    #     pass
+
+    # # app.menu()
+
+    # if 'ser' in globals():
+    #     ser.close()
+    #     print("Serial connection closed.")
 
 if __name__ == "__main__":
     main()

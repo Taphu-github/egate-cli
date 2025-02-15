@@ -2,6 +2,7 @@
 import socket
 import threading
 from gate_controller import send_command_and_listen
+import json
 
 # Function to handle the serial connection and TCP commands
 def handle_tcp_connection(client_socket, address):
@@ -16,17 +17,16 @@ def handle_tcp_connection(client_socket, address):
                 break
 
             command_text = data.decode('utf-8').strip()  # Decode and strip whitespace
-
             print(f"Received command: {command_text}")
 
-            # Use the send_command_and_listen function from GateController.py
+            # Use the send_command_and_listen function from gate_controller.py
             response_chunks = send_command_and_listen(command_text)
 
-            # Prepare the response
-            if response_chunks:
-                response_message = f"Response for '{command_text}': {response_chunks}"
+            # Ensure responses are collected as a list
+            if isinstance(response_chunks, list):
+                response_message = json.dumps(response_chunks) + "\nEND"  # Convert list to JSON string
             else:
-                response_message = f"No response for '{command_text}' or command invalid."
+                response_message = json.dumps([response_chunks]) + "\nEND"  # Wrap non-list responses in a list
 
             # Send response back to the client
             client_socket.sendall(response_message.encode('utf-8'))
