@@ -3,13 +3,13 @@ import time
 from parse_response import get_parsed_response, parse
 import queue
 
-# SERIAL_PORT = '/dev/ttyUSB0'
-# BAUD_RATE = 38400
-# TIMEOUT = 6
-
-SERIAL_PORT = '/dev/cu.usbserial-BG004IEK'
+SERIAL_PORT = '/dev/ttyUSB0'
 BAUD_RATE = 38400
 TIMEOUT = 4
+
+# SERIAL_PORT = '/dev/cu.usbserial-BG004IEK'
+# BAUD_RATE = 38400
+# TIMEOUT = 4
 
 SOA = b'\xaa'
 
@@ -170,14 +170,14 @@ except serial.SerialException as e:
 #             awaiting_response = None  # Reset flag
 
 #             return responses  # Return last received response
-        
+
 #         except serial.SerialException as e:
 #             print(f"Error during communication: {e}")
 #             return None
 
 def send_command_and_listen(command_text):
     global awaiting_response
-    
+
     # Handle alarm-related commands
     if command_text == 'SEND ALARM':
         start_alarm_command = COMMANDS.get('SEND ALARM')
@@ -262,7 +262,7 @@ def read_continuous():
             process_response(response, temp_buffer)
         else:
             print("Incomplete packet received, possible timeout.")
-        
+
         # if ser.in_waiting > 0:
         #     response = ser.read(ser.in_waiting)
         #     # print(f"Received RESPONSE: {response}")
